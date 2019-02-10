@@ -1,9 +1,8 @@
-import psycopg2
+import psycopg2, os
+import configparser
 
-def postgres_test():
-        conn = psycopg2.connect("dbname='RAW_DATA' user='myuser' host='35.166.92.45' password='mypassword' connect_timeout=1 ")
-        conn.close()
-        return True
-print("ROMAN")
-print(postgres_test())
+config = configparser.ConfigParser()
+CFG_DIR = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'config.ini')
+config.read(CFG_DIR)
 
+conn = psycopg2.connect(database=config.get('AWS', 'database'), user=config.get('USERS_CREDS', 'user'), password=config.get('USERS_CREDS', 'pwd'), host=config.get('AWS', 'host'))

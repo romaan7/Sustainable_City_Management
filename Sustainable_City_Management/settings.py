@@ -11,9 +11,16 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+import configparser
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# RS: get configs from file
+config = configparser.ConfigParser()
+CFG_DIR = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'config.ini')
+config.read(CFG_DIR)
 
 
 # Quick-start development settings - unsuitable for production
@@ -74,21 +81,14 @@ WSGI_APPLICATION = 'Sustainable_City_Management.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#    }
-#}
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'RAW_DATA',
-        'USER': 'roman',
-        'PASSWORD': 'crystal',
-        'HOST': '35.166.92.45',
-        'PORT': '',
+        'NAME': config.get('AWS', 'database'),
+        'USER': config.get('USERS_CREDS', 'user'),
+        'PASSWORD': config.get('USERS_CREDS', 'pwd'),
+        'HOST': config.get('AWS', 'host'),
+        'PORT': config.get('AWS', 'port'),
     }
 }
 
