@@ -19,7 +19,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # RS: get configs from file
 config = configparser.ConfigParser()
-CFG_DIR = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'config.ini')
+CFG_DIR = os.path.join(os.path.abspath(os.path.dirname(__file__)), '..',  'config.ini')
 config.read(CFG_DIR)
 
 
