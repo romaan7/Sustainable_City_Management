@@ -1,0 +1,496 @@
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4847
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4820
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4814
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4827
+ERROR:django.request:Internal Server Error: /APIHandling/
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 42, in index
+    latest_question_list = Bike.objects.create(name='Shep', data={'breed': 'collie'})
+  File "C:\Python37\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Python37\lib\site-packages\django\db\models\query.py", line 411, in create
+    obj = self.model(**kwargs)
+  File "C:\Python37\lib\site-packages\django\db\models\base.py", line 485, in __init__
+    raise TypeError("'%s' is an invalid keyword argument for this function" % kwarg)
+TypeError: 'data' is an invalid keyword argument for this function
+ERROR:django.request:Internal Server Error: /APIHandling/
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 32, in index
+    latest_question_list = Bike.objects.create(name='Shep', data={'breed': 'collie'})
+  File "C:\Python37\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Python37\lib\site-packages\django\db\models\query.py", line 411, in create
+    obj = self.model(**kwargs)
+  File "C:\Python37\lib\site-packages\django\db\models\base.py", line 485, in __init__
+    raise TypeError("'%s' is an invalid keyword argument for this function" % kwarg)
+TypeError: 'data' is an invalid keyword argument for this function
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4832
+ERROR:django.request:Internal Server Error: /APIHandling/
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 33, in index
+    latest_question_list = Bike.objects.create(name='Shep', data={'breed': 'collie'})
+  File "C:\Python37\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Python37\lib\site-packages\django\db\models\query.py", line 411, in create
+    obj = self.model(**kwargs)
+  File "C:\Python37\lib\site-packages\django\db\models\base.py", line 485, in __init__
+    raise TypeError("'%s' is an invalid keyword argument for this function" % kwarg)
+TypeError: 'data' is an invalid keyword argument for this function
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4841
+ERROR:django.request:Internal Server Error: /APIHandling/
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 52, in index
+    pushNewData()
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 32, in pushNewData
+    number = data.get('number', None)
+AttributeError: 'list' object has no attribute 'get'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4837
+ERROR:django.request:Internal Server Error: /APIHandling/
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 53, in index
+    pushNewData()
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 33, in pushNewData
+    number = data.get('number', None)
+AttributeError: 'list' object has no attribute 'get'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4837
+ERROR:django.request:Internal Server Error: /APIHandling/
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 53, in index
+    pushNewData()
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 31, in pushNewData
+    data = json.loads(getLatestData())
+  File "C:\Python37\lib\json\__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not list
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4836
+ERROR:django.request:Internal Server Error: /APIHandling/
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 53, in index
+    pushNewData()
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 31, in pushNewData
+    data = json.loads(getLatestData())
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 22, in getLatestData
+    dublinbike_data = json.dumps(dublinbike_data_request.text, object_pairs_hook=OrderedDict)
+  File "C:\Python37\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+TypeError: __init__() got an unexpected keyword argument 'object_pairs_hook'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4836
+ERROR:django.request:Internal Server Error: /APIHandling/
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 53, in index
+    pushNewData()
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 33, in pushNewData
+    number = data.get('number', None)
+AttributeError: 'str' object has no attribute 'get'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4858
+ERROR:django.request:Internal Server Error: /APIHandling/
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 57, in index
+    pushNewData()
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 34, in pushNewData
+    value = data[key]
+TypeError: list indices must be integers or slices, not dict
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4826
+ERROR:django.request:Internal Server Error: /APIHandling/
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 57, in index
+    pushNewData()
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 34, in pushNewData
+    value = data[0][key]
+TypeError: unhashable type: 'dict'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4851
+ERROR:django.request:Internal Server Error: /APIHandling/
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 56, in index
+    pushNewData()
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 34, in pushNewData
+    data[0][key]
+TypeError: unhashable type: 'dict'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4851
+ERROR:django.request:Internal Server Error: /APIHandling/
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 56, in index
+    pushNewData()
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 34, in pushNewData
+    data[key]
+TypeError: list indices must be integers or slices, not dict
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4851
+ERROR:django.request:Internal Server Error: /APIHandling/
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 56, in index
+    pushNewData()
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 36, in pushNewData
+    number = data.get('number', None)
+AttributeError: 'list' object has no attribute 'get'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4851
+ERROR:django.request:Internal Server Error: /APIHandling/
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 58, in index
+    pushNewData()
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 36, in pushNewData
+    print(value + key)
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4847
+ERROR:django.request:Internal Server Error: /APIHandling/
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 58, in index
+    pushNewData()
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 38, in pushNewData
+    number = data.get('number', None)
+AttributeError: 'list' object has no attribute 'get'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4847
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4847
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4841
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4841
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4826
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4859
+ERROR:django.request:Internal Server Error: /APIHandling/
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 57, in index
+    pushNewData()
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 52, in pushNewData
+    available_bikes=available_bikes, status=status, last_update=last_update)
+  File "C:\Python37\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Python37\lib\site-packages\django\db\models\query.py", line 411, in create
+    obj = self.model(**kwargs)
+  File "C:\Python37\lib\site-packages\django\db\models\base.py", line 485, in __init__
+    raise TypeError("'%s' is an invalid keyword argument for this function" % kwarg)
+TypeError: 'position_lng' is an invalid keyword argument for this function
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4844
+ERROR:django.request:Internal Server Error: /APIHandling/
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 57, in index
+    pushNewData()
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 52, in pushNewData
+    available_bikes=available_bikes, status=status, last_update=last_update)
+  File "C:\Python37\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Python37\lib\site-packages\django\db\models\query.py", line 411, in create
+    obj = self.model(**kwargs)
+  File "C:\Python37\lib\site-packages\django\db\models\base.py", line 485, in __init__
+    raise TypeError("'%s' is an invalid keyword argument for this function" % kwarg)
+TypeError: 'position_lng' is an invalid keyword argument for this function
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4843
+ERROR:django.request:Internal Server Error: /APIHandling/
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 57, in index
+    pushNewData()
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 52, in pushNewData
+    available_bikes=available_bikes, status=status, last_update=last_update)
+  File "C:\Python37\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Python37\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Python37\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Python37\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Python37\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Python37\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "C:\Python37\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Python37\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Python37\lib\site-packages\django\db\models\sql\compiler.py", line 1288, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Python37\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in as_sql
+    for obj in self.query.objs
+  File "C:\Python37\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in <listcomp>
+    for obj in self.query.objs
+  File "C:\Python37\lib\site-packages\django\db\models\sql\compiler.py", line 1240, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Python37\lib\site-packages\django\db\models\sql\compiler.py", line 1182, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "C:\Python37\lib\site-packages\django\db\models\fields\__init__.py", line 1563, in get_db_prep_save
+    return connection.ops.adapt_decimalfield_value(self.to_python(value), self.max_digits, self.decimal_places)
+  File "C:\Python37\lib\site-packages\django\db\models\fields\__init__.py", line 1554, in to_python
+    return decimal.Decimal(value)
+TypeError: conversion from dict to Decimal is not supported
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4825
+ERROR:django.request:Internal Server Error: /APIHandling/
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 57, in index
+    pushNewData()
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 52, in pushNewData
+    available_bikes=available_bikes, status=status, last_update=last_update)
+  File "C:\Python37\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Python37\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Python37\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Python37\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Python37\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Python37\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "C:\Python37\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Python37\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Python37\lib\site-packages\django\db\models\sql\compiler.py", line 1288, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Python37\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in as_sql
+    for obj in self.query.objs
+  File "C:\Python37\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in <listcomp>
+    for obj in self.query.objs
+  File "C:\Python37\lib\site-packages\django\db\models\sql\compiler.py", line 1240, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Python37\lib\site-packages\django\db\models\sql\compiler.py", line 1182, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "C:\Python37\lib\site-packages\django\db\models\fields\__init__.py", line 790, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "C:\Python37\lib\site-packages\django\db\models\fields\__init__.py", line 1429, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "C:\Python37\lib\site-packages\django\db\models\fields\__init__.py", line 1408, in get_prep_value
+    value = super().get_prep_value(value)
+  File "C:\Python37\lib\site-packages\django\db\models\fields\__init__.py", line 1268, in get_prep_value
+    return self.to_python(value)
+  File "C:\Python37\lib\site-packages\django\db\models\fields\__init__.py", line 1369, in to_python
+    parsed = parse_datetime(value)
+  File "C:\Python37\lib\site-packages\django\utils\dateparse.py", line 106, in parse_datetime
+    match = datetime_re.match(value)
+TypeError: expected string or bytes-like object
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4820
+ERROR:django.request:Internal Server Error: /APIHandling/
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 58, in index
+    pushNewData()
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 48, in pushNewData
+    last_update = datetime.datetime.fromtimestamp(row['last_update'])
+OSError: [Errno 22] Invalid argument
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4817
+ERROR:django.request:Internal Server Error: /APIHandling/
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 59, in index
+    pushNewData()
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 49, in pushNewData
+    last_update = datetime.datetime.fromtimestamp(row['last_update'])
+OSError: [Errno 22] Invalid argument
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4817
+ERROR:django.request:Internal Server Error: /APIHandling/
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 59, in index
+    pushNewData()
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 48, in pushNewData
+    print(datetime.datetime.fromtimestamp(row['last_update']))
+OSError: [Errno 22] Invalid argument
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4810
+ERROR:django.request:Internal Server Error: /APIHandling/
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 59, in index
+    pushNewData()
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 48, in pushNewData
+    print(datetime.datetime.fromtimestamp(str(row['last_update'])))
+TypeError: an integer is required (got type str)
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4810
+ERROR:django.request:Internal Server Error: /APIHandling/
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 59, in index
+    pushNewData()
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 48, in pushNewData
+    print(datetime.datetime.fromtimestamp(int(row['last_update'])))
+OSError: [Errno 22] Invalid argument
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4803
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4838
+ERROR:django.request:Internal Server Error: /APIHandling/
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 58, in index
+    latest_question_list = []
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\APIHandling\views.py", line 49, in pushNewData
+OSError: [Errno 22] Invalid argument
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4845
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4840
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4816
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4831
