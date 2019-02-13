@@ -24,7 +24,7 @@ def getLatestData():
     dublinbike_data = json.loads(dublinbike_data_request.text)
     return dublinbike_data
 
-
+#This function uses native SQL to insert data into db, ignore if using Django models.
 def pg_insert(connection_string, table_name, json_collection):
     try:
         conn = psycopg2.connect(connection_string)

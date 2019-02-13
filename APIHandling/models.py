@@ -26,3 +26,6 @@ class Bike(models.Model):
     available_bikes = models.CharField(max_length=100)
     status = models.CharField(max_length=100)
     last_update = models.DateTimeField(max_length=100)
+
+    def __str__(self):
+        return self.name
