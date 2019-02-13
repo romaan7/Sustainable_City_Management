@@ -2,14 +2,16 @@ from django.contrib.postgres.fields import JSONField
 from django.db import models
 
 
+
+'''
 class Bike(models.Model):
     name = models.CharField(max_length=200)
     data = JSONField()
 
     def __str__(self):
         return self.name
-
 '''
+
 class Bike(models.Model):
     number = models.IntegerField()
     contract_name = models.CharField(max_length=100)
@@ -24,4 +26,3 @@ class Bike(models.Model):
     available_bikes = models.CharField(max_length=100)
     status = models.CharField(max_length=100)
     last_update = models.DateTimeField(max_length=100)
-'''
