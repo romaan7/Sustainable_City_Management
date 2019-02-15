@@ -494,3 +494,506 @@ DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com
 DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4816
 DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
 DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4831
+WARNING:django.request:Not Found: /
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4822
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /bike
+WARNING:django.request:Not Found: /bike
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4823
+ERROR:django.request:Internal Server Error: /Bike/
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.ProgrammingError: relation "Bike_bike" does not exist
+LINE 1: INSERT INTO "Bike_bike" ("number", "contract_name", "name", ...
+                    ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\Bike\views.py", line 35, in index
+    pushNewData()
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\Bike\views.py", line 31, in pushNewData
+    available_bikes=available_bikes, status=status, last_update=last_update)
+  File "C:\Python37\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Python37\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Python37\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Python37\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Python37\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Python37\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "C:\Python37\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Python37\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Python37\lib\site-packages\django\db\models\sql\compiler.py", line 1289, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Python37\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "C:\Python37\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Python37\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Python37\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Python37\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Python37\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "Bike_bike" does not exist
+LINE 1: INSERT INTO "Bike_bike" ("number", "contract_name", "name", ...
+                    ^
+
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4814
+ERROR:django.request:Internal Server Error: /Bike/
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\Bike\views.py", line 35, in index
+    pushNewData()
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\Bike\views.py", line 32, in pushNewData
+    b.save()
+NameError: name 'b' is not defined
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4814
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4823
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4823
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4817
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4817
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4838
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4844
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4833
+ERROR:django.request:Internal Server Error: /Bike/
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\Bike\views.py", line 34, in index
+    template = loader.get_template('Bike/index.html')
+  File "C:\Python37\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: Bike/index.html
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4847
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4847
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4847
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4844
+ERROR:django.request:Internal Server Error: /Bike/
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\Bike\views.py", line 34, in index
+    template = loader.get_template('bike.html')
+  File "C:\Python37\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: bike.html
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4834
+WARNING:django.request:Not Found: /
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\Main\views.py", line 8, in index
+    return HttpResponse(template.render(request))
+  File "C:\Python37\lib\site-packages\django\template\backends\django.py", line 59, in render
+    context = make_context(context, request, autoescape=self.backend.engine.autoescape)
+  File "C:\Python37\lib\site-packages\django\template\context.py", line 270, in make_context
+    raise TypeError('context must be a dict rather than %s.' % context.__class__.__name__)
+TypeError: context must be a dict rather than WSGIRequest.
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\Main\views.py", line 8, in index
+    return HttpResponse(template.render([],request))
+  File "C:\Python37\lib\site-packages\django\template\backends\django.py", line 59, in render
+    context = make_context(context, request, autoescape=self.backend.engine.autoescape)
+  File "C:\Python37\lib\site-packages\django\template\context.py", line 270, in make_context
+    raise TypeError('context must be a dict rather than %s.' % context.__class__.__name__)
+TypeError: context must be a dict rather than list.
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\Main\views.py", line 7, in index
+    template = loader.get_template('index.html')
+  File "C:\Python37\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: index.html
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\Main\views.py", line 8, in index
+    return HttpResponse(template.render({},request))
+  File "C:\Python37\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Python37\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Python37\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Python37\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Python37\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Python37\lib\site-packages\django\template\defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Python37\lib\site-packages\django\urls\base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "C:\Python37\lib\site-packages\django\urls\resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for '' not found. '' is not a valid view function or pattern name.
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\Main\views.py", line 8, in index
+    return HttpResponse(template.render({}, request))
+  File "C:\Python37\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Python37\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Python37\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Python37\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Python37\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Python37\lib\site-packages\django\template\defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Python37\lib\site-packages\django\urls\base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "C:\Python37\lib\site-packages\django\urls\resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'Bike.views.index' not found. 'Bike.views.index' is not a valid view function or pattern name.
+WARNING:django.request:Not Found: /Bike/bike_data
+WARNING:django.request:Not Found: /bike_data
+WARNING:django.request:Not Found: /bike_data
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4841
+ERROR:django.request:Internal Server Error: /Bike/
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\Bike\views.py", line 39, in index
+    return HttpResponse(template.render(context, request))
+  File "C:\Python37\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Python37\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Python37\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Python37\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Python37\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Python37\lib\site-packages\django\template\defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Python37\lib\site-packages\django\urls\base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "C:\Python37\lib\site-packages\django\urls\resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'bike_data' not found. 'bike_data' is not a valid view function or pattern name.
+WARNING:django.request:Not Found: /bike_data
+WARNING:django.request:Not Found: /Bike/Bike/bike_data
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4835
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4835
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4823
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4806
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4822
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4826
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4826
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4810
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4819
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4819
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4836
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4836
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4850
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4850
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4853
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4862
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4860
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4860
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4860
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4851
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4864
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4864
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4864
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4830
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4822
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4819
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4873
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4848
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4848
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4848
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4848
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4842
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4842
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4834
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4844
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4839
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4844
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4844
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4862
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4862
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4862
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4862
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4865
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4869
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4869
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4872
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4872
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4864
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4864
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4841
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4835
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4835
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4852
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4858
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4875
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4875
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4871
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4871
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4864
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4864
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4863
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4863
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4852
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4825
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4825
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4831
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4847
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4762
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4763
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4772
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4772
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4772
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4768
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4773
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4789
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4789
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4791
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4791
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4791
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4791
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4802
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4802
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4805
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4803
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4791
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4791
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4788
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4789
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4790
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4790
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4791
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4791
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4791
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4791
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4791
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4791
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4784
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4793
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4787
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4787
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4787
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4830
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4799
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4805
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4771
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4783
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4783
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4783
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4783
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4766
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4763
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4763
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4774
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4777
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4777
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4777
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4785
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4785
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4785
