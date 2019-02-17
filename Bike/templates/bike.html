@@ -6,35 +6,34 @@
     body {
       margin: 0;
     }
-    .y.axis .domain {
+    .y .axis .domain {
       display: none;
     }
     </style>
   </head>
   <body>
     <script src="https://d3js.org/d3.v4.min.js"></script>
-    <script src="https://unpkg.com/jeezy/lib/jeezy.min.js"></script>
+    {% load static %}
+    <script src="{% static 'Bike/js/jeezy.min.js' %}"></script>
     <script src="https://unpkg.com/d3-marcon/build/d3-marcon.min.js"></script>
     <script>
 
     var x_var = "name";
-    var names2 = ["0"]
-    var available_bike_stands = []
-    var available_bikes = []
-    var bike_stands = []
+    var bike_data = []
     
     d3.json("/Bike/bike_data", function(error, bdata) {
     for (i in bdata) {
-        names2.push(bdata[i].name);
-        available_bike_stands.push(bdata[i].available_bike_stands);
-        available_bikes.push(bdata[i].available_bikes);
-        bike_stands.push(bdata[i].bike_stands);
+        var obj = {};
+        obj.name = bdata[i].name;
+        obj.available_bike_stands = bdata[i].available_bike_stands
+        obj.available_bikes = bdata[i].available_bikes
+        obj.bike_stands = bdata[i].bike_stands
+        bike_data.push(obj);
+        //names.push(bdata[i].name);
           }
         });
-         
-    console.log(available_bikes);
-    
-    var alphabet = "abc".split("");
+        
+    var stands = ["available_bike_stands","available_bikes"]
     var names = ["SMITHFIELD NORTH", "PARNELL SQUARE NORTH", "CLONMEL STREET", "AVONDALE ROAD", "MOUNT STREET LOWER", "CHRISTCHURCH PLACE", "GRANTHAM STREET", "PEARSE STREET", "YORK STREET EAST", "EXCISE WALK", "FITZWILLIAM SQUARE WEST", "PORTOBELLO ROAD", "ST. JAMES HOSPITAL (CENTRAL)", "PARNELL STREET", "FREDERICK STREET SOUTH", "FOWNES STREET UPPER", "CUSTOM HOUSE", "RATHDOWN ROAD", "NORTH CIRCULAR ROAD (O'CONNELL'S)", "HANOVER QUAY", "OLIVER BOND STREET", "COLLINS BARRACKS MUSEUM", "BROOKFIELD ROAD", "BENSON STREET", "EARLSFORT TERRACE", "GOLDEN LANE", "DEVERELL PLACE", "WILTON TERRACE (PARK)", "JOHN STREET WEST", "FENIAN STREET", "MERRION SQUARE SOUTH", "SOUTH DOCK ROAD", "CITY QUAY", "EXCHEQUER STREET", "THE POINT", "HATCH STREET", "LIME STREET", "CHARLEMONT PLACE", "KILMAINHAM GAOL", "HARDWICKE PLACE", "WOLFE TONE STREET", "FRANCIS STREET", "GREEK STREET", "GUILD STREET", "HERBERT PLACE", "HIGH STREET", "NORTH CIRCULAR ROAD", "WESTERN WAY", "TALBOT STREET", "NEWMAN HOUSE", "SIR PATRICK DUN'S", "NEW CENTRAL BANK", "GRANGEGORMAN LOWER (CENTRAL)", "KING STREET NORTH", "KILLARNEY STREET", "HERBERT STREET", "CUSTOM HOUSE QUAY", "MOLESWORTH STREET", "GEORGES QUAY", "KILMAINHAM LANE", "MOUNT BROWN", "MARKET STREET SOUTH", "KEVIN STREET", "ECCLES STREET EAST", "GRAND CANAL DOCK", "MERRION SQUARE EAST", "YORK STREET WEST", "ST. STEPHEN'S GREEN SOUTH", "DENMARK STREET GREAT", "ROYAL HOSPITAL", "HEUSTON STATION (CAR PARK)", "GRANGEGORMAN LOWER (NORTH)", "ST. STEPHEN'S GREEN EAST", "HEUSTON STATION (CENTRAL)", "TOWNSEND STREET", "GEORGES LANE", "PHIBSBOROUGH ROAD", "ECCLES STREET", "PORTOBELLO HARBOUR", "MATER HOSPITAL", "BLESSINGTON STREET", "JAMES STREET", "MOUNTJOY SQUARE EAST", "MERRION SQUARE WEST", "CONVENTION CENTRE", "HARDWICKE STREET", "PARKGATE STREET", "SMITHFIELD", "DAME STREET", "HEUSTON BRIDGE (SOUTH)", "CATHAL BRUGHA STREET", "SANDWITH STREET", "BUCKINGHAM STREET LOWER", "ROTHE ABBEY", "CHARLEVILLE ROAD", "PRINCES STREET / O'CONNELL STREET", "UPPER SHERRARD STREET", "FITZWILLIAM SQUARE EAST", "GRATTAN STREET","ST JAMES HOSPITAL (LUAS)","HARCOURT TERRACE","BOLTON STREET","STRAND STREET GREAT","JERVIS STREET","ORMOND QUAY UPPER","BARROW STREET","GRANGEGORMAN LOWER (SOUTH)","MOUNTJOY SQUARE WEST","WILTON TERRACE","EMMET ROAD","HEUSTON BRIDGE (NORTH)","LEINSTER STREET SOUTH","BLACKHALL PLACE"];
         
     var setup = d3.marcon()
@@ -49,7 +48,7 @@
 
     var width = setup.innerWidth(), height = setup.innerHeight(), svg = setup.svg();
 
-    var color = d3.scaleOrdinal(["#66c2a5","#fc8d62","#8da0cb"])
+    var color = d3.scaleOrdinal(["#fc8d62","#66c2a5"])
 
     var x = d3.scaleBand()
         .rangeRound([0, width])
@@ -81,28 +80,28 @@
         .call(customYAxis);
 
     var stack = d3.stack()
-        .keys(alphabet)
+        .keys(stands)
         .order(d3.stackOrderNone)
         .offset(d3.stackOffsetNone);
-
-    redraw(randomData());
+        
+    redraw(updateDate());
 
     d3.interval(function(){
-      redraw(randomData());
-    }, 1000);
+      redraw(updateDate());
+    }, 5000);
 
     function redraw(data){
-
-      // update the y scale
-      y.domain([0, jz.arr.max(data.map(function(d){ return d.sum }))]);
-
+       
+      // update the y scale to maximum of bike stands number
+      y.domain([0, d3.max(data.map(function(d){ return d.bike_stands }))]);
+      
       svg.select(".y")
         .transition()
-          .call(customYAxis);
+        .call(customYAxis);
 
       // each data column (a.k.a "key" or "series") needs to be iterated over
-      // the variable alphabet represents the unique keys of the stacks
-      alphabet.forEach(function(key, key_index){
+      // the variable stands represents the unique keys of the stacks
+      stands.forEach(function(key, key_index){
 
         var bar = svg.selectAll(".bar-" + key)
             .data(stack(data)[key_index], function(d){ return d.data[x_var] + "-" + key; });
@@ -125,18 +124,9 @@
 
     }
 
-    function randomData(data){
-      return names.map(function(d){
-        var obj = {};
-        obj.name = d;
-        var nums = [];
-        alphabet.forEach(function(e){
-          var num = jz.num.randBetween(1, 10);
-          obj[e] = num;
-          nums.push(num);
-        });
-        obj.sum = jz.arr.sum(nums);
-        return obj;
+    function updateDate(data){
+      return bike_data.map(function(d){
+        return d;
       });
     }
 

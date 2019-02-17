@@ -39,5 +39,5 @@ def index(request):
     return HttpResponse(template.render(context, request))
 
 def bike_data(request):
-    data =  callJcdecauxAPI.getLatestData()
+    data = callJcdecauxAPI.getLatestData()
     return JsonResponse(list(data), safe=False)
