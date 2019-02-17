@@ -15536,3 +15536,140 @@ DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com
 DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4867
 DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
 DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4878
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4856
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4856
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4862
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4862
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4894
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4888
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4878
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4869
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4866
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4866
+ERROR:django.request:Internal Server Error: /Bike/bike_emu
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\Bike\views.py", line 49, in bike_emu
+    return HttpResponse(template.render(request))
+  File "C:\Python37\lib\site-packages\django\template\backends\django.py", line 59, in render
+    context = make_context(context, request, autoescape=self.backend.engine.autoescape)
+  File "C:\Python37\lib\site-packages\django\template\context.py", line 270, in make_context
+    raise TypeError('context must be a dict rather than %s.' % context.__class__.__name__)
+TypeError: context must be a dict rather than WSGIRequest.
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4862
+WARNING:django.request:Not Found: /Authentication
+WARNING:django.request:Not Found: /Authentication
+WARNING:django.request:Not Found: /Authentication
+WARNING:django.request:Not Found: /Authentication
+WARNING:django.request:Not Found: /Authentication
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4868
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\Main\views.py", line 7, in index
+    template = loader.get_template('index.html')
+  File "C:\Python37\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "C:\Python37\lib\site-packages\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Python37\lib\site-packages\django\template\engine.py", line 144, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Python37\lib\site-packages\django\template\engine.py", line 126, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Python37\lib\site-packages\django\template\loaders\base.py", line 30, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "C:\Python37\lib\site-packages\django\template\base.py", line 156, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Python37\lib\site-packages\django\template\base.py", line 194, in compile_nodelist
+    return parser.parse()
+  File "C:\Python37\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "C:\Python37\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Python37\lib\site-packages\django\template\loader_tags.py", line 205, in do_block
+    raise TemplateSyntaxError("'%s' tag with name '%s' appears more than once" % (bits[0], block_name))
+django.template.exceptions.TemplateSyntaxError: 'block' tag with name 'title' appears more than once
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\Main\views.py", line 7, in index
+    template = loader.get_template('index.html')
+  File "C:\Python37\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "C:\Python37\lib\site-packages\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Python37\lib\site-packages\django\template\engine.py", line 144, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Python37\lib\site-packages\django\template\engine.py", line 126, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Python37\lib\site-packages\django\template\loaders\base.py", line 30, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "C:\Python37\lib\site-packages\django\template\base.py", line 156, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Python37\lib\site-packages\django\template\base.py", line 194, in compile_nodelist
+    return parser.parse()
+  File "C:\Python37\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "C:\Python37\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Python37\lib\site-packages\django\template\loader_tags.py", line 205, in do_block
+    raise TemplateSyntaxError("'%s' tag with name '%s' appears more than once" % (bits[0], block_name))
+django.template.exceptions.TemplateSyntaxError: 'block' tag with name 'title' appears more than once
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\romaa\Trinity\CS7CS3-Advanced Software Engineering\Sustainable_City_Management\Main\views.py", line 7, in index
+    template = loader.get_template('index.html')
+  File "C:\Python37\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "C:\Python37\lib\site-packages\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Python37\lib\site-packages\django\template\engine.py", line 144, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Python37\lib\site-packages\django\template\engine.py", line 126, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Python37\lib\site-packages\django\template\loaders\base.py", line 30, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "C:\Python37\lib\site-packages\django\template\base.py", line 156, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Python37\lib\site-packages\django\template\base.py", line 194, in compile_nodelist
+    return parser.parse()
+  File "C:\Python37\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "C:\Python37\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Python37\lib\site-packages\django\template\loader_tags.py", line 205, in do_block
+    raise TemplateSyntaxError("'%s' tag with name '%s' appears more than once" % (bits[0], block_name))
+django.template.exceptions.TemplateSyntaxError: 'block' tag with name 'title' appears more than once
