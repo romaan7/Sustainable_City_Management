@@ -9,9 +9,27 @@
     .y .axis .domain {
       display: none;
     }
+    .bar:hover {
+    fill: orangered ;
+    }
+    .tooltip{
+      position      : absolute;
+      text-align    : center;
+      max-width     : 140px;
+      max-height    : 50px;
+      padding       : 8px;
+      border        : none;
+      border-radius : 8px;
+      margin-top    : -30px;
+      font          : 10px sans-serif;
+      background    : black;
+      color         : white;
+      pointer-events: none;
+  }
     </style>
   </head>
   <body>
+  <div id='container'></div>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     {% load static %}
     <script src="{% static 'Bike/js/jeezy.min.js' %}"></script>
@@ -88,7 +106,7 @@
 
     d3.interval(function(){
       redraw(updateDate());
-    }, 5000);
+    }, 1000);
 
     function redraw(data){
        
@@ -119,6 +137,28 @@
             .attr("height", function(d){ return y(d[0]) - y(d[1]); })
             .attr("width", x.bandwidth())
             .attr("fill", function(d){ return color(key); })
+        .on('mouseover', mouseover)
+        .on('mousemove', mousemove)
+        .on('mouseout', mouseout);
+        
+        
+    // tooltips
+    var div = d3.select('#container').append('div')
+        .attr('class', 'tooltip')
+        .style('display', 'none');
+    function mouseover(){
+        div.style('display', 'inline');
+    }
+    function mousemove(){
+        var d = d3.select(this).data()[0]
+        div
+            .html(d.data[x_var] +'<hr>'+ key +': '+ (d[1] - d[0]) )
+            .style('left', (d3.event.pageX - 34) + 'px')
+            .style('top', (d3.event.pageY - 12) + 'px');
+    }
+    function mouseout(){
+        div.style('display', 'none');
+    }
 
       });
 
