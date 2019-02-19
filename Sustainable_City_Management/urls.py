@@ -23,5 +23,7 @@ urlpatterns = [
     path('APIHandling/', include('APIHandling.urls')),
     path('Bike/', include('Bike.urls')),
     path('Authentication/', include('django.contrib.auth.urls')),
+    path('CityEvents/', include('CityEvents.urls')),
+
 
 ]
