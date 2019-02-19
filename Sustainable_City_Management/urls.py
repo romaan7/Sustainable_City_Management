@@ -18,12 +18,10 @@ from django.urls import include, path
 from Main.views import index
 
 urlpatterns = [
-    path('', index),
     path('admin/', admin.site.urls),
     path('APIHandling/', include('APIHandling.urls')),
     path('Bike/', include('Bike.urls')),
     path('Authentication/', include('django.contrib.auth.urls')),
     path('CityEvents/', include('CityEvents.urls')),
-
-
+    path('WeatherPollution/', include('WeatherPollution.urls')),
 ]
