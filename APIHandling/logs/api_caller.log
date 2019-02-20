@@ -15674,3 +15674,831 @@ Traceback (most recent call last):
     raise TemplateSyntaxError("'%s' tag with name '%s' appears more than once" % (bits[0], block_name))
 django.template.exceptions.TemplateSyntaxError: 'block' tag with name 'title' appears more than once
 WARNING:django.request:Not Found: /CityEvents/Calendar.css
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /WeatherPollution/
+WARNING:django.request:Not Found: /WeatherPollution/ WeatherPollution
+WARNING:django.request:Not Found: /WeatherPollution/ WeatherPollution [name='index']
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4827
+WARNING:django.request:Not Found: /WeatherPollution/ WeatherPollution [name='index']
+ERROR:django.request:Internal Server Error: /WeatherPollution/
+Traceback (most recent call last):
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 67, in index
+    pushNewData()
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 62, in pushNewData
+    pressure = pressure)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1288, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in as_sql
+    for obj in self.query.objs
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in <listcomp>
+    for obj in self.query.objs
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1240, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1182, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\__init__.py", line 1563, in get_db_prep_save
+    return connection.ops.adapt_decimalfield_value(self.to_python(value), self.max_digits, self.decimal_places)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\base\operations.py", line 521, in adapt_decimalfield_value
+    return utils.format_number(value, max_digits, decimal_places)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 239, in format_number
+    value = value.quantize(decimal.Decimal(1).scaleb(-decimal_places), context=context)
+decimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]
+ERROR:django.request:Internal Server Error: /WeatherPollution/
+Traceback (most recent call last):
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 67, in index
+    pushNewData()
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 62, in pushNewData
+    pressure = pressure)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1288, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in as_sql
+    for obj in self.query.objs
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in <listcomp>
+    for obj in self.query.objs
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1240, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1182, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\__init__.py", line 1563, in get_db_prep_save
+    return connection.ops.adapt_decimalfield_value(self.to_python(value), self.max_digits, self.decimal_places)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\base\operations.py", line 521, in adapt_decimalfield_value
+    return utils.format_number(value, max_digits, decimal_places)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 239, in format_number
+    value = value.quantize(decimal.Decimal(1).scaleb(-decimal_places), context=context)
+decimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]
+ERROR:django.request:Internal Server Error: /WeatherPollution/
+Traceback (most recent call last):
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 67, in index
+    pushNewData()
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 62, in pushNewData
+    pressure = pressure)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1288, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in as_sql
+    for obj in self.query.objs
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in <listcomp>
+    for obj in self.query.objs
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1240, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1182, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\__init__.py", line 790, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\__init__.py", line 785, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\__init__.py", line 1807, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+ERROR:django.request:Internal Server Error: /WeatherPollution/
+Traceback (most recent call last):
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 67, in index
+    pushNewData()
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 62, in pushNewData
+    pressure = pressure)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1288, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in as_sql
+    for obj in self.query.objs
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in <listcomp>
+    for obj in self.query.objs
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1240, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1182, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\__init__.py", line 790, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\__init__.py", line 785, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\__init__.py", line 1807, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+ERROR:django.request:Internal Server Error: /WeatherPollution/
+Traceback (most recent call last):
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.ProgrammingError: relation "WeatherPollution_weather" does not exist
+LINE 1: INSERT INTO "WeatherPollution_weather" ("Station", "Temperat...
+                    ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 67, in index
+    pushNewData()
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 62, in pushNewData
+    pressure = pressure)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1289, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "WeatherPollution_weather" does not exist
+LINE 1: INSERT INTO "WeatherPollution_weather" ("Station", "Temperat...
+                    ^
+
+WARNING:django.request:Not Found: /
+ERROR:django.request:Internal Server Error: /APIHandling/
+Traceback (most recent call last):
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\APIHandling\views.py", line 6, in index
+    template = loader.get_template('APIHandling/index.html')
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: APIHandling/index.html
+ERROR:django.request:Internal Server Error: /WeatherPollution/
+Traceback (most recent call last):
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 67, in index
+    pushNewData()
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 62, in pushNewData
+    pressure = pressure)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1288, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in as_sql
+    for obj in self.query.objs
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in <listcomp>
+    for obj in self.query.objs
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1240, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1182, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\__init__.py", line 790, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\__init__.py", line 785, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\__init__.py", line 1807, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+ERROR:django.request:Internal Server Error: /APIHandling/
+Traceback (most recent call last):
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\APIHandling\views.py", line 6, in index
+    template = loader.get_template('APIHandling/index.html')
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: APIHandling/index.html
+ERROR:django.request:Internal Server Error: /APIHandling/
+Traceback (most recent call last):
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\APIHandling\views.py", line 6, in index
+    template = loader.get_template('APIHandling/index.html')
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: APIHandling/index.html
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4835
+WARNING:django.request:Not Found: /CityEvents/Calendar.css
+WARNING:django.request:Not Found: /CityEvents/Calendar.css
+ERROR:django.request:Internal Server Error: /WeatherPollution/
+Traceback (most recent call last):
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 67, in index
+    pushNewData()
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 62, in pushNewData
+    pressure = pressure)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1288, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in as_sql
+    for obj in self.query.objs
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in <listcomp>
+    for obj in self.query.objs
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1240, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1182, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\__init__.py", line 790, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\__init__.py", line 785, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\__init__.py", line 1807, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+ERROR:django.request:Internal Server Error: /WeatherPollution/
+Traceback (most recent call last):
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 67, in index
+    pushNewData()
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 62, in pushNewData
+    pressure = pressure)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1288, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in as_sql
+    for obj in self.query.objs
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in <listcomp>
+    for obj in self.query.objs
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1240, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1182, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\__init__.py", line 790, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\__init__.py", line 785, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\__init__.py", line 1807, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+ERROR:django.request:Internal Server Error: /WeatherPollution/
+Traceback (most recent call last):
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 67, in index
+    pushNewData()
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 62, in pushNewData
+    pressure = pressure)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1288, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in as_sql
+    for obj in self.query.objs
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in <listcomp>
+    for obj in self.query.objs
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1240, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1182, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\__init__.py", line 790, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\__init__.py", line 785, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\__init__.py", line 1807, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+ERROR:django.request:Internal Server Error: /WeatherPollution/
+Traceback (most recent call last):
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 68, in index
+    pushNewData()
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 63, in pushNewData
+    pressure = pressure)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1288, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in as_sql
+    for obj in self.query.objs
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in <listcomp>
+    for obj in self.query.objs
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1240, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1182, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\__init__.py", line 790, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\__init__.py", line 785, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\__init__.py", line 1807, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+ERROR:django.request:Internal Server Error: /WeatherPollution/
+Traceback (most recent call last):
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 68, in index
+    pushNewData()
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 63, in pushNewData
+    pressure = pressure)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1288, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in as_sql
+    for obj in self.query.objs
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in <listcomp>
+    for obj in self.query.objs
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1240, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1182, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\__init__.py", line 790, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\__init__.py", line 785, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\__init__.py", line 1807, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+ERROR:django.request:Internal Server Error: /WeatherPollution/
+Traceback (most recent call last):
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 69, in index
+    pushNewData()
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 64, in pushNewData
+    pressure = pressure)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1288, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in as_sql
+    for obj in self.query.objs
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in <listcomp>
+    for obj in self.query.objs
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1240, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1182, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\__init__.py", line 790, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\__init__.py", line 785, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\__init__.py", line 1807, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+ERROR:django.request:Internal Server Error: /WeatherPollution/
+Traceback (most recent call last):
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 69, in index
+    pushNewData()
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 64, in pushNewData
+    pressure = pressure)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1288, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in as_sql
+    for obj in self.query.objs
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in <listcomp>
+    for obj in self.query.objs
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1240, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1182, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\__init__.py", line 790, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\__init__.py", line 785, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\__init__.py", line 1807, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+ERROR:django.request:Internal Server Error: /WeatherPollution/
+Traceback (most recent call last):
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 71, in index
+    pushNewData()
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 66, in pushNewData
+    pressure = pressure)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1288, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in as_sql
+    for obj in self.query.objs
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in <listcomp>
+    for obj in self.query.objs
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1240, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1182, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\__init__.py", line 790, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\__init__.py", line 785, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\__init__.py", line 1807, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+ERROR:django.request:Internal Server Error: /WeatherPollution/
+Traceback (most recent call last):
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 78, in index
+    pushNewData()
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 45, in pushNewData
+    last_update = make_aware(datetime.datetime.fromtimestamp(int(str(row['last_update'])[:10])))
+KeyError: 'last_update'
+ERROR:django.request:Internal Server Error: /WeatherPollution/
+Traceback (most recent call last):
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 79, in index
+    pushNewData()
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 45, in pushNewData
+    last_update = make_aware(datetime.datetime.fromtimestamp(int(str(row['last_update'])[:10])))
+KeyError: 'last_update'
+ERROR:django.request:Internal Server Error: /WeatherPollution/
+Traceback (most recent call last):
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 79, in index
+    pushNewData()
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 45, in pushNewData
+    last_update = make_aware(datetime.datetime.fromtimestamp(int(str(row['last_update'])[:10])))
+KeyError: 'last_update'
+WARNING:django.request:Not Found: /
+ERROR:django.request:Internal Server Error: /WeatherPollution/
+Traceback (most recent call last):
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 80, in index
+    pushNewData()
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 35, in pushNewData
+    last_update = make_aware(datetime.datetime.fromtimestamp(int(str(row['last_update'])[:10])))
+UnboundLocalError: local variable 'row' referenced before assignment
+ERROR:django.request:Internal Server Error: /WeatherPollution/
+Traceback (most recent call last):
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 80, in index
+    pushNewData()
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 35, in pushNewData
+    last_update = make_aware(datetime.datetime.fromtimestamp(int(str(datetime.now())[:10])))
+AttributeError: module 'datetime' has no attribute 'now'
+ERROR:django.request:Internal Server Error: /WeatherPollution/
+Traceback (most recent call last):
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 80, in index
+    pushNewData()
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 35, in pushNewData
+    last_update = make_aware(datetime.datetime.fromtimestamp(int(str(datetime.datetime.now())[:10])))
+ValueError: invalid literal for int() with base 10: '2019-02-20'
+ERROR:django.request:Internal Server Error: /WeatherPollution/
+Traceback (most recent call last):
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 89, in index
+    pushNewData()
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 36, in pushNewData
+    if csvValidation.csv_update_validate(old_file_path,new_csv_file) == False:
+AttributeError: module 'WeatherPollution.csvValidation' has no attribute 'csv_update_validate'
+ERROR:django.request:Internal Server Error: /WeatherPollution/
+Traceback (most recent call last):
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 89, in index
+    pushNewData()
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 36, in pushNewData
+    if csvValidation.csv_validation(old_file_path,new_csv_file) == False:
+TypeError: csv_validation() takes no arguments
+ERROR:django.request:Internal Server Error: /WeatherPollution/
+Traceback (most recent call last):
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 89, in index
+    pushNewData()
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 36, in pushNewData
+    if csvValidation.csv_validation(old_file_path,new_csv_file) == False:
+AttributeError: module 'WeatherPollution.csvValidation' has no attribute 'csv_validation'
+ERROR:django.request:Internal Server Error: /WeatherPollution/
+Traceback (most recent call last):
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ashutosh\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 89, in index
+    pushNewData()
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\views.py", line 36, in pushNewData
+    if csvValidation.csv_update_validate(old_file_path,new_csv_file) == False:
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\csvValidation.py", line 10, in csv_update_validate
+    if md5(new_csv_file) == (new_csv_file):
+  File "D:\Trinity_DS\AdvancedSoftwareEngineernig\Project\Sustainable_City_Management\WeatherPollution\csvValidation.py", line 22, in md5
+    hash_md5.update(chunk)
+AttributeError: 'builtin_function_or_method' object has no attribute 'update'
+WARNING:django.request:Not Found: /
