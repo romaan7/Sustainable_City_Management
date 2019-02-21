@@ -494,3 +494,1272 @@ DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com
 DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4816
 DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
 DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4831
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /favicon.ico
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4868
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 55, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 20, in pushNewData
+    data = IrishRail.getRailData()
+AttributeError: type object 'BusLuas' has no attribute 'getRailData'
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\IrishRailXML.py", line 18, in getRailData
+    xml_str = urllib.urlopen(url).read()
+AttributeError: module 'urllib' has no attribute 'urlopen'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 55, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 20, in pushNewData
+    data = IrishRailXML.getRailData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\IrishRailXML.py", line 21, in getRailData
+    except ParseError:
+NameError: name 'ParseError' is not defined
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 55, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 20, in pushNewData
+    data = IrishRailXML.getRailData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\IrishRailXML.py", line 18, in getRailData
+    xml_str = urllib.urlopen(url).read()
+AttributeError: module 'urllib' has no attribute 'urlopen'
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 55, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 20, in pushNewData
+    data = IrishRailXML.getRailData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\IrishRailXML.py", line 20, in getRailData
+    xmldoc = minidom.parseString(xml_str)
+NameError: name 'minidom' is not defined
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 55, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 23, in pushNewData
+    for row in data:
+TypeError: 'Document' object is not iterable
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 62, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 23, in pushNewData
+    path = urllib2.urlopen('http://api.irishrail.ie/realtime/realtime.asmx/getStationDataByCodeXML_WithNumMins?StationCode=mhide&NumMins=20')
+NameError: name 'urllib2' is not defined
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 62, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 23, in pushNewData
+    path = urllib.urlopen('http://api.irishrail.ie/realtime/realtime.asmx/getStationDataByCodeXML_WithNumMins?StationCode=mhide&NumMins=20')
+AttributeError: module 'urllib' has no attribute 'urlopen'
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 64, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 23, in pushNewData
+    path = urllib.urlopen('http://api.irishrail.ie/realtime/realtime.asmx/getStationDataByCodeXML_WithNumMins?StationCode=mhide&NumMins=20')
+AttributeError: module 'urllib' has no attribute 'urlopen'
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 64, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 26, in pushNewData
+    tree = ET.parse(xml_str)
+  File "C:\Program Files (x86)\lib\xml\etree\ElementTree.py", line 1197, in parse
+    tree.parse(source, parser)
+  File "C:\Program Files (x86)\lib\xml\etree\ElementTree.py", line 587, in parse
+    source = open(source, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: b'<?xml version="1.0" encoding="utf-8"?>\r\n<ArrayOfObjStationData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://api.irishrail.ie/realtime/">\r\n  <objStationData>\r\n    <Servertime>2019-02-14T23:24:19.783</Servertime>\r\n    <Traincode>E847 </Traincode>\r\n    <Stationfullname>Malahide</Stationfullname>\r\n    <Stationcode>MHIDE</Stationcode>\r\n    <Querytime>23:24:19</Querytime>\r\n    <Traindate>14 Feb 2019</Traindate>\r\n    <Origin>Greystones</Origin>\r\n    <Destination>Malahide</Destination>\r\n    <Origintime>22:04</Origintime>\r\n    <Destinationtime>23:31</Destinationtime>\r\n    <Status>En Route</Status>\r\n    <Lastlocation>Arrived Portmarnock</Lastlocation>\r\n    <Duein>6</Duein>\r\n    <Late>-1</Late>\r\n    <Exparrival>23:30</Exparrival>\r\n    <Expdepart>00:00</Expdepart>\r\n    <Scharrival>23:31</Scharrival>\r\n    <Schdepart>00:00</Schdepart>\r\n    <Direction>Northbound</Direction>\r\n    <Traintype>DART</Traintype>\r\n    <Locationtype>D</Locationtype>\r\n  </objStationData>\r\n  <objStationData>\r\n    <Servertime>2019-02-14T23:24:19.783</Servertime>\r\n    <Traincode>E706 </Traincode>\r\n    <Stationfullname>Malahide</Stationfullname>\r\n    <Stationcode>MHIDE</Stationcode>\r\n    <Querytime>23:24:19</Querytime>\r\n    <Traindate>14 Feb 2019</Traindate>\r\n    <Origin>Malahide</Origin>\r\n    <Destination>Dublin Connolly</Destination>\r\n    <Origintime>23:40</Origintime>\r\n    <Destinationtime>00:05</Destinationtime>\r\n    <Status>No Information</Status>\r\n    <Lastlocation />\r\n    <Duein>16</Duein>\r\n    <Late>0</Late>\r\n    <Exparrival>00:00</Exparrival>\r\n    <Expdepart>23:40</Expdepart>\r\n    <Scharrival>00:00</Scharrival>\r\n    <Schdepart>23:40</Schdepart>\r\n    <Direction>Southbound</Direction>\r\n    <Traintype>DART</Traintype>\r\n    <Locationtype>O</Locationtype>\r\n  </objStationData>\r\n</ArrayOfObjStationData>'
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 64, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 27, in pushNewData
+    root = tree.getroot()
+AttributeError: 'Document' object has no attribute 'getroot'
+WARNING:django.request:Not Found: /
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 64, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 23, in pushNewData
+    path = urlopen ('http://api.irishrail.ie/realtime/realtime.asmx/getStationDataByCodeXML_WithNumMins?StationCode=mhide&NumMins=20')
+NameError: name 'urlopen' is not defined
+WARNING:django.request:Not Found: /
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 65, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 58, in pushNewData
+    BusLuas = x.objects.create(ServerTime=ServerTime, TrainCode=TrainCode, StationFullName=StationFullName,StationCode=StationCode,
+AttributeError: 'list' object has no attribute 'objects'
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 65, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 58, in pushNewData
+    BusLuas = x.objects.create(ServerTime=ServerTime, TrainCode=TrainCode, StationFullName=StationFullName,StationCode=StationCode,
+AttributeError: 'list' object has no attribute 'objects'
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 65, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 58, in pushNewData
+    BusLuas = objStationData.objects.create(ServerTime=ServerTime, TrainCode=TrainCode, StationFullName=StationFullName,StationCode=StationCode,
+UnboundLocalError: local variable 'objStationData' referenced before assignment
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 65, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 58, in pushNewData
+    BusLuas = IrishRail.objects.create(ServerTime=ServerTime, TrainCode=TrainCode, StationFullName=StationFullName,StationCode=StationCode,
+UnboundLocalError: local variable 'ServerTime' referenced before assignment
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 65, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 58, in pushNewData
+    BusLuas = IrishRail.objects.create(Server_TimeTime=Server_Time, TrainCode=TrainCode, StationFullName=StationFullName,StationCode=StationCode,
+UnboundLocalError: local variable 'Server_Time' referenced before assignment
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 65, in index
+    pushNewData()
+TypeError: pushNewData() missing 1 required positional argument: 'self'
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 65, in index
+    pushNewData(self)
+NameError: name 'self' is not defined
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 65, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 58, in pushNewData
+    BusLuas = IrishRail.objects.create(ServerTime=ServerTime, TrainCode=TrainCode, StationFullName=StationFullName,StationCode=StationCode,
+UnboundLocalError: local variable 'ServerTime' referenced before assignment
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 66, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 59, in pushNewData
+    BusLuas = IrishRail.objects.create(ServerTime=ServerTime, TrainCode=TrainCode, StationFullName=StationFullName,StationCode=StationCode,
+UnboundLocalError: local variable 'ServerTime' referenced before assignment
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 67, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 60, in pushNewData
+    BusLuas = IrishRail.objects.create(ServerTime=ServerTime, TrainCode=TrainCode, StationFullName=StationFullName,StationCode=StationCode,
+UnboundLocalError: local variable 'ServerTime' referenced before assignment
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 67, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 60, in pushNewData
+    BusLuas = IrishRail.objects.create(ServerTime=ServerTime, TrainCode=TrainCode, StationFullName=StationFullName,StationCode=StationCode,
+NameError: name 'ServerTime' is not defined
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 67, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 23, in pushNewData
+    ServerTime = '', TrainCode, StationFullName,StationCode,QueryTime,Traindate,Origin,Destination,Origintime,Destinationtime,Status,Lastlocation,Dueinext,Late,Exparrival,Expdepart,Scharrival,Schdepart,Direction,Traintype,Locationtype
+UnboundLocalError: local variable 'TrainCode' referenced before assignment
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 87, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 82, in pushNewData
+    Destinationtime=Destinationtime,Status=Status,Lastlocation=Lastlocation,Dueinext=Duein,Late=Late,Exparrival=Exparrival,
+UnboundLocalError: local variable 'Duein' referenced before assignment
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 87, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 82, in pushNewData
+    Destinationtime=Destinationtime,Status=Status,Lastlocation=Lastlocation,Duein=Duein,Late=Late,Exparrival=Exparrival,
+UnboundLocalError: local variable 'Duein' referenced before assignment
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 87, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 83, in pushNewData
+    Expdepart=Expdepart,Scharrival=Scharrival,Schdepart=Schdepart,Direction=Direction,Traintype=Traintype,Locationtype=Locationtype)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1288, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in as_sql
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in <listcomp>
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1240, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1182, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 790, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1429, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1408, in get_prep_value
+    value = super().get_prep_value(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1268, in get_prep_value
+    return self.to_python(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1393, in to_python
+    params={'value': value},
+django.core.exceptions.ValidationError: ["'' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ] format."]
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 87, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 83, in pushNewData
+    Expdepart=Expdepart,Scharrival=Scharrival,Schdepart=Schdepart,Direction=Direction,Traintype=Traintype,Locationtype=Locationtype)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1288, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in as_sql
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in <listcomp>
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1240, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1182, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 790, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1429, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1408, in get_prep_value
+    value = super().get_prep_value(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1268, in get_prep_value
+    return self.to_python(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1393, in to_python
+    params={'value': value},
+django.core.exceptions.ValidationError: ["'' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ] format."]
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 87, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 83, in pushNewData
+    Expdepart=Expdepart,Scharrival=Scharrival,Schdepart=Schdepart,Direction=Direction,Traintype=Traintype,Locationtype=Locationtype)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1288, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in as_sql
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in <listcomp>
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1240, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1182, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 790, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1429, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1408, in get_prep_value
+    value = super().get_prep_value(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1268, in get_prep_value
+    return self.to_python(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1393, in to_python
+    params={'value': value},
+django.core.exceptions.ValidationError: ["'' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ] format."]
+WARNING:django.request:Not Found: /
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 86, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 82, in pushNewData
+    Expdepart=Expdepart,Scharrival=Scharrival,Schdepart=Schdepart,Direction=Direction,Traintype=Traintype,Locationtype=Locationtype)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1288, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in as_sql
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in <listcomp>
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1240, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1182, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 790, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1429, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1408, in get_prep_value
+    value = super().get_prep_value(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1268, in get_prep_value
+    return self.to_python(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1393, in to_python
+    params={'value': value},
+django.core.exceptions.ValidationError: ["'' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ] format."]
+WARNING:django.request:Not Found: /
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 86, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 82, in pushNewData
+    Expdepart=Expdepart,Scharrival=Scharrival,Schdepart=Schdepart,Direction=Direction,Traintype=Traintype,Locationtype=Locationtype)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1288, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in as_sql
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in <listcomp>
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1240, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1182, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 790, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 2207, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 2202, in get_prep_value
+    return self.to_python(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 2189, in to_python
+    params={'value': value},
+django.core.exceptions.ValidationError: ["'' value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] format."]
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /favicon.ico
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 87, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 83, in pushNewData
+    Expdepart=Expdepart,Scharrival=Scharrival,Schdepart=Schdepart,Direction=Direction,Traintype=Traintype,Locationtype=Locationtype)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1288, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in as_sql
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in <listcomp>
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1240, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1182, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 790, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1429, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1408, in get_prep_value
+    value = super().get_prep_value(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1268, in get_prep_value
+    return self.to_python(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1393, in to_python
+    params={'value': value},
+django.core.exceptions.ValidationError: ["'' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ] format."]
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 87, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 83, in pushNewData
+    Expdepart=Expdepart,Scharrival=Scharrival,Schdepart=Schdepart,Direction=Direction,Traintype=Traintype,Locationtype=Locationtype)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1288, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in as_sql
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in <listcomp>
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1240, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1182, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 790, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 785, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1807, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 87, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 83, in pushNewData
+    Expdepart=Expdepart,Scharrival=Scharrival,Schdepart=Schdepart,Direction=Direction,Traintype=Traintype,Locationtype=Locationtype)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1288, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in as_sql
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in <listcomp>
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1240, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1182, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 790, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 785, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1807, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 87, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 83, in pushNewData
+    Expdepart=Expdepart,Scharrival=Scharrival,Schdepart=Schdepart,Direction=Direction,Traintype=Traintype,Locationtype=Locationtype)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1288, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in as_sql
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in <listcomp>
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1240, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1182, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 790, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1429, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1408, in get_prep_value
+    value = super().get_prep_value(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1268, in get_prep_value
+    return self.to_python(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1393, in to_python
+    params={'value': value},
+django.core.exceptions.ValidationError: ["'' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ] format."]
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 87, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 83, in pushNewData
+    Expdepart=Expdepart,Scharrival=Scharrival,Schdepart=Schdepart,Direction=Direction,Traintype=Traintype,Locationtype=Locationtype)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1288, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in as_sql
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in <listcomp>
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1240, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1182, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 790, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1429, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1408, in get_prep_value
+    value = super().get_prep_value(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1268, in get_prep_value
+    return self.to_python(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1393, in to_python
+    params={'value': value},
+django.core.exceptions.ValidationError: ["'' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ] format."]
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 87, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 83, in pushNewData
+    Expdepart=Expdepart,Scharrival=Scharrival,Schdepart=Schdepart,Direction=Direction,Traintype=Traintype,Locationtype=Locationtype)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1288, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in as_sql
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in <listcomp>
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1240, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1182, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 790, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1429, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1408, in get_prep_value
+    value = super().get_prep_value(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1268, in get_prep_value
+    return self.to_python(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1393, in to_python
+    params={'value': value},
+django.core.exceptions.ValidationError: ["'' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ] format."]
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 87, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 83, in pushNewData
+    Expdepart=Expdepart,Scharrival=Scharrival,Schdepart=Schdepart,Direction=Direction,Traintype=Traintype,Locationtype=Locationtype)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1288, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in as_sql
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in <listcomp>
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1240, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1182, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 790, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1273, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1268, in get_prep_value
+    return self.to_python(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1243, in to_python
+    params={'value': value},
+django.core.exceptions.ValidationError: ["'' value has an invalid date format. It must be in YYYY-MM-DD format."]
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 87, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 83, in pushNewData
+    Expdepart=Expdepart,Scharrival=Scharrival,Schdepart=Schdepart,Direction=Direction,Traintype=Traintype,Locationtype=Locationtype)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1288, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in as_sql
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in <listcomp>
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1240, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1182, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 790, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1273, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1268, in get_prep_value
+    return self.to_python(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1243, in to_python
+    params={'value': value},
+django.core.exceptions.ValidationError: ["'' value has an invalid date format. It must be in YYYY-MM-DD format."]
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 87, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 83, in pushNewData
+    Expdepart=Expdepart,Scharrival=Scharrival,Schdepart=Schdepart,Direction=Direction,Traintype=Traintype,Locationtype=Locationtype)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1288, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in as_sql
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in <listcomp>
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1240, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1182, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 790, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1273, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1268, in get_prep_value
+    return self.to_python(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1243, in to_python
+    params={'value': value},
+django.core.exceptions.ValidationError: ["'' value has an invalid date format. It must be in YYYY-MM-DD format."]
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 87, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 83, in pushNewData
+    Expdepart=Expdepart,Scharrival=Scharrival,Schdepart=Schdepart,Direction=Direction,Traintype=Traintype,Locationtype=Locationtype)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1288, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in as_sql
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in <listcomp>
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1240, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1182, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 790, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1429, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1408, in get_prep_value
+    value = super().get_prep_value(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1268, in get_prep_value
+    return self.to_python(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1393, in to_python
+    params={'value': value},
+django.core.exceptions.ValidationError: ["'' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ] format."]
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 87, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 83, in pushNewData
+    Expdepart=Expdepart,Scharrival=Scharrival,Schdepart=Schdepart,Direction=Direction,Traintype=Traintype,Locationtype=Locationtype)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1288, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in as_sql
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in <listcomp>
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1240, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1182, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 790, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1429, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1408, in get_prep_value
+    value = super().get_prep_value(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1268, in get_prep_value
+    return self.to_python(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1393, in to_python
+    params={'value': value},
+django.core.exceptions.ValidationError: ["'' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ] format."]
+WARNING:django.request:Not Found: /
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 88, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 84, in pushNewData
+    Expdepart=Expdepart,Scharrival=Scharrival,Schdepart=Schdepart,Direction=Direction,Traintype=Traintype,Locationtype=Locationtype)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1288, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in as_sql
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in <listcomp>
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1240, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1182, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 790, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1429, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1408, in get_prep_value
+    value = super().get_prep_value(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1268, in get_prep_value
+    return self.to_python(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1393, in to_python
+    params={'value': value},
+django.core.exceptions.ValidationError: ["'' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ] format."]
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 88, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 84, in pushNewData
+    Expdepart=Expdepart,Scharrival=Scharrival,Schdepart=Schdepart,Direction=Direction,Traintype=Traintype,Locationtype=Locationtype)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1288, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in as_sql
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in <listcomp>
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1240, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1182, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 790, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1429, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1408, in get_prep_value
+    value = super().get_prep_value(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1268, in get_prep_value
+    return self.to_python(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1393, in to_python
+    params={'value': value},
+django.core.exceptions.ValidationError: ["'' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ] format."]
+WARNING:django.request:Not Found: /
+ERROR:django.request:Internal Server Error: /BusLuas/
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Program Files (x86)\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 88, in index
+    pushNewData()
+  File "E:\Trinity\Advanced Software Engineering\ASE-GitHub\BusLuas\views.py", line 84, in pushNewData
+    Expdepart=Expdepart,Scharrival=Scharrival,Schdepart=Schdepart,Direction=Direction,Traintype=Traintype,Locationtype=Locationtype)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1288, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in as_sql
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1241, in <listcomp>
+    for obj in self.query.objs
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1240, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\sql\compiler.py", line 1182, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 790, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1429, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1408, in get_prep_value
+    value = super().get_prep_value(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1268, in get_prep_value
+    return self.to_python(value)
+  File "C:\Program Files (x86)\lib\site-packages\django\db\models\fields\__init__.py", line 1393, in to_python
+    params={'value': value},
+django.core.exceptions.ValidationError: ["'' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ] format."]
