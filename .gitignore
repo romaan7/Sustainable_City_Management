@@ -2,3 +2,6 @@ env
 *.DS_Store
 *.pyc
 __pycache__
+APIHandling/logs/api_caller.log
+htmlcov
+*.vscode

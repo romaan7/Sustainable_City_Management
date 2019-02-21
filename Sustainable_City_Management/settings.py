@@ -39,13 +39,22 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'APIHandling.apps.ApiHandlingConfig',
+<<<<<<< HEAD
     'BusLuas.apps.BusLuasConfig',
+=======
+    'Authentication.apps.AuthenticationConfig',
+    'Bike.apps.BikeConfig',
+    'Main.apps.MainConfig',
+    'CityEvents.apps.CityeventsConfig',
+    'WeatherPollution',
+>>>>>>> 511c5457e15f39468c7d6d73a20912f3dbbbddf3
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
 ]
 
 MIDDLEWARE = [
@@ -63,7 +72,7 @@ ROOT_URLCONF = 'Sustainable_City_Management.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -131,3 +140,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
