@@ -6,8 +6,9 @@ from django.template import loader
 from django.http import HttpResponse, HttpResponseRedirect
 from CityEvents.models import CityEvents
 import datetime
-from APIHandling import callJcdecauxAPI
+from APIHandling import DublinBikesAPI
 from django.http import JsonResponse
+from APIHandling import CityEventAPI
 import json
 
 
@@ -20,13 +21,8 @@ def index(request):
     return HttpResponse(template.render(context, request))
 
 
-def EventsPerWeek(request):    
-    url = "https://www.eventbriteapi.com/v3/events/search/"
-
-    querystring = {"location.address":"Dublin","start_date.range_start":"2019-02-18T16:22:00Z","token":"DSL5CXCJDV7UDZLLMN7J"}
-    response = requests.request("GET", url, params=querystring)
-    cityEventData = json.loads(response.text)
-    
+def EventsPerWeek(request):
+    cityEventData = CityEventAPI.getEventsPerWeek()
     # # # for target_list in cityEventData['events']:
     # # # eventsDataList=getEventsData()
     template = loader.get_template('CityEvents/EventsPerWeek.html')

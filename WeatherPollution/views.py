@@ -1,51 +1,20 @@
 # Create your views here.
 from django.template import loader
 from django.http import HttpResponse, HttpResponseRedirect
-import logging
 import datetime
 from WeatherPollution.models import Weather as wq
-from WeatherPollution import csvValidation
-import csv;
-import urllib.request
-import os
-from django.utils.timezone import make_aware
-# Setting up logging
-logging.basicConfig(filename='WeatherPollution/logs/view.log', level=logging.DEBUG)
+import json
+from APIHandling import WeatherPollutionAPI
 
 
-def pull_weather_csv(csv_file):
-    try:
-        print('Beginning file download with urllib2...')
-        url = 'https://www.met.ie/latest-reports/observations/download'
-        urllib.request.urlretrieve(url, csv_file)
-
-    except IOError as e:
-        print(e)
-        print("IO Error in get weather CSV")
-
-
-def pushNewData():
-    # print the keys and values
-    old_file_path = 'D:/Trinity_DS/AdvancedSoftwareEngineernig/Project/Sustainable_City_Management/WeatherPollution/CSV/weather_old.csv'
-    new_csv_file  = 'D:/Trinity_DS/AdvancedSoftwareEngineernig/Project/Sustainable_City_Management/WeatherPollution/CSV/weather_new.csv'
-    fileExists = os.path.isfile(old_file_path)
-    if fileExists == False:
-        pull_weather_csv(old_file_path)
-        writeDatatoPostgres(old_file_path)
-    else:
-        pull_weather_csv(new_csv_file)
-        if csvValidation.csv_update_validate(old_file_path,new_csv_file) == False:
-            writeDatatoPostgres(new_csv_file)
-            pull_weather_csv(old_file_path)
-        else:
-            print("No change in file so no write operation required")
-def writeDatatoPostgres(csv_path):
-    with open(csv_path, newline='') as csvfile:
-        reader = csv.DictReader(csvfile)
+def writeDatatoPostgres():
+        latest_csv = WeatherPollutionAPI.pull_weather_csv()
+        csv_to_json = WeatherPollutionAPI.csv_to_json(latest_csv)
+        reader = json.loads(csv_to_json)
         last_update = datetime.datetime.now()
         for row in reader:
             Station = row['Station']
-            Temperature = row['Temperature (ÂºC)']
+            Temperature = row['Temperature']
             Weathercol = row['Weather']
             windspeed = row['Wind Speed (Kts)']
             windgust = row['Wind Gust (Kts)']
@@ -62,7 +31,7 @@ def writeDatatoPostgres(csv_path):
                 Weathercol = None
             if windspeed == '-' or windspeed == 'n/a' or windspeed == "":
                 windspeed = None
-            if windgust == '-'  or windgust == 'n/a' or windgust == "":
+            if windgust == '-' or windgust == 'n/a' or windgust == "":
                 windgust = None
             if winddirection == '-' or winddirection == 'n/a' or winddirection == "":
                 winddirection = None
@@ -82,11 +51,10 @@ def writeDatatoPostgres(csv_path):
                                     rainfall = rainfall,
                                     pressure = pressure,
                                     last_update=last_update)
-            #print(Weather)
             Weather.save()
 
 def index(request):
-    pushNewData()
+    writeDatatoPostgres()
     latest_question_list = []
     template = loader.get_template('WeatherPollution/index.html')
     context = {
