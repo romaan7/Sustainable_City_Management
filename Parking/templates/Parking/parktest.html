@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<body>
+	<svg />
+</body>
+<div id='container'></div>
+
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="//d3js.org/d3.geo.projection.v2.min.js"></script>
+    {% load static %}
+    <script src="{% static 'Parking/js/jeezy.min.js' %}"></script>
+    <script src="https://unpkg.com/d3-marcon/build/d3-marcon.min.js"></script>
+  <script>
+    const margin = 60;
+    const width = 1000 - 2 * margin;
+    const height = 600 - 2 * margin;
+
+    const svg = d3.select('svg');
+    const chart = svg.append('g')
+    .attr('transform', `translate(${margin}, ${margin})`);
+
+    const yScale = d3.scaleLinear()
+    .range([height, 0])
+    .domain([0, 100]);
+
+    chart.append('g')
+    .call(d3.axisLeft(yScale));
+
+    var x_var = "location";
+    var y_var = "noofspaces";
+    var parking_data = []
+    var d = []
+
+    d3.json("/Parking/parking_data", function(error, parkdata) {
+    //print(parkdata)
+    console.log(parkdata)
+    var obj = new Array();
+    //var spaces = {};
+    //for (feature[i] in parking_data)
+    for (i in parkdata['features'])
+    {
+        var obj = new Array();
+        //obj.noofspaces = parkdata["features"][i]["properties"]["location"];
+        obj.noofspaces = parkdata["features"][i]["properties"].noofspaces
+        obj.location = parkdata["features"][i]["properties"].location
+        obj.id = parkdata["features"][i].properties.id;
+        obj.spacetype = parkdata["features"][i].properties.spacetype;
+        //names.push(parkdata[i].name);
+      // parkdata.push(obj);
+       //spaces[i] = obj.noofspaces
+       parking_data[i] = obj
+          }
+       });
+
+
+
+    const xScale = d3.scaleBand()
+    .range([0, width])
+    .domain((parking_data.map(function(d){ return d.location})))
+    .padding(0.2)
+
+    chart.append('g')
+      .attr('transform', `translate(0, ${height})`)
+      .call(d3.axisBottom(xScale));
+
+</script>
