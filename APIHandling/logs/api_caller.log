@@ -15674,3 +15674,5 @@ Traceback (most recent call last):
     raise TemplateSyntaxError("'%s' tag with name '%s' appears more than once" % (bits[0], block_name))
 django.template.exceptions.TemplateSyntaxError: 'block' tag with name 'title' appears more than once
 WARNING:django.request:Not Found: /CityEvents/Calendar.css
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.jcdecaux.com:443
+DEBUG:urllib3.connectionpool:https://api.jcdecaux.com:443 "GET /vls/v1/stations?contract=Dublin&apiKey=29374861957fe56e1b065c24f9cf06f84ae8dce2 HTTP/1.1" 200 4845
