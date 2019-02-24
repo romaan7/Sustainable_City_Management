@@ -21,7 +21,7 @@ urlpatterns = [
     path('', include('Main.urls')),
     path('admin/', admin.site.urls),
     path('APIHandling/', include('APIHandling.urls')),
-    #path('BusLuas/', include('BusLuas.urls')),
+    path('BusLuas/', include('BusLuas.urls')),
     path('Bike/', include('Bike.urls')),
     path('Authentication/', include('django.contrib.auth.urls')),
     path('CityEvents/', include('CityEvents.urls')),
