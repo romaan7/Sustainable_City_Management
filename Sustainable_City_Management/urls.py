@@ -26,4 +26,5 @@ urlpatterns = [
     path('Authentication/', include('django.contrib.auth.urls')),
     path('CityEvents/', include('CityEvents.urls')),
     path('WeatherPollution/', include('WeatherPollution.urls')),
+    path('Parking/', include('Parking.urls')),
 ]
