@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'Main.apps.MainConfig',
     'CityEvents.apps.CityeventsConfig',
     'WeatherPollution',
+    'Parking',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
