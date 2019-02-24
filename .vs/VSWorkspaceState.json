@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\APIHandling\\__pycache__",
+    "\\Bike\\migrations",
+    "\\BusLuas\\migrations\\__pycache__",
+    "\\CarTraffic\\migrations",
+    "\\Sustainable_City_Management"
+  ],
+  "SelectedNode": "\\Sustainable_City_Management\\settings.py",
+  "PreviewInSolutionExplorer": false
+}
