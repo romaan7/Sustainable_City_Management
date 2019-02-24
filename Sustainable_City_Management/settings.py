@@ -39,16 +39,22 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'APIHandling.apps.ApiHandlingConfig',
+<<<<<<< HEAD
+    'BusLuas.apps.BusLuasConfig',
+=======
     'Authentication.apps.AuthenticationConfig',
     'Bike.apps.BikeConfig',
     'Main.apps.MainConfig',
     'CityEvents.apps.CityeventsConfig',
+    'WeatherPollution',
+>>>>>>> 511c5457e15f39468c7d6d73a20912f3dbbbddf3
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
 ]
 
 MIDDLEWARE = [
