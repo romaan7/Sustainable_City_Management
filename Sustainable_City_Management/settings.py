@@ -39,7 +39,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'APIHandling.apps.ApiHandlingConfig',
-    #'BusLuas.apps.BusLuasConfig',
+    'BusLuas.apps.BusluasConfig',
     'Authentication.apps.AuthenticationConfig',
     'Bike.apps.BikeConfig',
     'Main.apps.MainConfig',
