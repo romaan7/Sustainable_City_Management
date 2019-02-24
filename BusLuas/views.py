@@ -13,7 +13,7 @@ import requests
 import logging
 import json
 from BusLuas.models import BusLuas as IrishRail
-from BusLuas import IrishRailXML
+from APIHandling import IrishRailAPI as IrishRailXML
 import urllib.request, urllib.parse, urllib.error
 from urllib.request import urlopen
 import xml.etree.cElementTree as ET

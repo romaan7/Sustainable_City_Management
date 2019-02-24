@@ -34,21 +34,3 @@ class BusLuas(models.Model):
         return self.StationCode
     def natural_key(self):
         return self.my_natural_key
-    #def __str__(self):
-    #    return self.Origin
-    #def __str__(self):
-    #    return self.Destination
-    #def __str__(self):
-    #    return self.Status
-    #def __str__(self):
-    #    return self.Lastlocation
-    #def __str__(self):
-    #    return self.Duein
-    #def __str__(self):
-    #    return self.Late
-    #def __str__(self):
-    #    return self.Direction
-    #def __str__(self):
-    #    return self.Traintype
-    #def __str__(self):
-    #    return self.Locationtype

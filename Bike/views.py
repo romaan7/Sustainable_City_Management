@@ -2,12 +2,12 @@ from django.template import loader
 from django.http import HttpResponse, HttpResponseRedirect
 from Bike.models import Bike
 import datetime
-from APIHandling import callJcdecauxAPI
+from APIHandling import DublinBikesAPI
 from django.http import JsonResponse
 from django.utils.timezone import make_aware
 
 def pushNewData():
-    data = callJcdecauxAPI.getLatestData()
+    data = DublinBikesAPI.getLatestData()
     for row in data:
         for key in row:
             number = row['number']

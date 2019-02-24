@@ -3,7 +3,7 @@ from array import array
 from django.template import loader
 from django.http import HttpResponse, HttpResponseRedirect
 from Parking.models import Parking as Parking1
-from Parking import callAPI
+from APIHandling import ParkingAPI
 from django.http import JsonResponse
 
 from django.utils.timezone import make_aware
@@ -16,7 +16,7 @@ import re
 
 def pushNewData():
 #print('hi')
-    data = callAPI.getLatestData()
+    data = ParkingAPI.getLatestData()
 #print(data)
     # print the keys and values
     for feature in data['features']:
