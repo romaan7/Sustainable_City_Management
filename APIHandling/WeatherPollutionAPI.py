@@ -11,10 +11,12 @@ CURRENT_TIMESTAMP = time.strftime("%Y%m%d-%H%M%S")
 logging.basicConfig(filename='logs/api_caller.log', level=logging.DEBUG)
 
 def pull_weather_csv():
-    csv_file_name = "weather_files/weatherCSV-" + CURRENT_TIMESTAMP + ".csv"
+    csv_file_name = "./APIHandling/weather_files/weatherCSV-" + CURRENT_TIMESTAMP + ".csv"
     url = 'https://www.met.ie/latest-reports/observations/download'
     try:
-        list_of_files = glob.glob('weather_files/*.csv')  # * means all if need specific format then *.csv
+        print(os.listdir('.'))
+        list_of_files = glob.glob('./APIHandling/weather_files/*.csv')
+        print(list_of_files)
         last_file = max(list_of_files, key=os.path.getctime)
         urllib.request.urlretrieve(url, csv_file_name)
         if csv_update_validate(last_file, csv_file_name):
