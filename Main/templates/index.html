@@ -2,11 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>{% block title %}Django Auth Tutorial{% endblock %}</title>
+  <title>{% block title %} Sustainable City Management {% endblock %}</title>
 </head>
 <body>
 <H1>Welcome</H1>
 <p>GO TO <a  href="/Bike">Bike</a></p>
+<p>GO TO <a  href="/CityEvents">CityEvents</a></p>
+<p>GO TO <a  href="/BusLuas">BusLuas</a></p>
+<p>GO TO <a  href="/Parking">Parking</a></p>
+<p>GO TO <a  href="/WeatherPollution">WeatherPollution</a></p>
+<p>GO TO <a  href="/CarTraffic">CarTraffic</a></p>
   <main>
 {% block content %}
 {% if user.is_authenticated %}
