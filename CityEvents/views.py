@@ -47,7 +47,7 @@ def EventsPerWeek(request):
     }
     return HttpResponse(template.render(context, request))
 
-def monthView(request):
+def MonthView(request):
     template = loader.get_template('CityEvents/MonthView.html')
     context = {
         'data': [],
