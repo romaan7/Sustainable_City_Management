@@ -128,6 +128,5 @@ def irishrail_data(request):
 def IrishRailData(request):
     # vsar data=CityEvents.objects.values_list('nametext', 'startutc', named=True)
     queryset = list(IrishRail.objects.filter().values())
-    # data = CityEvents.objects.all()
-    print(queryset)
+    #print(queryset)
     return JsonResponse(queryset, safe=False)
