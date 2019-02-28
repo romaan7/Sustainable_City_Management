@@ -51,3 +51,4 @@ def SHA256(fname):
         bytes = f.read()
         readable_hash = hashlib.sha256(bytes).hexdigest();
     return readable_hash
+#
