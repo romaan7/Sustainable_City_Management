@@ -6,44 +6,73 @@
     <script src="main.js"></script> -->
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.jqueryui.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.jqueryui.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
 
 </head>
 <body>
 
-    <table id="example" class="display" style="width:100%">
+    <table id="example" class="display datatable" style="width:100%">
         <thead>
             <tr>
-                <th>StationCode</th>
-                <th>StationFullName</th>
-                <th>Origin</th>
-                <th>Destination</th>
+                <th class="third">TrainCode</th>
+                <th>Traindate</th>
+                <th class="third">StationCode</th>
+                <th class="third">StationFullName</th>
+                <th class="third">Origin</th>
+                <th class="third">Destination</th>
+                <th>Duein</th>
+                <th class="third">Exparrival</th>
+                <th class="third">Expdepart</th>
+                <th class="third">Direction</th>
             </tr>
         </thead>
         <tfoot>
-            <tr>
-                <th>StationCode</th>
-                <th>StationFullName</th>
-                <th>Origin</th>
-                <th>Destination</th>
-            </tr>
+            <tr></tr>
         </tfoot>
     </table>
     <script>
         $(document).ready(function () {
             $('#example').DataTable({
                 "ajax": {
-                    url: "/BusLuas/IrishRailData",
-                    type: "GET",
-                    contentType: 'application/json'
+                    "url": "/BusLuas/IrishRailData",
+                    "type": "GET",
+                    "dataSrc":""
                 },
                 "columns": [
+                    { "data": "TrainCode" },
+                    { "data": "Traindate" },
                     { "data": "StationCode" },
                     { "data": "StationFullName" },
                     { "data": "Origin" },
-                    { "data": "Destination" }
+                    { "data": "Destination" },
+                    { "data": "Duein" },
+                    { "data": "Exparrival" },
+                    { "data": "Expdepart" },
+                    { "data": "Direction" },
 
-                ]
+                ],
+                initComplete: function () {
+                    this.api().columns().every(function () {
+                        var column = this;
+                        var select = $('<select><option value=""></option></select>')
+                            .appendTo($(column.header()))
+                            .on('change', function () {
+                                var val = $.fn.dataTable.util.escapeRegex(
+                                    $(this).val()
+                                );
+
+                                column
+                                    .search(val ? '^' + val + '$' : '', true, false)
+                                    .draw();
+                            });
+
+                        column.data().unique().sort().each(function (d, j) {
+                            select.append('<option value="' + d + '">' + d + '</option>')
+                        });
+                    });
+                }
             });
         });
     </script>

@@ -26,11 +26,4 @@ class BusLuas(models.Model):
     Traintype = models.CharField(max_length=100, null=True)
     Locationtype  = models.CharField(max_length=100, null=True)
 
-    def __str__(self):
-        return self.TrainCode
-    def __str__(self):
-        return self.StationFullName
-    def __str__(self):
-        return self.StationCode
-    def natural_key(self):
-        return self.my_natural_key
+    
