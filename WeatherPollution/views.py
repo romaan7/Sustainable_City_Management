@@ -62,3 +62,17 @@ def index(request):
     }
     return HttpResponse(template.render(context, request))
 
+def weatherData(request):
+    queryset = list(wq.objects.filter(Station='Dublin').values())
+    # data = CityEvents.objects.all()
+    #print(queryset)
+    return JsonResponse(queryset, safe=False)
+
+def interactiveLine(request):
+
+    template = loader.get_template('WeatherPollution/interactiveLine.html')
+
+    context = {
+       'data': [],
+    }
+    return HttpResponse(template.render(context, request))
