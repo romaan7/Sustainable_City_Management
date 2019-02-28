@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class BusluasConfig(AppConfig):
+class BusLuasConfig(AppConfig):
     name = 'BusLuas'
