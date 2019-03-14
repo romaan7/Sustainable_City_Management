@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<head>
+	<script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/DB381AA9-BB12-394D-B050-21A212A797A0/main.js" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="http://gc.kis.v2.scr.kaspersky-labs.com/77798AB8-F07B-8C44-91AB-0C4539FD5241/abn/main.css"/><style>
+
+	.axis {
+	  font: 10px sans-serif;
+	}
+
+	.axis path,
+	.axis line {
+	  fill: none;
+	  stroke: #000;
+	  shape-rendering: crispEdges;
+	}
+	.bar:hover {
+    fill: orangered ;
+    }
+    .tooltip{
+      position      : absolute;
+      text-align    : center;
+      max-width     : 100px;
+      max-height    : 150px;
+      padding       : 8px;
+      border        : none;
+      border-radius : 8px;
+      margin-top    : -30px;
+      font          : 10px sans-serif;
+      background    : black;
+      color         : white;
+      pointer-events: none;
+  }
+
+	</style>
+</head>
+
+<body>
+<div id='container'></div>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+
+<script>
+
+var margin = {top: 20, right: 20, bottom: 250, left: 40},
+    width = 1350 - margin.left - margin.right,
+    height = 600 - margin.top - margin.bottom;
+
+// Parse the date / time
+var	parseDate = d3.time.format("%Y-%m").parse;
+
+var x = d3.scale.ordinal().rangeRoundBands([0, width], .05);
+
+var y = d3.scale.linear().range([height, 0]);
+
+ var parking_data = []
+ var d = []
+
+ d3.json("/Parking/parking_data", function(error, parkdata) {
+    //print(parkdata)
+    console.log(parkdata)
+    var obj = new Array();
+    //var spaces = {};
+    //for (feature[i] in parking_data)
+    for (i in parkdata['features'])
+      {
+         var obj = new Array();
+         //obj.noofspaces = parkdata["features"][i]["properties"]["location"];
+         obj.noofspaces = parkdata["features"][i]["properties"].noofspaces
+         obj.location = parkdata["features"][i]["properties"].location
+         obj.id = parkdata["features"][i].properties.id;
+         obj.spacetype = parkdata["features"][i].properties.spacetype;
+         //names.push(parkdata[i].name);
+         // parkdata.push(obj);
+         //spaces[i] = obj.noofspaces
+         parking_data[i] = obj
+      }
+
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom")
+    //.tickFormat(d3.time.format("%Y-%m"));
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+   // .ticks(10);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+
+
+  x.domain(parking_data.map(function(d) { return d.location; }));
+  y.domain([0, d3.max(parking_data, function(d) { return d.noofspaces; })]);
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis)
+    .selectAll("text")
+      .style("text-anchor", "end")
+      .attr("dx", "-.8em")
+      .attr("dy", "-.55em")
+      .attr("transform", "rotate(-90)" );
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("Value ($)");
+
+  svg.selectAll("bar")
+      .data(parking_data)
+    .enter().append("rect")
+      .style("fill", "steelblue")
+      .attr("x", function(d) { return x(d.location); })
+      .attr("width", x.rangeBand())
+      .attr("y", function(d) { return y(d.noofspaces); })
+      .attr("height", function(d) { return height - y(d.noofspaces);
+       })
+      .on('mouseover', mouseover)
+      .on('mousemove', mousemove)
+      .on('mouseout', mouseout);
+
+x_var = 'location'
+    // tooltips
+    var div = d3.select('#container').append('div')
+        .attr('class', 'tooltip')
+        .style('display', 'none')
+        .style("fill", "orangered");
+  function mouseover(){
+        div.style('display', 'inline')
+        div.style("fill", "orangered");
+  }
+  function mousemove(){
+        var d = d3.select(this).data()[0]
+        div
+            .html(d.id +'<hr>'+  d.spacetype +'<hr>'+ d.noofspaces +'<hr>'+ d.location )
+            .style('left', (d3.event.pageX - 34) + 'px')
+            .style('top', (d3.event.pageY - 12) + 'px')
+            .style("fill", "orangered");
+    }
+  function mouseout(){
+        div.style('display', 'none')
+        div.style("fill", "orangered");
+  }
+});
+
+</script>
+
+</body>
