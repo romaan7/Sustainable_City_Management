@@ -1,9 +1,3 @@
-from django.shortcuts import render
-import dateutil.parser
-import datetime
-from dateutil.parser import parse
-from django.utils import formats
-from django.utils import formats
 from django.template import loader
 from django.http import Http404
 from django.http import HttpResponse, HttpResponseRedirect
