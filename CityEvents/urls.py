@@ -7,6 +7,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('EventsPerWeek', views.EventsPerWeek, name='EventsPerWeek'),
     path('MonthView', views.MonthView, name='MonthView'),
+    path('ListEventData', views.ListEventData, name='ListEventData'),
     path('CityEventData', views.CityEventData, name='CityEventData'),
     
 ]
