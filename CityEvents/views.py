@@ -1,3 +1,4 @@
+from django.template.response import TemplateResponse
 from django.shortcuts import render
 import requests
 
@@ -59,5 +60,18 @@ def CityEventData(request):
     queryset = list(CityEvents.objects.filter().values())
     # data = CityEvents.objects.all()
     return JsonResponse(queryset, safe=False)
+
+
+def ListEventData(request):
+    template = loader.get_template('CityEvents/animations.html')
+    queryset = list(CityEvents.objects.filter().values())
+    print(queryset)
+    #list = ['Bern','Bob','Eufronio','Epifanio','El pug']
+    response = TemplateResponse(request, 'CityEvents/animations.html', {'eventList':queryset})
+    context = {
+        'data': [],
+    }
+    # return HttpResponse(template.render(context, request))
+    return response
 
 
