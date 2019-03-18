@@ -2,9 +2,14 @@
 <html class="no-js" lang="">
 
 <head>
+    <style>
+        .col-lg-9 {
+            width: 100% !important;
+        }
+    </style>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Dashboard One | Notika - Notika Admin Template</title>
+    <title>Dashboard Two | Notika - Notika Admin Template</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
@@ -62,154 +67,6 @@
     <!-- modernizr JS
         ============================================ -->
     <script src="{% static 'Main/js/vendor/modernizr-2.8.3.min.js' %}"></script>
-    <script src="http://d3js.org/d3.v4.min.js" language="JavaScript"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script>
-   // var i = 0; // index of data to iterate.
-var temp = []; // where we store the result of the query.
-var interval = 1000;  
-var name = "";  
-var bikes = "";
-var delays = "";
-        $(document).ready(function () {
-            $.ajax({
-                url: "/send_city_json",
-                type: "GET",
-                success: function (data) {
-                    var today = new Date();
-                    var dd = today.getDate();
-                    var mm = today.getMonth() + 1; //January is 0!
-
-                    var yyyy = today.getFullYear();
-                    if (dd < 10) {
-                      dd = '0' + dd;
-                    } 
-                    if (mm < 10) {
-                      mm = '0' + mm;
-                    } 
-                    var today = dd + '/' + mm + '/' + yyyy;
-                    
-                    $.each(data, function (i,item) {
-                    
-                    var dateString = data[i].endutc;
-                    var currentTime = new Date((dateString ));
-                    var month = currentTime.getMonth() + 1;
-                    var day = currentTime.getDate();
-                    var year = currentTime.getFullYear();
-                    var date = day + "/" + month + "/" + year;
-                      // ------------------TODo---------------------//
-                      if(date == '10/3/2019') //replace withtoday
-                      { 
-                       
-                      // console.log(data[i]);
-                       var index = i;                   
-                       temp = temp.concat(index);
-
-                      }
-                     
-                    });
-                
-                    for (var j = 0; j < temp.length; j++) {
-                     //window.setInterval(function(){
-                     name = name + ";" + (data[temp[j]].nametext);
-                     
-                   }
-                },
-                error: function (error) {
-                    console.log("Error:");
-                    console.log(error);
-                }
-            })
-        });
-
-            $.ajax({
-                url: "/send_bike_json",
-                type: "GET",
-                success: function (data_bike) {
-                    $.each(data_bike, function (i,item) {
-                      { 
-                        
-                        bikes = bikes + " " + data_bike[i].available_bikes + ", " + data_bike[i].name + "; ";
-                        
-                      }
-                    })
-                },
-                error: function (error) {
-                    console.log("Error:");
-                    console.log(error);
-                }
-            })
-       
-       $.ajax({
-                url: "/send_rail_json",
-                type: "GET",
-                success: function (data_rail) {
-                    $.each(data_rail, function (i,item) {
-                      { 
-                        
-                        
-                        delays = delays + " " +  data_rail[i].TrainCode + "<br>" + data_rail[i].Late + " mins </br> ;"; //+ " " + data_rail[i].Direction + "; " ;
-                      }
-                    })
-                    //console.log(delays);
-                },
-                error: function (error) {
-                    console.log("Error:");
-                    console.log(error);
-                }
-            })
-   //set labels every 5 seconds  
-   function callEvents(){
-    var nametext = name.split(";");
-    // console.log(nametext[2]);
-     for(i=1; i < nametext.length; i++ )
-     {
-         (function(i){
-
-        window.setTimeout(function(){
-         $(".getEvents").html(nametext[i]);
-            }, i * 5000);
-
-        }(i));
-     }
-   }
-   function callBikes(){
-    var bike_info = bikes.split(";");
-    // console.log(nametext[2]);
-     for(i=1; i < bike_info.length; i++ )
-     {
-         (function(i){
-
-        window.setTimeout(function(){
-         $(".getBikes").html(bike_info[i]);
-            }, i * 5000);
-
-        }(i));
-     }
-   }
-   function callRail(){
-    var delay = delays.split(";");
-    // console.log(nametext[2]);
-     for(i=1; i < delay.length; i++ )
-     {
-         (function(i){
-
-        window.setTimeout(function(){
-         $(".getDelays").html(delay[i]);
-            }, i * 5000);
-
-        }(i));
-     }
-   }
-setInterval(function() {
-  callEvents();
-  callBikes();
-  callRail();
-}, 6000);
-
-    </script>
-
-
 </head>
 
 <body>
@@ -222,9 +79,7 @@ setInterval(function() {
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="logo-area">
-                        <div class="curved-ctn">
-                            <h2 style="color:snow">Sustainable City Management</h2>
-                        </div>
+                        <a href="#"><h1 style="color:snow"> Weather </h1></a>
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
@@ -601,7 +456,29 @@ setInterval(function() {
                                         </li>
                                     </ul>
                                 </li>
-                              
+                                <li>
+                                    <a data-toggle="collapse" data-target="#Pagemob" href="#">Pages</a>
+                                    <ul id="Pagemob" class="collapse dropdown-header-top">
+                                        <li>
+                                            <a href="templates/contact.html">Contact</a>
+                                        </li>
+                                        <li>
+                                            <a href="templates/invoice.html">Invoice</a>
+                                        </li>
+                                        <li>
+                                            <a href="templates/typography.html">Typography</a>
+                                        </li>
+                                        <li>
+                                            <a href="templates/color.html">Color</a>
+                                        </li>
+                                        <li>
+                                            <a href="login-register.html">Login Register</a>
+                                        </li>
+                                        <li>
+                                            <a href="templates/404.html">404 Page</a>
+                                        </li>
+                                    </ul>
+                                </li>
                             </ul>
                         </nav>
                     </div>
@@ -645,7 +522,7 @@ setInterval(function() {
                         <div id="Home" class="tab-pane in active notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
                                 <li>
-                                    <a href="#">Home Dashboard</a>
+                                    <a href="/">Home Dashboard</a>
                                 </li>
                                 <li>
                                     <a href="index_2">Dublin bikes </a>
@@ -660,12 +537,8 @@ setInterval(function() {
                                     <a href="index_5">Weather</a>
                                 </li>
                                 <li>
-                                    <a href="index_6">Car Park</a>
-                                </li>
-                                <li>
                                     <a href="templates/analytics.html">Analytics</a>
                                 </li>
-
                             </ul>
                         </div>
                         <div id="mailbox" class="tab-pane notika-tab-menu-bg animated flipInX">
@@ -805,48 +678,6 @@ setInterval(function() {
     </div>
     <!-- Main Menu area End-->
     <!-- Start Status area -->
-    <div class="notika-status-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
-                        <div class="website-traffic-ctn">
-                            <h2><span class="counter">6</span> °C </h2>
-                            <p>Weather Information</p>
-                        </div>
-                        <div class="sparkline-bar-stats1">9,4,8,6,5,6,4,8,3,5,9,5</div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
-                        <div class="website-traffic-ctn">
-                            <h2><span class="getBikes"></span></h2>
-                            <p>Available Bikes</p>
-                        </div>
-                        <div class="sparkline-bar-stats2">1,4,8,3,5,6,4,8,3,3,9,5</div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
-                        <div class="website-traffic-ctn">
-                            <h2><span class="getEvents"></span></h2>
-                            <p>Today's Events</p>
-                        </div>
-                        <div class="sparkline-bar-stats3">4,2,8,2,5,6,3,8,3,5,9,5</div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
-                        <div class="website-traffic-ctn">
-                            <h2><span class="counter getDelays"></span></h2>
-                            <p>Train Delays</p>
-                        </div>
-                        <div class="sparkline-bar-stats4">2,4,8,4,5,7,4,7,3,5,7,5</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- End Status area-->
     <!-- Start Sale Statistic area-->
     <div class="sale-statistic-area">
@@ -856,465 +687,27 @@ setInterval(function() {
                     <div class="sale-statistic-inner notika-shadow mg-tb-30">
                         <div class="curved-inner-pro">
                             <div class="curved-ctn">
-                                <h2>Weather Statistics</h2>
+                                <h2>City Events</h2>
                                 <p></p>
                             </div>
                         </div>
-                        <div id="curved-line-chart" class="flot-chart-sts flot-chart"></div>
+                        <div>
+                            <iframe src="WeatherPollution" width="1100" height="650"></iframe>
+                            <!--<embed src="Bike/bike_emu" width="1200" height="600">-->
+                        </div>
+                        <!--<div id="curved-line-chart" class="flot-chart-sts flot-chart"></div>-->
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
-                    <div class="statistic-right-area notika-shadow mg-tb-30 sm-res-mg-t-0">
-                        <div class="past-day-statis">
-                            <h2>For The Past 30 Days</h2>
-                            <p></p>
-                        </div>
-                        <div class="dash-widget-visits"></div>
-                        <div class="past-statistic-an">
-                            <div class="past-statistic-ctn">
-                                <h3><span class="counter"></span>22</h3>
-                                <p>Total Available Cycles</p>
-                            </div>
-                            <div class="past-statistic-graph">
-                                <div class="stats-bar"></div>
-                            </div>
-                        </div>
-                        <div class="past-statistic-an">
-                            <div class="past-statistic-ctn">
-                                <h3><span class="counter">22</span></h3>
-                                <p>Total Events this month</p>
-                            </div>
-                            <div class="past-statistic-graph">
-                                <div class="stats-line"></div>
-                            </div>
-                        </div>
-                        <div class="past-statistic-an">
-                            <div class="past-statistic-ctn">
-                                <h3><span class="counter">12</span></h3>
-                                <p>Total Delays</p>
-                            </div>
-                            <div class="past-statistic-graph">
-                                <div class="stats-bar-2"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
     <!-- End Sale Statistic area-->
     <!-- Start Email Statistic area-->
-    <div class="notika-email-post-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <div class="email-statis-inner notika-shadow">
-                        <div class="email-ctn-round">
-                            <div class="email-rdn-hd">
-                                <h2>Bike Statistics</h2>
-                            </div>
-                            <div class="email-statis-wrap">
-                                <div class="email-round-nock">
-                                    <input type="text" class="knob" value="0" data-rel="55" data-linecap="round" data-width="130" data-bgcolor="#E4E4E4" data-fgcolor="#00c292" data-thickness=".10" data-readonly="true">
-                                </div>
-                                <div class="email-ctn-nock">
-                                    <p>Total Bikes</p>
-                                </div>
-                            </div>
-                            <div class="email-round-gp">
-                                <div class="email-round-pro">
-                                    <div class="email-signle-gp">
-                                        <input type="text" class="knob" value="0" data-rel="75" data-linecap="round" data-width="90" data-bgcolor="#E4E4E4" data-fgcolor="#00c292" data-thickness=".10" data-readonly="true" disabled>
-                                    </div>
-                                    <div class="email-ctn-nock">
-                                        <p>Total Available Bikes</p>
-                                    </div>
-                                </div>
-                                <div class="email-round-pro">
-                                    <div class="email-signle-gp">
-                                        <input type="text" class="knob" value="0" data-rel="35" data-linecap="round" data-width="90" data-bgcolor="#E4E4E4" data-fgcolor="#00c292" data-thickness=".10" data-readonly="true" disabled>
-                                    </div>
-                                    <div class="email-ctn-nock">
-                                        <p>Total Parking Available</p>
-                                    </div>
-                                </div>
-                                <div class="email-round-pro sm-res-ds-n lg-res-mg-bl">
-                                    <div class="email-signle-gp">
-                                        <input type="text" class="knob" value="0" data-rel="45" data-linecap="round" data-width="90" data-bgcolor="#E4E4E4" data-fgcolor="#00c292" data-thickness=".10" data-readonly="true" disabled>
-                                    </div>
-                                    <div class="email-ctn-nock">
-                                        <p>Total Bikes out of stand</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <div class="recent-post-wrapper notika-shadow sm-res-mg-t-30 tb-res-ds-n dk-res-ds">
-                        <div class="recent-post-ctn">
-                            <div class="recent-post-title">
-                                <h2>Dashboard 1</h2>
-                            </div>
-                        </div>
-                        <div class="recent-post-items">
-                            <!--<div class="recent-post-signle rct-pt-mg-wp">
-                                <a href="#">
-                                    <div class="recent-post-flex">
-                                        <div class="recent-post-img">
-                                            <img src="static/Main/img/post/2.jpg" alt="" />
-                                        </div>
-                                        <div class="recent-post-it-ctn">
-                                            <h2>Smith</h2>
-                                            <p>Nunc quis diam diamurabitur at dolor elementum, dictum turpis vel</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="recent-post-signle">
-                                <a href="#">
-                                    <div class="recent-post-flex rct-pt-mg">
-                                        <div class="recent-post-img">
-                                            <img src="static/Main/img/post/1.jpg" alt="" />
-                                        </div>
-                                        <div class="recent-post-it-ctn">
-                                            <h2>John Deo</h2>
-                                            <p>Nunc quis diam diamurabitur at dolor elementum, dictum turpis vel</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="recent-post-signle">
-                                <a href="#">
-                                    <div class="recent-post-flex rct-pt-mg">
-                                        <div class="recent-post-img">
-                                            <img src="static/Main/img/post/4.jpg" alt="" />
-                                        </div>
-                                        <div class="recent-post-it-ctn">
-                                            <h2>Malika</h2>
-                                            <p>Nunc quis diam diamurabitur at dolor elementum, dictum turpis vel</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="recent-post-signle">
-                                <a href="#">
-                                    <div class="recent-post-flex rct-pt-mg">
-                                        <div class="recent-post-img">
-                                            <img src="static/Main/img/post/2.jpg" alt="" />
-                                        </div>
-                                        <div class="recent-post-it-ctn">
-                                            <h2>Smith</h2>
-                                            <p>Nunc quis diam diamurabitur at dolor elementum, dictum turpis vel</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="recent-post-signle">
-                                <a href="#">
-                                    <div class="recent-post-flex rct-pt-mg">
-                                        <div class="recent-post-img">
-                                            <img src="static/Main/img/post/1.jpg" alt="" />
-                                        </div>
-                                        <div class="recent-post-it-ctn">
-                                            <h2>John Deo</h2>
-                                            <p>Nunc quis diam diamurabitur at dolor elementum, dictum turpis vel</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="recent-post-signle">
-                                <a href="#">
-                                    <div class="recent-post-flex rc-ps-vw">
-                                        <div class="recent-post-line rct-pt-mg">
-                                            <p>View All</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>-->
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <div class="recent-items-wp notika-shadow sm-res-mg-t-30">
-                        <div class="rc-it-ltd">
-                            <div class="recent-items-ctn">
-                                <div class="recent-items-title">
-                                    <h2>Dashboard 2</h2>
-                                </div>
-                            </div>
-                            <!--<div class="recent-items-inn">
-                                <table class="table table-inner table-vmiddle">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Name</th>
-                                            <th style="width: 60px">Price</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="f-500 c-cyan">4555</td>
-                                            <td>Samsung Galaxy Mega</td>
-                                            <td class="f-500 c-cyan">$921</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="f-500 c-cyan">4556</td>
-                                            <td>Huawei Ascend P6</td>
-                                            <td class="f-500 c-cyan">$240</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="f-500 c-cyan">8778</td>
-                                            <td>HTC One M8</td>
-                                            <td class="f-500 c-cyan">$400</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="f-500 c-cyan">5667</td>
-                                            <td>Samsung Galaxy Alpha</td>
-                                            <td class="f-500 c-cyan">$870</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="f-500 c-cyan">7886</td>
-                                            <td>LG G3</td>
-                                            <td class="f-500 c-cyan">$790</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>-->
-                            <div id="recent-items-chart" class="flot-chart-items flot-chart vt-ct-it tb-rc-it-res"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- End Email Statistic area-->
     <!-- Start Realtime sts area-->
-    <div class="realtime-statistic-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <div class="realtime-wrap notika-shadow mg-t-30">
-                        <div class="realtime-ctn">
-                            <div class="realtime-title">
-                                <h2>Real time Traffic</h2>
-                            </div>
-                        </div>
-                        <div class="realtime-visitor-ctn">
-                            <div class="realtime-vst-sg">
-                                <h4><span class="counter">4,35,456</span></h4>
-                                <p> TBD </p>
-                            </div>
-                            <div class="realtime-vst-sg">
-                                <h4><span class="counter">4,566</span></h4>
-                                <p>TBD</p>
-                            </div>
-                        </div>
-                        <div class="realtime-map">
-                            <div class="vectorjsmarp" id="world-map"></div>
-                        </div>
-                        <div class="realtime-country-ctn realtime-ltd-mg">
-                            <h5>September 4, 21:44:02 (2 Mins 56 Seconds)</h5>
-                            <div class="realtime-ctn-bw">
-                                <div class="realtime-ctn-st">
-                                    <span><img src="static/Main/img/country/1.png" alt="" /></span> <span>United States</span>
-                                </div>
-                                <div class="realtime-bw">
-                                    <span>Firefox</span>
-                                </div>
-                                <div class="realtime-bw">
-                                    <span>Mac OSX</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="realtime-country-ctn">
-                            <h5>September 7, 20:44:02 (5 Mins 56 Seconds)</h5>
-                            <div class="realtime-ctn-bw">
-                                <div class="realtime-ctn-st">
-                                    <span><img src="static/Main/img/country/2.png" alt="" /></span> <span>Australia</span>
-                                </div>
-                                <div class="realtime-bw">
-                                    <span>Firefox</span>
-                                </div>
-                                <div class="realtime-bw">
-                                    <span>Mac OSX</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="realtime-country-ctn">
-                            <h5>September 9, 19:44:02 (10 Mins 56 Seconds)</h5>
-                            <div class="realtime-ctn-bw">
-                                <div class="realtime-ctn-st">
-                                    <span><img src="static/Main/img/country/3.png" alt="" /></span> <span>Brazil</span>
-                                </div>
-                                <div class="realtime-bw">
-                                    <span>Firefox</span>
-                                </div>
-                                <div class="realtime-bw">
-                                    <span>Mac OSX</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <div class="add-todo-list notika-shadow mg-t-30">
-                        <div class="realtime-ctn">
-                            <div class="realtime-title">
-                                <h2>Todo</h2>
-                            </div>
-                        </div>
-                        <!--<div class="card-box">
-                            <div class="todoapp">
-                                <div class="row">
-                                    <div class="col-sm-6 col-md-6 col-sm-6 col-xs-12">
-                                        <h4 id="todo-message"><span id="todo-remaining"></span> of <span id="todo-total"></span> remaining</h4>
-                                    </div>
-                                    <div class="col-sm-6 col-md-6 col-sm-6 col-xs-12">
-                                        <div class="notika-todo-btn">
-                                            <a href="#" class="pull-right btn btn-primary btn-sm" id="btn-archive">Archive</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="notika-todo-scrollbar">
-                                    <ul class="list-group no-margn todo-list" id="todo-list"></ul>
-                                </div>
-                                <div id="todo-form">
-                                    <div class="row">
-                                        <div class="col-sm-12 col-md-12 col-sm-12 col-xs-12 todo-inputbar">
-                                            <div class="form-group todo-flex">
-                                                <div class="nk-int-st">
-                                                    <input type="text" id="todo-input-text" name="todo-input-text" class="form-control" placeholder="Add new todo">
-                                                </div>
-                                                <div class="todo-send">
-                                                    <button class="btn-primary btn-md btn-block btn notika-add-todo" type="button" id="todo-btn-submit">Add</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>-->
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <div class="notika-chat-list notika-shadow mg-t-30 tb-res-ds-n dk-res-ds">
-                        <div class="realtime-ctn">
-                            <div class="realtime-title">
-                                <h2>Todo</h2>
-                            </div>
-                        </div>
-                        <div class="card-box">
-                            <!--<div class="chat-conversation">
-                                <div class="widgets-chat-scrollbar">
-                                    <ul class="conversation-list">
-                                        <li class="clearfix">
-                                            <div class="chat-avatar">
-                                                <img src="static/Main/img/post/1.jpg" alt="male">
-                                                <i>10:00</i>
-                                            </div>
-                                            <div class="conversation-text">
-                                                <div class="ctext-wrap">
-                                                    <i>John Deo</i>
-                                                    <p>
-                                                        Hello!
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="clearfix odd">
-                                            <div class="chat-avatar">
-                                                <img src="static/Main/img/post/2.jpg" alt="Female">
-                                                <i>10:01</i>
-                                            </div>
-                                            <div class="conversation-text">
-                                                <div class="ctext-wrap chat-widgets-cn">
-                                                    <i>Smith</i>
-                                                    <p>
-                                                        Hi, How are you? What about our next meeting?
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="clearfix">
-                                            <div class="chat-avatar">
-                                                <img src="static/Main/img/post/1.jpg" alt="male">
-                                                <i>10:01</i>
-                                            </div>
-                                            <div class="conversation-text">
-                                                <div class="ctext-wrap">
-                                                    <i>John Deo</i>
-                                                    <p>
-                                                        Yeah everything is fine
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="clearfix odd">
-                                            <div class="chat-avatar">
-                                                <img src="static/Main/img/post/2.jpg" alt="male">
-                                                <i>10:02</i>
-                                            </div>
-                                            <div class="conversation-text">
-                                                <div class="ctext-wrap chat-widgets-cn">
-                                                    <i>Smith</i>
-                                                    <p>
-                                                        Wow that's great
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="clearfix">
-                                            <div class="chat-avatar">
-                                                <img src="static/Main/img/post/1.jpg" alt="male">
-                                                <i>10:01</i>
-                                            </div>
-                                            <div class="conversation-text">
-                                                <div class="ctext-wrap">
-                                                    <i>John Deo</i>
-                                                    <p>
-                                                        Doing Better i am thinking about that..
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="clearfix odd">
-                                            <div class="chat-avatar">
-                                                <img src="static/Main/img/post/2.jpg" alt="male">
-                                                <i>10:02</i>
-                                            </div>
-                                            <div class="conversation-text">
-                                                <div class="ctext-wrap chat-widgets-cn">
-                                                    <i>Smith</i>
-                                                    <p>
-                                                        Wow, You also tallent man...
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>-->
-                                <div class="chat-widget-input">
-                                    <div class="row">
-                                        <div class="col-sm-12 col-md-12 col-sm-12 col-xs-12 chat-inputbar">
-                                            <div class="form-group todo-flex">
-                                                <div class="nk-int-st">
-                                                    <input type="text" class="form-control chat-input" placeholder="Enter your text">
-                                                </div>
-                                                <div class="chat-send">
-                                                    <button type="submit" class="btn btn-md btn-primary btn-block notika-chat-btn">Send</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!--</div>
+    </div>-->
     <!-- End Realtime sts area-->
     <!-- Start Footer area-->
     <div class="footer-copyright-area">
@@ -1323,7 +716,7 @@ setInterval(function() {
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="footer-copy-right">
                         <p>
-                            Copyright © 2018
+                            Copyright � 2018
                             . All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.
                         </p>
                     </div>
