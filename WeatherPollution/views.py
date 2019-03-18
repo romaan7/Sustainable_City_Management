@@ -5,11 +5,10 @@ import datetime
 from WeatherPollution.models import Weather as wq
 import json
 from APIHandling import WeatherPollutionAPI
+from django.db.models import Q
 
 
-def writeDatatoPostgres():
-        latest_csv = WeatherPollutionAPI.pull_weather_csv()
-        csv_to_json = WeatherPollutionAPI.csv_to_json(latest_csv)
+def writeDatatoPostgres(csv_to_json):
         reader = json.loads(csv_to_json)
         last_update = datetime.datetime.now()
         for row in reader:
@@ -53,8 +52,13 @@ def writeDatatoPostgres():
                                     last_update=last_update)
             Weather.save()
 
+
 def index(request):
-    writeDatatoPostgres()
+    latest_csv, csv_flag = WeatherPollutionAPI.pull_weather_csv()
+    csv_to_json = WeatherPollutionAPI.csv_to_json(latest_csv)
+    print(csv_flag)
+    if csv_flag:
+        writeDatatoPostgres(csv_to_json)
     latest_question_list = []
     template = loader.get_template('WeatherPollution/index.html')
     context = {
@@ -62,11 +66,23 @@ def index(request):
     }
     return HttpResponse(template.render(context, request))
 
+
 def weatherData(request):
-    queryset = list(wq.objects.filter(Station='Dublin').values())
+    max_date = wq.objects.latest('last_update').last_update
+    queryset = list(wq.objects.filter(Q(Station='Dublin') & Q(last_update__day=max_date.day)).values())
+    print("##################################################QueryOutput###################################")
+    print(queryset)
+    print(max_date.second)
+    print("##################################################QueryOutput###################################")
+    '''
+    wq.objects.filter(Station='Dublin').values()
+    max_year = Expo.objects.latest('date').date.year
+    expos = Expo.objects.filter(date__year=max_year)
+    '''
     # data = CityEvents.objects.all()
     #print(queryset)
     return JsonResponse(queryset, safe=False)
+
 
 def interactiveLine(request):
 
