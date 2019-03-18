@@ -19,10 +19,13 @@ def pull_weather_csv():
         last_file = max(list_of_files, key=os.path.getctime)
         urllib.request.urlretrieve(url, csv_file_name)
         if csv_update_validate(last_file, csv_file_name):
-            return csv_file_name
+            CSV_UPDATE_FLAG = True
+            return csv_file_name, CSV_UPDATE_FLAG
         else:
             print("The Downloaded file is same as old one. No need for newfile.")
-            return last_file
+            os.remove(csv_file_name)
+            CSV_UPDATE_FLAG = False
+            return last_file, CSV_UPDATE_FLAG
     except IOError as e:
         logging.exception('I/O Error with CSV file ' + str(e))
         raise e
@@ -40,9 +43,9 @@ def csv_to_json(csv_file):
 
 def csv_update_validate(old_csv_file,new_csv_file):
     if SHA256(old_csv_file) == SHA256(new_csv_file):
-        return True
-    else:
         return False
+    else:
+        return True
 
 
 def SHA256(fname):
