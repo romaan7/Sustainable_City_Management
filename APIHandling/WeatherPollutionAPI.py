@@ -8,7 +8,6 @@ import glob
 import os
 
 CURRENT_TIMESTAMP = time.strftime("%Y%m%d-%H%M%S")
-logging.basicConfig(filename='logs/api_caller.log', level=logging.DEBUG)
 
 def pull_weather_csv():
     csv_file_name = "./APIHandling/weather_files/weatherCSV-" + CURRENT_TIMESTAMP + ".csv"

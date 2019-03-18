@@ -1,6 +1,6 @@
 # Create your views here.
 from django.template import loader
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect,JsonResponse
 import datetime
 from WeatherPollution.models import Weather as wq
 import json
