@@ -1,25 +1,26 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <style>
-    text {
-    font-family: Helvetica, Arial, sans-serif;
-    cursor: pointer;
-}
-    body {
-      margin: 0;
-    }
-    .y .axis .domain {
-      display: none;
-    }
-    .bar:hover {
+<meta charset="utf-8">
+
+<head>
+	<script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/DB381AA9-BB12-394D-B050-21A212A797A0/main.js" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="http://gc.kis.v2.scr.kaspersky-labs.com/77798AB8-F07B-8C44-91AB-0C4539FD5241/abn/main.css"/><style>
+
+	.axis {
+	  font: 10px sans-serif;
+	}
+
+	.axis path,
+	.axis line {
+	  fill: none;
+	  stroke: #000;
+	  shape-rendering: crispEdges;
+	}
+	.bar:hover {
     fill: orangered ;
     }
     .tooltip{
       position      : absolute;
       text-align    : center;
-      max-width     : 150px;
+      max-width     : 100px;
       max-height    : 150px;
       padding       : 8px;
       border        : none;
@@ -30,181 +31,131 @@
       color         : white;
       pointer-events: none;
   }
-    </style>
-  </head>
-  <body>
-  <div id='container'></div>
 
-    <script src="https://d3js.org/d3.v4.min.js"></script>
-    <script src="//d3js.org/d3.geo.projection.v2.min.js"></script>
-    {% load static %}
-    <script src="{% static 'Parking/js/jeezy.min.js' %}"></script>
-    <script src="https://unpkg.com/d3-marcon/build/d3-marcon.min.js"></script>
-    <script>
+	</style>
+</head>
 
-    function test(t) {
-      if (t === undefined) {
-    }
-       return t;
-    }
-x
-    var x_var = "location";
-    var y_var = "noofspaces";
-    var parking_data = []
-    var d = []
+<body>
+<div id='container'></div>
 
-    d3.json("/Parking/parking_data", function(error, parkdata) {
+<script src="http://d3js.org/d3.v3.min.js"></script>
+
+<script>
+
+var margin = {top: 20, right: 20, bottom: 250, left: 40},
+    width = 1350 - margin.left - margin.right,
+    height = 600 - margin.top - margin.bottom;
+
+// Parse the date / time
+var	parseDate = d3.time.format("%Y-%m").parse;
+
+var x = d3.scale.ordinal().rangeRoundBands([0, width], .05);
+
+var y = d3.scale.linear().range([height, 0]);
+
+ var parking_data = []
+ var d = []
+
+ d3.json("/Parking/parking_data", function(error, parkdata) {
     //print(parkdata)
     console.log(parkdata)
     var obj = new Array();
     //var spaces = {};
     //for (feature[i] in parking_data)
     for (i in parkdata['features'])
-    {
-        var obj = new Array();
-        //obj.noofspaces = parkdata["features"][i]["properties"]["location"];
-        obj.noofspaces = parkdata["features"][i]["properties"].noofspaces
-        obj.location = parkdata["features"][i]["properties"].location
-        obj.id = parkdata["features"][i].properties.id;
-        obj.spacetype = parkdata["features"][i].properties.spacetype;
-        //names.push(parkdata[i].name);
-      // parkdata.push(obj);
-       //spaces[i] = obj.noofspaces
-       parking_data[i] = obj
-          }
-        });
-
-    //var stands = ["location","available_spaces"]
-    var stands = ["noofspaces"]
-    var names = ["Clondalkin Civic Offices", "Clondalkin Village", "Lucan Village", "Lucan Village", "Liffey Valley Shopping Centre", "Liffey Shopping Center(purple park)", "Hermitage Golf Course", "Corkagh Park", "Adamstown", "Newcastle Shopping Centre", "Newcastle Shopping Centre", "National Basketball Arean", "Tymon Park", "Coláiste de híde", "Tallaght Institiute Of Technology", "Brookfield Enterprise Center ", "Waterstown Park", "Ballyroan Library", "Tallaght Stadium", "Tallaght Leisure Centre", "Clondalkin Leisure Centre", "Crematorium Temple", "B&Q Liffey Valley", "Tesco Rathcoole", "Whitechurch Library", "Whitechurch Library", "County Hall", "South Dublin County Council Civic Offices", "Fettercairn Community Centre", "Killinarden Community Centre", "Quarryvale Community Centre", "Knockmitten Youth and Community Centre", "Saint Ronan's Community Centre", "Saint Aongus Community and Parish Centre", "Bawnogue Youth and Community Centre", "Jobstown Community Centre", "Earlsfort Residents Community Centre", "Killinarden Enterprise Park", "Brookfield Enterprise Centre", "Kiltalown House", "Clondalkin Library", "Castletymon Library", "Griffeen Valley Park- At Leisure Centre", "Rathcoole Village", "Lucan Village", "Saint Joseph's College", "Palmerstown Village", "Rathfarnham Village", "Rathfarnham Village", "Rathfarnham Village", "Rathfarnham Village", "Red Cow Park and Ride", "Shopping area", "Áras Rualach", "Adamstown Rail Station", "Hazelhatch and Celbridge Station", "Clondalkin / Fonthill Rail Station", "Camac Valley Caravan and Camping Park", "Sean Walsh Park", "Lucan Demense", "Griffeen Valley Park", "Bohernabreena Burial Ground", "Esker Burial Ground", "Saggart Burial Ground", "Griffeen Valley Park", "Griffeen Valley Park", "Dodder Valley Linear Park", "Dodder Valley Linear Park"];
-        names.sort();
-    var setup = d3.marcon()
-        .top(20)
-        .bottom(250)
-        .left(10)
-        .right(10)
-        .width(window.innerWidth)
-        .height(window.innerHeight);
-
-    setup.render();
-
-    var width = setup.innerWidth(), height = setup.innerHeight(), svg = setup.svg();
-
-    var color = d3.scaleOrdinal(["#fc8d62","#66c2a5"])
-
-    var x = d3.scaleBand()
-        .rangeRound([0, width])
-        .domain(names)
-        .padding(.25);
-
-    var y = d3.scaleLinear()
-        .rangeRound([height, 0]);
-
-    var x_axis = d3.axisBottom(x);
-
-    var y_axis = d3.axisRight(y)
-      .tickSize(width)
-      .tickFormat(function(d, i, ticks){ return i == ticks.length - 1 ? d + " value" : d; });
-
-    svg.append("g")
-        .attr("class", "x axis")
-        .attr("transform", "translate(0," + height + ")")
-        .call(x_axis)
-        .selectAll("text")
-    .attr("y", 0)
-    .attr("x", 9)
-    .attr("dy", ".15em")
-    .attr("transform", "rotate(90)")
-    .style("text-anchor", "start");
-
-    svg.append("g")
-        .attr("class", "y axis")
-        .call(customYAxis);
-
-    var stack = d3.stack()
-        .keys(stands)
-        .order(d3.stackOrderNone)
-        .offset(d3.stackOffsetNone);
-
-    redraw(updateDate());
-
-    d3.interval(function(){
-      redraw(updateDate());
-    }, 1000);
-
-    function redraw(data){
-
-      // update the y scale to maximum of bike stands number
-      //y.domain([0, d3.max(data.map(function(d){ return d.noofspaces }))]);
-      y.domain([0, d3.max(parking_data.map(function(d){ return d.noofspaces }))]);
-
-      svg.select(".y")
-        .transition()
-        .call(customYAxis);
-
-      // each data column (a.k.a "key" or "series") needs to be iterated over
-      // the variable stands represents the unique keys of the stacks
-      stands.forEach(function(key, key_index){
-
-        var bar = svg.selectAll(".bar-" + key)
-            .data(stack(data)[key_index], function(d){ return d.data[x_var] + "-" + key; });
-
-        bar
-          .transition()
-            .attr("x", function(d){ return x(d.data[x_var]); })
-            //.attr("y", function(d){ return y(d[1]); })
-            //.attr("y", spaces)
-            //.attr("height", function(d){ return y(d[0]) - y(d[1]); });
-            .attr("y", function(d){ return y(d.data[y_var]); })
-            .attr("height", function(d){return y(d.data[y_var]); });
-
-        bar.enter().append("rect")
-            .attr("class", function(d){ return "bar bar-" + key; })
-            .attr("x", function(d){ return x(d.data[x_var]); })
-            //.attr("y", function(d){ return y(d[1]); })
-            //.attr("height", function(d){ return y(d[0]) - y(d[1]); })
-            .attr("height", function(d){ d.data[y_var]; })
-            .attr("width", x.bandwidth())
-            .attr("fill", function(d){ return color(key); })
-        .on('mouseover', mouseover)
-        .on('mousemove', mousemove)
-        .on('mouseout', mouseout);
+      {
+         var obj = new Array();
+         //obj.noofspaces = parkdata["features"][i]["properties"]["location"];
+         obj.noofspaces = parkdata["features"][i]["properties"].noofspaces
+         obj.location = parkdata["features"][i]["properties"].location
+         obj.id = parkdata["features"][i].properties.id;
+         obj.spacetype = parkdata["features"][i].properties.spacetype;
+         //names.push(parkdata[i].name);
+         // parkdata.push(obj);
+         //spaces[i] = obj.noofspaces
+         parking_data[i] = obj
+      }
 
 
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom")
+    //.tickFormat(d3.time.format("%Y-%m"));
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+   // .ticks(10);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+
+
+  x.domain(parking_data.map(function(d) { return d.location; }));
+  y.domain([0, d3.max(parking_data, function(d) { return d.noofspaces; })]);
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis)
+    .selectAll("text")
+      .style("text-anchor", "end")
+      .attr("dx", "-.8em")
+      .attr("dy", "-.55em")
+      .attr("transform", "rotate(-90)" );
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("Value ($)");
+
+  svg.selectAll("bar")
+      .data(parking_data)
+    .enter().append("rect")
+      .style("fill", "steelblue")
+      .attr("x", function(d) { return x(d.location); })
+      .attr("width", x.rangeBand())
+      .attr("y", function(d) { return y(d.noofspaces); })
+      .attr("height", function(d) { return height - y(d.noofspaces);
+       })
+      .on('mouseover', mouseover)
+      .on('mousemove', mousemove)
+      .on('mouseout', mouseout);
+
+x_var = 'location'
     // tooltips
     var div = d3.select('#container').append('div')
         .attr('class', 'tooltip')
-        .style('display', 'none');
-    function mouseover(){
-        div.style('display', 'inline');
-    }
-    function mousemove(){
+        .style('display', 'none')
+        .style("fill", "orangered");
+  function mouseover(){
+        div.style('display', 'inline')
+        div.style("fill", "orangered");
+  }
+  function mousemove(){
         var d = d3.select(this).data()[0]
         div
-            .html(d.data[x_var] +'<hr>'+ d.data.id +'<hr>'+  d.data.spacetype )
+            .html(d.id +'<hr>'+  d.spacetype +'<hr>'+ d.noofspaces +'<hr>'+ d.location )
             .style('left', (d3.event.pageX - 34) + 'px')
-            .style('top', (d3.event.pageY - 12) + 'px');
+            .style('top', (d3.event.pageY - 12) + 'px')
+            .style("fill", "orangered");
     }
-    function mouseout(){
-        div.style('display', 'none');
-    }
+  function mouseout(){
+        div.style('display', 'none')
+        div.style("fill", "orangered");
+  }
+});
 
-      });
+</script>
 
-    }
-
-    function updateDate(data){
-      return parking_data.map(function(d){
-        return d;
-      });
-    }
-
-    function customYAxis(g) {
-      g.call(y_axis);
-      g.selectAll(".tick:not(:first-of-type) line").attr("stroke", "#777").attr("stroke-dasharray", "2,2");
-      g.selectAll(".tick text").attr("x", 4).attr("dy", -4);
-    }
-
-    </script>
-  </body>
-</html>
+</body>

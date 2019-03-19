@@ -2,8 +2,6 @@ import requests
 import logging
 import json
 
-BASE_DIR = "APIHandling/"
-logging.basicConfig(filename=BASE_DIR +'logs/api_caller.log', level=logging.DEBUG)
 
 def getLatestData():
     # Call API for dublin bikes
