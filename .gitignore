@@ -2,12 +2,7 @@ env
 *.DS_Store
 *.pyc
 __pycache__
-<<<<<<< HEAD
 htmlcov
 *.vscode
 .vs
-=======
-*.log
-htmlcov
-*.vscode
->>>>>>> 58b387aa21fdc2d083d5d464f1b51cf7180bc707
+
