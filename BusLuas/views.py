@@ -1,9 +1,3 @@
-from django.shortcuts import render
-# import dateutil.parser
-import datetime
-# from dateutil.parser import parse
-from django.utils import formats
-from django.utils import formats
 from django.template import loader
 from django.http import HttpResponse, HttpResponseRedirect
 from BusLuas.models import BusLuas as IrishRail
@@ -26,11 +20,9 @@ def IrishRailData(request):
     #print(queryset)
     return JsonResponse(queryset, safe=False)
 
-
 def DublinBusData(request):
     print('Testthe----------------')
     test=DublinBusAPI.getAllDublinBusStandInfo()
-    print(test)
     context = {
             'data': [],
         }
