@@ -26,7 +26,8 @@ def pull_weather_csv():
             else:
                 print("The Downloaded file is same as old one. No need for newfile.Removing new file")
                 CSV_UPDATE_FLAG = False
-                os.remove(csv_file_name)
+                if len(list_of_files)>1:
+                    os.remove(csv_file_name)
                 return last_file, CSV_UPDATE_FLAG
         else:
             print("test3")
