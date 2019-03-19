@@ -32,13 +32,11 @@ SECRET_KEY = '65@8(afkm)_$ep3&n%$dgpwdzb++i1e5@p1l%alhippm@#@ldn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['testsite.com', 'localhost', '127.0.0.1']
 
 # Application definition
 
 INSTALLED_APPS = [
-    'APIHandling.apps.ApiHandlingConfig',
     'BusLuas.apps.BusLuasConfig',
     'Authentication.apps.AuthenticationConfig',
     'Bike.apps.BikeConfig',
@@ -46,6 +44,7 @@ INSTALLED_APPS = [
     'CityEvents.apps.CityeventsConfig',
     'WeatherPollution',
     'Parking',
+    #'APIHandling.apps.ApiHandlingConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -140,3 +139,40 @@ USE_TZ = True
 STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+FIXTURE_DIRS = (
+   '/fixtures/',
+)
+#Roman : added logging settings
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
+            'style': '{',
+        },
+        'simple': {
+            'format': '{levelname} {message}',
+            'style': '{',
+        },
+    },
+
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'Logs/debug.log',
+            'formatter': 'verbose',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
+
+

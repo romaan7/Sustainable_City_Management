@@ -35,7 +35,7 @@
                 barWidth: .4,
                 order: 1,
                 lineWidth: 0,
-                fillColor: "#00c292"
+                fillColor: "#5D3F6A"
             }
         }],
         options = {
@@ -111,7 +111,7 @@
                     lineWidth: .2,
                     fill: .6
                 },
-                color: "#00c292",
+                color: "#5D3F6A",
                 shadowSize: 0
             },
             yaxis: {
@@ -208,9 +208,9 @@
         dataset = [{
             label: "Visits",
             data: data1,
-            color: "#00c292",
+            color: "#5D3F6A",
             points: {
-                fillColor: "#00c292",
+                fillColor: "#5D3F6A",
                 show: !0,
                 radius: 2
             },
