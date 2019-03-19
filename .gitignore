@@ -7,4 +7,3 @@ htmlcov
 .idea/workspace.xml
 .vs
 *.log
-Logs/debug.log
