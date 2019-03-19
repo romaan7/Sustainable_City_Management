@@ -1,0 +1,8 @@
+DEBUG 2019-03-19 17:06:38,931 utils 2628 15352 (0.003) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+DEBUG 2019-03-19 17:06:38,978 utils 2628 15352 (0.045) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()

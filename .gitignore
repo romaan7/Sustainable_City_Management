@@ -2,7 +2,11 @@ env
 *.DS_Store
 *.pyc
 __pycache__
-*.log
 htmlcov
 *.vscode
+<<<<<<< HEAD
 .idea/workspace.xml
+=======
+.vs
+*.log
+>>>>>>> cde8c91e8f369e2d8bda37db32407bd83e674815
