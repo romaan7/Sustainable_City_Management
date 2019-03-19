@@ -1,13 +1,5 @@
 from django.db import models
-
-'''
-class Parking(models.Model):
-    name = models.CharField(max_length=200)
-    data = JSONField()
-
-    def __str__(self):
-        return self.name
-'''
+from django.utils import timezone
 
 
 class Parking(models.Model):
@@ -21,3 +13,11 @@ class Parking(models.Model):
     lat = models.DecimalField(max_digits=12, decimal_places=9)
     long = models.DecimalField(max_digits=12, decimal_places=9)
     last_update = models.DateTimeField('date published', null=True)
+    cm_last_insert_dttm = models.DateTimeField(default=timezone.now, blank=True)
+
+class carparkData(models.Model):
+    name = models.CharField(max_length=50)
+    spaces = models.CharField(max_length=10, null=True) #This is char field because when full the api returns "FULL" insted of number
+    area = models.CharField(max_length=50)
+    Timestamp = models.DateTimeField('date published', null=True)
+    cm_last_insert_dttm = models.DateTimeField(default=timezone.now, blank=True)
