@@ -6,7 +6,7 @@ from django.template import loader
 from django.http import HttpResponse, HttpResponseRedirect
 from CityEvents.models import CityEvents
 from django.http import JsonResponse
-
+from django.template.response import TemplateResponse
 
 def index(request):
     template = loader.get_template('CityEvents/MonthView.html')
@@ -16,7 +16,13 @@ def CityEventData(request):
     queryset = list(CityEvents.objects.filter().values())
     # data = CityEvents.objects.all()
     return JsonResponse(queryset, safe=False)
-
+    
+def MonthView(request):
+    template = loader.get_template('CityEvents/MonthView.html')
+    context = {
+        'data': [],
+    }
+    return HttpResponse(template.render(context, request))
 
 def ListEventData(request):
     template = loader.get_template('CityEvents/animations.html')
