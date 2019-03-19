@@ -534,7 +534,10 @@
                                     <a href="index_3">Irish Rail </a>
                                 </li>
                                 <li>
-                                    <a href="WeatherPollution">Weather</a>
+                                    <a href="index_5">Weather</a>
+                                </li>
+                                <li>
+                                    <a href="index_6">Car Parking</a>
                                 </li>
                                 <li>
                                     <a href="templates/analytics.html">Analytics</a>
@@ -692,7 +695,7 @@
                             </div>
                         </div>
                         <div>
-                            <iframe src="CityEvents/MonthView" width="1100" height="650" style="over"></iframe>
+                            <iframe src="CityEvents/ListEventData" width="1100" height="650" style="over"></iframe>
                             <!--<embed src="Bike/bike_emu" width="1200" height="600">-->
                         </div>
                         <!--<div id="curved-line-chart" class="flot-chart-sts flot-chart"></div>-->
@@ -792,7 +795,7 @@
     <script src="{% static 'Main/js/main.js' %}"></script>
     <!-- tawk chat JS
         ============================================ -->
-    <script src="{% static 'Main/js/tawk-chat.js' %}"></script>
+    {% comment %} <script src="{% static 'Main/js/tawk-chat.js' %}"></script> {% endcomment %}
 </body>
 
 </html>
