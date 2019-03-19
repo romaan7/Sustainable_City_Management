@@ -71,6 +71,7 @@ var interval = 1000;
 var name = "";  
 var bikes = "";
 var delays = "";
+var temperature = "";
         $(document).ready(function () {
             $.ajax({
                 url: "/send_city_json",
@@ -126,10 +127,12 @@ var delays = "";
                 url: "/send_bike_json",
                 type: "GET",
                 success: function (data_bike) {
+                    
                     $.each(data_bike, function (i,item) {
+                    
                       { 
                         
-                        bikes = bikes + " " + data_bike[i].available_bikes + ", " + data_bike[i].name + "; ";
+                        bikes = bikes + " " + data_bike[i].available_bikes + ", " + (data_bike[i].name) + "; ";
                         
                       }
                     })
@@ -158,6 +161,43 @@ var delays = "";
                     console.log(error);
                 }
             })
+
+            $.ajax({
+                url: "/send_weather_json",
+                type: "GET",
+                success: function (data_weather) {
+                    var today = new Date();
+                    var dd = today.getDate();
+                    var mm = today.getMonth() + 1; //January is 0!
+                    var hh = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+                    var yyyy = today.getFullYear();
+                     
+                    var today = dd + '/' + mm + '/' + yyyy ;
+                    //console.log(today);
+                    $.each(data_weather, function (i,item) {
+                    var dateString = data_weather[i].last_update;
+                    var currentTime = new Date(dateString);
+                    var month = currentTime.getMonth() + 1;
+                    var day = currentTime.getDate();
+                    var year = currentTime.getFullYear();
+                    var hh = currentTime.getHours() + ":" + currentTime.getMinutes() + ":" + currentTime.getSeconds();
+                    var date = day + "/" + month + "/" + year ;
+                      if(date == today) 
+                      { 
+                       { 
+                          
+                         temperature = temperature + data_weather[i].Temperature + " °C , " +currentTime.getHours() + ":" + currentTime.getMinutes() + "<br> " + data_weather[i].Weathercol + " </br> ;";
+                       }
+                       console.log(data_weather[i]);
+                      }
+                    })
+                    
+                },
+                error: function (error) {
+                    console.log("Error:");
+                    console.log(error);
+                }
+            })
    //set labels every 5 seconds  
    function callEvents(){
     var nametext = name.split(";");
@@ -175,7 +215,7 @@ var delays = "";
    }
    function callBikes(){
     var bike_info = bikes.split(";");
-    // console.log(nametext[2]);
+   // console.log(bike_info);
      for(i=1; i < bike_info.length; i++ )
      {
          (function(i){
@@ -201,10 +241,39 @@ var delays = "";
         }(i));
      }
    }
+   function callWeather(){
+    var currentTemp = temperature.split(";");
+  //  console.log(currentTemp);
+     for(i=1 ; i < currentTemp.length; i++ )
+     {
+         
+         (function(i){
+
+        window.setTimeout(function(){
+         if(currentTemp[i].includes("Rain"))
+         {
+             $(".weatherImg").html(" <img class=weatherImg style=width:60%; style = float:right; src = '/static/Main/Sun.jpg' />");
+         }
+         if(currentTemp[i].includes("Sun"))
+         {
+             $(".weatherImg").html(" <img class=weatherImg style=width:60%; style = float:right; src = '/static/Main/Sun.jpg' />");
+         }
+
+         $(".getTemp").html(currentTemp[i]);
+            }, i * 5000);
+
+        }(i));
+     }
+   }
+  callEvents();
+  callBikes();
+  callRail();
+  callWeather();
 setInterval(function() {
   callEvents();
   callBikes();
   callRail();
+  callWeather();
 }, 6000);
 
     </script>
@@ -221,10 +290,12 @@ setInterval(function() {
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <div class="logo-area">
+                    <div class="">
                         <div class="curved-ctn">
-                            <!--<img src="static/Main/img/logo/logo1.png" alt="">-->
-                           <h2 style="color:snow">Sustainable City Management</h2>
+
+                            <!--<h1 style="color:snow">Sustainable City Management</h2>-->
+                            <img src="static/Main/img/logo/logo1.png" alt="">
+                           {% comment %} <h2 style="color:snow">Sustainable City Management</h2> {% endcomment %}
                         </div>
                     </div>
                 </div>
@@ -269,12 +340,13 @@ setInterval(function() {
                                 <li>
                                     <a data-toggle="collapse" data-target="#Charts" href="#">Home</a>
                                     <ul class="collapse dropdown-header-top">
-                                        <li><a href="templates/index.html">Dashboard One</a></li>
-                                        <li><a href="templates/index_2.html">Dashboard Two</a></li>
-                                        <li><a href="templates/index_3.html">Dashboard Three</a></li>
-                                        <li><a href="templates/index_4.html">Dashboard Four</a></li>
+                                        <li><a href="#">Home Dashboard</a></li>
+                                        <li><a href="index_2">Dublin bikes</a></li>
+                                        <li><a href="index_4">City Events Calendar</a></li>
+                                        <li><a href="index_3">Irish Rail</a></li>
+                                        <li><a href="index_5">Weather</a></li>
+                                        <li><a href="index_6">Weather</a></li>
                                         <li><a href="templates/analytics.html">Analytics</a></li>
-                                        <li><a href="templates/widgets.html">Widgets</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -568,10 +640,12 @@ setInterval(function() {
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                     <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
                         <div class="website-traffic-ctn">
-                            <h2><span class="counter">6</span> °C </h2>
-                            <p>Weather Information</p>
+                            <h2><span class="getTemp"></span></h2>
+                            <p>Weather</p>
                         </div>
-                        <div class="sparkline-bar-stats1">9,4,8,6,5,6,4,8,3,5,9,5</div>
+                        {% comment %} <span class="weatherImg"></span> {% endcomment %}
+                        <span><img src="static/Main/weather.png" style="width:40px; float:right; margin-left:15px;" alt="" /></span>
+                        {% comment %} <div class="sparkline-bar-stats1">9,4,8,6,5,6,4,8,3,5,9,5</div> {% endcomment %}
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
@@ -580,7 +654,7 @@ setInterval(function() {
                             <h2><span class="getBikes"></span></h2>
                             <p>Available Bikes</p>
                         </div>
-                        <div class="sparkline-bar-stats2">1,4,8,3,5,6,4,8,3,3,9,5</div>
+                         <span><img src="static/Main/bike.png" style="width:40px; float:right; margin-left:15px;" alt="" /></span>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
@@ -589,16 +663,16 @@ setInterval(function() {
                             <h2><span class="getEvents"></span></h2>
                             <p>Today's Events</p>
                         </div>
-                        <div class="sparkline-bar-stats3">4,2,8,2,5,6,3,8,3,5,9,5</div>
+                        <span><img src="/static/Main/calendar.png" style="width:40px; float:right; margin-left:15px;" alt=""></img></span>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                     <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
                         <div class="website-traffic-ctn">
-                            <h2><span class="counter getDelays"></span></h2>
+                            <h2><span class="getDelays"></span></h2>
                             <p>Train Delays</p>
                         </div>
-                        <div class="sparkline-bar-stats4">2,4,8,4,5,7,4,7,3,5,7,5</div>
+                        <span><img src="static/Main/delay.png" style="width:40px; float:right; margin-left:30px;" alt="" /></span>
                     </div>
                 </div>
             </div>
@@ -610,14 +684,15 @@ setInterval(function() {
         <div class="container">
             <div class="row">
                 <div class="col-lg-9 col-md-8 col-sm-7 col-xs-12">
-                    <div class="sale-statistic-inner notika-shadow mg-tb-30">
-                        <div class="curved-inner-pro">
+                    <div class="sale-statistic-inner notika-shadow mg-tb-30" style="height:340px;">
+                        <div class="curved-inner-pro" style="margin-bottom: 0px;">
                             <div class="curved-ctn">
-                                <h2>Weather Statistics</h2>
+                                <h2>Events Calendar</h2>
                                 <p></p>
                             </div>
                         </div>
-                        <div id="curved-line-chart" class="flot-chart-sts flot-chart"></div>
+                        <div><embed src = "CityEvents/MonthView" style="width:100%; height:265px;"></div>
+                        {% comment %} <div id="curved-line-chart" class="flot-chart-sts flot-chart"></div> {% endcomment %}
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
@@ -672,6 +747,9 @@ setInterval(function() {
                             </div>
                             <div class="email-statis-wrap">
                                 <div class="email-round-nock">
+
+                                    
+
                                     <input type="text" class="knob" value="0" data-rel="70" data-linecap="round" data-width="130" data-bgcolor="#E4E4E4" data-fgcolor="#00c292" data-thickness=".10" data-readonly="true">
                                 </div>
                                 <div class="email-ctn-nock">
@@ -681,7 +759,7 @@ setInterval(function() {
                             <div class="email-round-gp">
                                 <div class="email-round-pro">
                                     <div class="email-signle-gp">
-                                        <input type="text" class="knob" value="0" data-rel="75" data-linecap="round" data-width="90" data-bgcolor="#E4E4E4" data-fgcolor="#00c292" data-thickness=".10" data-readonly="true" disabled>
+                                        <input type="text" class="knob" value="0" data-rel="75" data-linecap="round" data-width="90" data-bgcolor="#E4E4E4" data-fgcolor="#5D3F6A" data-thickness=".10" data-readonly="true" disabled>
                                     </div>
                                     <div class="email-ctn-nock">
                                         <p>Total Available Bikes</p>
@@ -689,7 +767,7 @@ setInterval(function() {
                                 </div>
                                 <div class="email-round-pro">
                                     <div class="email-signle-gp">
-                                        <input type="text" class="knob" value="0" data-rel="35" data-linecap="round" data-width="90" data-bgcolor="#E4E4E4" data-fgcolor="#00c292" data-thickness=".10" data-readonly="true" disabled>
+                                        <input type="text" class="knob" value="0" data-rel="35" data-linecap="round" data-width="90" data-bgcolor="#E4E4E4" data-fgcolor="#5D3F6A" data-thickness=".10" data-readonly="true" disabled>
                                     </div>
                                     <div class="email-ctn-nock">
                                         <p>Total Parking Available</p>
@@ -697,7 +775,7 @@ setInterval(function() {
                                 </div>
                                 <div class="email-round-pro sm-res-ds-n lg-res-mg-bl">
                                     <div class="email-signle-gp">
-                                        <input type="text" class="knob" value="0" data-rel="45" data-linecap="round" data-width="90" data-bgcolor="#E4E4E4" data-fgcolor="#00c292" data-thickness=".10" data-readonly="true" disabled>
+                                        <input type="text" class="knob" value="0" data-rel="45" data-linecap="round" data-width="90" data-bgcolor="#E4E4E4" data-fgcolor="#5D3F6A" data-thickness=".10" data-readonly="true" disabled>
                                     </div>
                                     <div class="email-ctn-nock">
                                         <p>Total Bikes out of stand</p>
@@ -712,6 +790,7 @@ setInterval(function() {
                         <div class="recent-post-ctn">
                             <div class="recent-post-title">
                                 <h2>Dashboard 1</h2>
+                                
                             </div>
                         </div>
                         <div class="recent-post-items">

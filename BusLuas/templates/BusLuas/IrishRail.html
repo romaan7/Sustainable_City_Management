@@ -10,21 +10,29 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.jqueryui.min.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
 
+    <script>
+    .ui-widget-header{
+        background : #5D3F6A ! important;
+    }
+    .dataTables_wrapper .ui-toolbar {
+      width:127 % ! important;    }
+    </script>
+
 </head>
 <body>
 
     <table id="example" class="display datatable" style="width:100%">
         <thead>
             <tr>
-                <th class="third">TrainCode</th>
-                <th>Traindate</th>
-                <th class="third">StationCode</th>
-                <th class="third">StationFullName</th>
+                <th class="third">Train Code</th>
+                <th>Train Date</th>
+                <th class="third">Station Code</th>
+                <th class="third">Station</th>
                 <th class="third">Origin</th>
                 <th class="third">Destination</th>
-                <th>Duein</th>
-                <th class="third">Exparrival</th>
-                <th class="third">Expdepart</th>
+                <th>Due In</th>
+                <th class="third">Arrvial</th>
+                <th class="third">Depart</th>
                 <th class="third">Direction</th>
             </tr>
         </thead>
@@ -42,14 +50,19 @@
                 },
                 "columns": [
                     { "data": "TrainCode" },
-                    { "data": "Traindate" },
+                    { "data": "TrainDate",
+                    "render": function (data) {
+                         var date = new Date(data);
+                         var month = date.getMonth() + 1;
+                         return (date.getDate() + "/" + (month.length > 1 ? month : "0" + month) + "/" + date.getFullYear() + " " + date.getHours() + ":" + date.getMinutes());
+                     }                },
                     { "data": "StationCode" },
                     { "data": "StationFullName" },
                     { "data": "Origin" },
                     { "data": "Destination" },
-                    { "data": "Duein" },
-                    { "data": "Exparrival" },
-                    { "data": "Expdepart" },
+                    { "data": "DueIn" },
+                    { "data": "ExpArrival" },
+                    { "data": "ExpDepart" },
                     { "data": "Direction" },
 
                 ],
@@ -76,5 +89,6 @@
             });
         });
     </script>
+
 </body>
 </html>
