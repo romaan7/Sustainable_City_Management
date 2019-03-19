@@ -1,63 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d027b433-a9a9-49cd-8a2e-23aa5f8fade2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/DataHandling.py" beforeDir="false" afterPath="$PROJECT_DIR$/APIHandling/DataHandling.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/WeatherPollutionAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/APIHandling/WeatherPollutionAPI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190314-184554.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190314-185051.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190317-185224.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190317-190244.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190317-190632.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-114444.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-135210.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-135746.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-135813.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-140855.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-141605.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-141626.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-141836.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-142056.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-142122.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-142143.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-142154.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-142204.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-142228.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-142258.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-142409.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-142432.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-142857.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-142926.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-143023.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-143037.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-143519.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-143546.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-143620.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-143627.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-143642.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-143750.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-143835.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-143913.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-144030.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-144043.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-144105.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-144116.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-144138.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-144218.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-165705.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-183417.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-184133.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-184610.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-185657.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-185712.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-185940.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-190004.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-191934.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190319-132853.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190319-134054.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sustainable_City_Management/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Sustainable_City_Management/urls.py" afterDir="false" />
-    </list>
+    <list default="true" id="d027b433-a9a9-49cd-8a2e-23aa5f8fade2" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,11 +10,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/APIHandling/DataHandling.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="100" column="51" lean-forward="true" selection-start-line="100" selection-start-column="51" selection-end-line="100" selection-end-column="51" />
+            <state relative-caret-position="17">
+              <caret line="29" column="35" lean-forward="true" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
               </folding>
@@ -98,10 +42,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Sustainable_City_Management/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="17">
               <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
               <folding>
                 <element signature="e#651#683#0" expanded="true" />
@@ -125,8 +69,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/APIHandling/WeatherPollutionAPI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="71">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="51">
+              <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -263,6 +207,11 @@
               <item name="Sustainable_City_Management" type="462c0819:PsiDirectoryNode" />
               <item name="APIHandling" type="462c0819:PsiDirectoryNode" />
               <item name="weather_files" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Sustainable_City_Management" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Sustainable_City_Management" type="462c0819:PsiDirectoryNode" />
+              <item name="Logs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Sustainable_City_Management" type="b2602c69:ProjectViewProjectNode" />
@@ -617,9 +566,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20969442" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20969442" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="GitHub Pull Requests" order="0" weight="0.3289689" />
@@ -631,7 +579,7 @@
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.3289689" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49848714" weight="0.3289689" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49367756" visible="true" weight="0.3083512" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.49367756" visible="true" weight="0.3083512" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50632244" side_tool="true" weight="0.3083512" />
       <window_info anchor="bottom" id="Python Console" order="11" sideWeight="0.49924356" weight="0.3289689" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -680,9 +628,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190317-190632.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190317-190632.csv" />
     <entry file="file://C:/Python37/Lib/threading.py" />
     <entry file="file://$PROJECT_DIR$/Parking/models.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -909,15 +855,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-185657.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-185940.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190317-190244.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-185657.csv" />
+    <entry file="file://$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-185940.csv" />
+    <entry file="file://$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190317-190244.csv" />
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -962,23 +902,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190319-134054.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-191934.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190319-132853.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="34" lean-forward="true" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190319-134054.csv" />
+    <entry file="file://$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190318-191934.csv" />
+    <entry file="file://$PROJECT_DIR$/APIHandling/weather_files/weatherCSV-20190319-132853.csv" />
     <entry file="file://$PROJECT_DIR$/WeatherPollution/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -996,12 +922,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Sustainable_City_Management/urls.py">
+    <entry file="file://$PROJECT_DIR$/APIHandling/DataHandling.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
+        <state relative-caret-position="17">
+          <caret line="29" column="35" lean-forward="true" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
           <folding>
-            <element signature="e#651#683#0" expanded="true" />
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/APIHandling/WeatherPollutionAPI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1015,22 +951,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/APIHandling/WeatherPollutionAPI.py">
+    <entry file="file://$PROJECT_DIR$/Sustainable_City_Management/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="17">
+          <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
           <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/APIHandling/DataHandling.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="100" column="51" lean-forward="true" selection-start-line="100" selection-start-column="51" selection-end-line="100" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#16#0" expanded="true" />
+            <element signature="e#651#683#0" expanded="true" />
           </folding>
         </state>
       </provider>
