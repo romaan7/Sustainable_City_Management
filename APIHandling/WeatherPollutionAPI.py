@@ -16,8 +16,7 @@ def pull_weather_csv():
     CSV_UPDATE_FLAG = False
     try:
         list_of_files = glob.glob('./APIHandling/weather_files/*.csv')
-
-        if list_of_files:
+        if len(list_of_files) > 1:
             last_file = max(list_of_files, key=os.path.getctime)
             urllib.request.urlretrieve(url, csv_file_name)
             if not(csv_update_validate(last_file, csv_file_name)):
@@ -26,10 +25,10 @@ def pull_weather_csv():
             else:
                 print("The Downloaded file is same as old one. No need for newfile.Removing new file")
                 CSV_UPDATE_FLAG = False
-                os.remove(csv_file_name)
+                if len(list_of_files) >= 2:
+                    os.remove(csv_file_name)
                 return last_file, CSV_UPDATE_FLAG
         else:
-            print("test3")
             urllib.request.urlretrieve(url, csv_file_name)
             CSV_UPDATE_FLAG = True
             return csv_file_name, CSV_UPDATE_FLAG
@@ -39,7 +38,7 @@ def pull_weather_csv():
 
 def csv_to_json(csv_file):
     f = open(csv_file, 'r')
-    reader = csv.DictReader(f, fieldnames=("Station", "Temperature", "Weather",
+    reader = csv.DictReader(f, fieldnames=("Station", "Temperature (ÂºC)", "Weather",
                                            "Wind Speed (Kts)", "Wind Gust (Kts)", "Wind Direction", "Humidity (%)",
                                            "Rainfall (mm)", "Pressure (hPa)"))
     next(reader, None)#skips the header row
