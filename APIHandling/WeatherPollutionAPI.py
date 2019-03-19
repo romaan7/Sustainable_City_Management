@@ -13,20 +13,25 @@ CURRENT_TIMESTAMP = time.strftime("%Y%m%d-%H%M%S")
 def pull_weather_csv():
     csv_file_name = "./APIHandling/weather_files/weatherCSV-" + CURRENT_TIMESTAMP + ".csv"
     url = 'https://www.met.ie/latest-reports/observations/download'
+    CSV_UPDATE_FLAG = False
     try:
         list_of_files = glob.glob('./APIHandling/weather_files/*.csv')
+
         if list_of_files:
             last_file = max(list_of_files, key=os.path.getctime)
             urllib.request.urlretrieve(url, csv_file_name)
             if csv_update_validate(last_file, csv_file_name):
-                return csv_file_name
+                CSV_UPDATE_FLAG = True
+                return csv_file_name, CSV_UPDATE_FLAG
             else:
                 print("The Downloaded file is same as old one. No need for newfile.Removing new file")
+                CSV_UPDATE_FLAG = False
                 os.remove(csv_file_name)
-                return last_file
+                return last_file, CSV_UPDATE_FLAG
         else:
             urllib.request.urlretrieve(url, csv_file_name)
-            return csv_file_name
+            CSV_UPDATE_FLAG = True
+            return csv_file_name, CSV_UPDATE_FLAG
     except IOError as e:
         logging.exception('I/O Error with CSV file ' + str(e))
         raise e
