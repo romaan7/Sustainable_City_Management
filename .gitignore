@@ -4,6 +4,8 @@ env
 __pycache__
 htmlcov
 *.vscode
-.idea/workspace.xml
-.vs
+.idea/
+.vs/
 *.log
+config.ini
+*.csv

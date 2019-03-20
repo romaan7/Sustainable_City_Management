@@ -24,7 +24,7 @@ import Main
 # DataHandling.start_busLuas_thread()
 # DataHandling.start_cityEvent_thread()
 # DataHandling.start_parking_thread()
-DataHandling.start_weather_thread()
+# DataHandling.start_weather_thread()
 
 handler404 = 'Main.views.handler404'
 handler500 = 'Main.views.handler500'
