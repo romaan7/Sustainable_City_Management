@@ -31,6 +31,7 @@ PARKING_THREAD_RUN_FREQUENCY = 60.0
 WEATHER_THREAD_RUN_FREQUENCY = 1800.0
 
 
+
 def start_bike_thread():
     threading.Timer(BIKE_THREAD_RUN_FREQUENCY, start_bike_thread).start()
     data = DublinBikesAPI.getLatestData()

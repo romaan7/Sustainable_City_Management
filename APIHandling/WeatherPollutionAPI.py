@@ -29,6 +29,7 @@ def pull_weather_csv():
                     os.remove(csv_file_name)
                 return last_file, CSV_UPDATE_FLAG
         else:
+            print("test3")
             urllib.request.urlretrieve(url, csv_file_name)
             CSV_UPDATE_FLAG = True
             return csv_file_name, CSV_UPDATE_FLAG
