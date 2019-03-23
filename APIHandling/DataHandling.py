@@ -28,7 +28,8 @@ BIKE_THREAD_RUN_FREQUENCY = 300.0
 BUSLUAS_THREAD_RUN_FREQUENCY = 1200.0
 CITYEVENT_THREAD_RUN_FREQUENCY = 60.0
 PARKING_THREAD_RUN_FREQUENCY = 60.0
-WEATHER_THREAD_RUN_FREQUENCY = 600.0
+WEATHER_THREAD_RUN_FREQUENCY = 1800.0
+
 
 
 def start_bike_thread():
@@ -63,11 +64,15 @@ def start_parking_thread():
 def start_weather_thread():
     threading.Timer(WEATHER_THREAD_RUN_FREQUENCY, start_weather_thread).start()
     latest_csv, csv_flag = WeatherPollutionAPI.pull_weather_csv()
-    csv_to_json = WeatherPollutionAPI.csv_to_json(latest_csv)
-    data = json.loads(csv_to_json)
-    if check_intigrity(data) and csv_flag:
-        create_weather_objects(data)
-        return "WeatherPollution thread started"
+    try:
+        csv_to_json = WeatherPollutionAPI.csv_to_json(latest_csv)
+        data = json.loads(csv_to_json)
+        if check_intigrity(data) and csv_flag:
+            create_weather_objects(data)
+            return "WeatherPollution thread started"
+    except IOError as e:
+        logging.exception('I/O Error with CSV file ' + str(e))
+
 
 #######################Method to check intigrity of data before writing it to the database. This needs to be more rovhust################
 
@@ -243,7 +248,7 @@ def create_weather_objects(data):
         current_dttm = datetime.now(tz=timezone.utc)
         for row in data:
             Station = row['Station']
-            Temperature = row['Temperature']
+            Temperature = int(row['Temperature (ÂºC)'])
             Weather = row['Weather']
             WindSpeed = row['Wind Speed (Kts)']
             WindGust = row['Wind Gust (Kts)']
@@ -251,8 +256,8 @@ def create_weather_objects(data):
             Humidity = row['Humidity (%)']
             Rainfall = row['Rainfall (mm)']
             Pressure = row['Pressure (hPa)']
-
-            if not isinstance(Temperature, int):
+            print(Temperature)
+            if Temperature == 'n/a' or Temperature == '' or Temperature == '-':
                 Temperature = None
             if Weather == '-' or Weather == 'n/a' or Weather == "":
                 Weather = None

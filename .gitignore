@@ -2,6 +2,10 @@ env
 *.DS_Store
 *.pyc
 __pycache__
-*.log
 htmlcov
 *.vscode
+.idea/
+.vs/
+*.log
+config.ini
+*.csv
