@@ -39,105 +39,291 @@
 <div id='container'></div>
 
 <script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="https://d3js.org/d3-selection.v1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.min.js"></script>
 
 <script>
+// margin
+var margin = {top: 20, right: 20, bottom: 20, left: 20},
+    width = 500 - margin.right - margin.left,
+    height = 500 - margin.top - margin.bottom,
+    radius = width/2;
 
-var margin = {top: 20, right: 20, bottom: 250, left: 40},
-    width = 1350 - margin.left - margin.right,
-    height = 600 - margin.top - margin.bottom;
+// color range
+var color = d3.scaleOrdinal()
+    .range(["#5A39AC", "#DD98D6", "#E7C820", "#08B2B2", "#F08080", "#1E88E5", "#008000"]);
+    <!--.range(["#F08080", "#1E88E5", "#E9967A"]);-->
 
-// Parse the date / time
-var	parseDate = d3.time.format("%Y-%m").parse;
-
-var x = d3.scale.ordinal().rangeRoundBands([0, width], .05);
-
-var y = d3.scale.linear().range([height, 0]);
-
- var parking_data = []
- var d = []
-
- d3.json("/Parking/parking_data", function(error, parkdata) {
-    //print(parkdata)
-    console.log(parkdata)
-    var obj = new Array();
-    //var spaces = {};
-    //for (feature[i] in parking_data)
-    for (i in parkdata['features'])
-      {
-         var obj = new Array();
-         //obj.noofspaces = parkdata["features"][i]["properties"]["location"];
-         obj.noofspaces = parkdata["features"][i]["properties"].noofspaces
-         obj.location = parkdata["features"][i]["properties"].location
-         obj.id = parkdata["features"][i].properties.id;
-         obj.spacetype = parkdata["features"][i].properties.spacetype;
-         //names.push(parkdata[i].name);
-         // parkdata.push(obj);
-         //spaces[i] = obj.noofspaces
-         parking_data[i] = obj
-      }
+var color1 = d3.scaleOrdinal()
+    .range(["#5A39AC", "#DD98D6", "#E7C820", "#08B2B2", "#F08080", "#1E88E5", "#E9967A", "#00FFFF", "#008000"]);
+    <!--"#42A5F5", "#2196F3", "#1E88E5", "#1976D2", "#CD5C5C",-->
+            <!--"#F08080", "#FA8072", "#E9967A", "#FFA07A", "#9C640C", "#229954"]);-->
 
 
-var xAxis = d3.svg.axis()
-    .scale(x)
-    .orient("bottom")
-    //.tickFormat(d3.time.format("%Y-%m"));
 
-var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient("left")
-   // .ticks(10);
+// pie chart arc. Need to create arcs before generating pie
+var arc = d3.arc()
+    .outerRadius(radius - 10)
+    .innerRadius(radius - 110);
 
+// donut chart arc
+var arc2 = d3.arc()
+    .outerRadius(radius - 10)
+    .innerRadius(radius - 110);
+
+//third chart
+var arc3 = d3.arc()
+    .outerRadius(radius - 30)
+    .innerRadius(0);
+
+
+// arc for the labels position
+var labelArc = d3.arc()
+    .outerRadius(radius - 40)
+    .innerRadius(radius - 40);
+
+// generate pie chart and donut chart
+var pie = d3.pie()
+    .sort(null)
+    .value(function(d) { return d.spaces; });
+
+// define the svg for pie chart
 var svg = d3.select("body").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform",
-          "translate(" + margin.left + "," + margin.top + ")");
+    .attr("width", width + 100)
+    .attr("height", height)
+    .append("g")
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
 
 
-  x.domain(parking_data.map(function(d) { return d.location; }));
-  y.domain([0, d3.max(parking_data, function(d) { return d.noofspaces; })]);
 
-  svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis)
-    .selectAll("text")
-      .style("text-anchor", "end")
-      .attr("dx", "-.8em")
-      .attr("dy", "-.55em")
-      .attr("transform", "rotate(-90)" );
+// define the svg donut chart
+var svg2 = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+  	.append("g")
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-  svg.append("g")
-      .attr("class", "y axis")
-      .call(yAxis)
-    .append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .text("Value ($)");
+<!--var text1 = svg2.append("text")-->
+    <!--.attr('x', -70)-->
+    <!--.attr('y', 10)-->
+    <!--.text('South Dublin')-->
+    <!--.attr("font-size", 30);-->
 
-  svg.selectAll("bar")
-      .data(parking_data)
-    .enter().append("rect")
-      .style("fill", "steelblue")
-      .attr("x", function(d) { return x(d.location); })
-      .attr("width", x.rangeBand())
-      .attr("y", function(d) { return y(d.noofspaces); })
-      .attr("height", function(d) { return height - y(d.noofspaces);
-       })
-      .on('mouseover', mouseover)
-      .on('mousemove', mousemove)
-      .on('mouseout', mouseout);
 
-x_var = 'location'
+//third chart
+var svg3 = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .append("g")
+<!--var text = svg3.append("text")-->
+    <!--.attr('x', 160)-->
+    <!--.attr('y', 70)-->
+    <!--.text('Available Spaces')-->
+    <!--.attr("font-size", 30)-->
+    <!--&lt;!&ndash;.attr("fill", "red");&ndash;&gt;-->
+
+// forth chart
+var svg4 = d3.select("body").append("svg")
+    .attr("width", width + 50)
+    .attr("height", height)
+    .append("g");
+
     // tooltips
     var div = d3.select('#container').append('div')
         .attr('class', 'tooltip')
         .style('display', 'none')
         .style("fill", "orangered");
+
+
+ var parking_data = []
+ var parking_dataNE = []
+ var parking_dataSW = []
+    // parse data
+    d3.json("/Parking/parking_data", function(error, parkdata) {
+    //print(parkdata)
+    console.log(parkdata)
+    var obj = new Array();
+    var obj1 = new Array();
+    var obj2 = new Array();
+    //var spaces = {};
+    //for (feature[i] in parking_data)
+    for (i in parkdata) {
+        var obj = {};
+        var obj1 = {};
+        if (parkdata[i].area == 'Northwest' | parkdata[i].area == 'Northeast' )
+        {
+        obj.name = parkdata[i].name;
+        obj.spaces = parkdata[i].spaces;
+        obj.area = parkdata[i].area;
+        parking_data.push(obj);
+        }
+
+        <!--if (parkdata[i].area == 'Northeast')-->
+        <!--{-->
+        <!--obj2.name = parkdata[i].name;-->
+        <!--obj2.spaces = parkdata[i].spaces;-->
+        <!--obj2.area = parkdata[i].area;-->
+        <!--parking_dataNE.push(obj2);-->
+        <!--//names.push(parkdata[i].name);-->
+          <!--}-->
+
+        if (parkdata[i].area == 'Southwest' | parkdata[i].area == 'Southeast')
+        {
+        obj1.name = parkdata[i].name;
+        obj1.spaces = parkdata[i].spaces;
+        obj1.area = parkdata[i].area;
+        parking_dataSW.push(obj1);
+        //names.push(parkdata[i].name);
+          }
+          }
+
+  // "g element is a container used to group other SVG elements"
+  var g = svg.selectAll(".arc")
+      .data(pie(parking_data))
+ 	  .enter().append("g")
+      .attr("class", "arc")
+      .on('mouseover', mouseover)
+      .on('mousemove', mousemove)
+      .on('mouseout', mouseout);
+
+
+  // append path
+  g.append("path")
+      .attr("d", arc)
+      .style("fill", function(d) { return color(d.data.name); })
+    // transition
+    .transition()
+      .ease(d3.easeLinear)
+      .duration(2000)
+      .attrTween("d", tweenPie);
+
+  // append text
+  g.append("text")
+    .transition()
+      .ease(d3.easeLinear)
+      .duration(2000)
+      .attr({"text-anchor": "middle"})
+      .attr("transform", function(d) { return "translate(" + labelArc.centroid(d) + ")"; })
+      .style("text-anchor", "middle")
+      .attr('font-size', '0.7em')
+      <!--.attr("dy", ".35em")-->
+      .text(function(d) { return d.data.spaces == 0 ? "" : d.data.name; });
+
+      var_north = d3.sum(parking_data, function(d) { return d.spaces; })
+      var_south = d3.sum(parking_dataSW, function(d) { return d.spaces; })
+      g.append("text")
+	   .attr("text-anchor", "middle")
+		 .attr('font-size', '2em')
+		 .attr('y', 10)
+	     .text("North Dublin");
+
+
+    // "g element is a container used to group other SVG elements"
+  var g2 = svg2.selectAll(".arc2")
+      .data(pie(parking_dataSW))
+    .enter().append("g")
+      .attr("class", "arc2")
+      .on('mouseover', mouseover)
+      .on('mousemove', mousemove)
+      .on('mouseout', mouseout);
+
+
+   // append path
+  g2.append("path")
+      .attr("d", arc2)
+      .style("fill", function(d) { return color1(d.data.name); })
+    .transition()
+      .ease(d3.easeLinear)
+      .duration(2000)
+      .attrTween("d", tweenDonut);
+
+   // append text
+  g2.append("text")
+    .transition()
+      .ease(d3.easeLinear)
+      .duration(2000)
+      .attr("transform", function(d) { return "translate(" + labelArc.centroid(d) + ")"; })
+      .style("text-anchor", "middle")
+      .attr('font-size', '0.7em')
+      <!--.attr("dy", ".35em")-->
+      .text(function(d) { return d.data.spaces == 0 ? "" : d.data.name; });
+
+      g2.append("text")
+	   .attr("text-anchor", "middle")
+		 .attr('font-size', '2em')
+		 .attr('y', 10)
+	     .text("South Dublin");
+
+
+
+      <!--var g3 = svg.selectAll(".arc3")-->
+      <!--.data(pie(parking_dataNE))-->
+ 	  <!--.enter().append("g3")-->
+      <!--.attr("class", "arc3")-->
+      <!--.on('mouseover', mouseover)-->
+      <!--.on('mousemove', mousemove)-->
+      <!--.on('mouseout', mouseout);-->
+
+  <!--// append path-->
+  <!--g3.append("path")-->
+      <!--.attr("d", arc3)-->
+      <!--.style("fill", function(d) { return color1(d.data.name); })-->
+    <!--// transition-->
+    <!--.transition()-->
+      <!--.ease(d3.easeLinear)-->
+      <!--.duration(0)-->
+      <!--.attrTween("d", tweenPie3);-->
+
+  <!--// append text-->
+  <!--g3.append("text")-->
+    <!--.transition()-->
+      <!--.ease(d3.easeLinear)-->
+      <!--.duration(2000)-->
+      <!--.attr("transform", function(d) { return "translate(" + labelArc.centroid(d) + ")"; })-->
+      <!--.attr("dy", ".35em")-->
+      <!--.text(function(d) { return d.data.spaces == 0 ? "" : d.data.name; });-->
+
+     var text = svg3.append("text")
+    .attr('x', 100)
+    .attr('y', 70)
+    .text('Available Spaces: ' + var_north  )
+    .attr("font-size", 30)
+    <!--.attr("fill", "red");-->
+
+     var text = svg4.append("text")
+    .attr('x', 200)
+    .attr('y', 70)
+    .text('Available Spaces: ' + var_south  )
+    .attr("font-size", 30)
+    <!--.attr("fill", "red");-->
+
+
+
+
+});
+
+
+
+// Helper function for animation of pie chart and donut chart
+function tweenPie(b) {
+  b.innerRadius = 0;
+  var i = d3.interpolate({startAngle: 0, endAngle: 0}, b);
+  return function(t) { return arc(i(t)); };
+}
+
+function tweenDonut(b) {
+  b.innerRadius = 0;
+  var i = d3.interpolate({startAngle: 0, endAngle: 0}, b);
+  return function(t) { return arc2(i(t)); };
+}
+
+function tweenPie3(b) {
+  b.innerRadius = 0;
+  var i = d3.interpolate({startAngle: 0, endAngle: 0}, b);
+  return function(t) { return arc3(i(t)); };
+}
+
   function mouseover(){
         div.style('display', 'inline')
         div.style("fill", "orangered");
@@ -145,7 +331,7 @@ x_var = 'location'
   function mousemove(){
         var d = d3.select(this).data()[0]
         div
-            .html(d.id +'<hr>'+  d.spacetype +'<hr>'+ d.noofspaces +'<hr>'+ d.location )
+            .html(d.data.name +'<hr>'+  d.data.spaces +'<hr>'+ d.data.area)
             .style('left', (d3.event.pageX - 34) + 'px')
             .style('top', (d3.event.pageY - 12) + 'px')
             .style("fill", "orangered");
@@ -153,8 +339,9 @@ x_var = 'location'
   function mouseout(){
         div.style('display', 'none')
         div.style("fill", "orangered");
-  }
-});
+        }
+
+
 
 </script>
 
