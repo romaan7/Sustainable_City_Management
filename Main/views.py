@@ -11,20 +11,20 @@ import json
 def index(request):
     template = loader.get_template('index.html')
     return HttpResponse(template.render({}, request))
-def index_2(request):
-    template = loader.get_template('index_2.html')
+def DublinBikes(request):
+    template = loader.get_template('DublinBikes.html')
     return HttpResponse(template.render({}, request))
-def index_3(request):
-    template = loader.get_template('index_3.html')
+def IrishRail(request):
+    template = loader.get_template('IrishRail.html')
     return HttpResponse(template.render({}, request))
-def index_4(request):
-    template = loader.get_template('index_4.html')
+def CityEvents(request):
+    template = loader.get_template('CityEvents.html')
     return HttpResponse(template.render({}, request))
-def index_5(request):
-    template = loader.get_template('index_5.html')
+def Weather(request):
+    template = loader.get_template('Weather.html')
     return HttpResponse(template.render({}, request))
-def index_6(request):
-    template = loader.get_template('index_6.html')
+def CarPark(request):
+    template = loader.get_template('CarPark.html')
     return HttpResponse(template.render({}, request))
     
 def send_city_json(request):

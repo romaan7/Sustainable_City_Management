@@ -17,7 +17,7 @@
     {% load static %}
     <!-- jquery
         ============================================ -->
-   
+
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'Main/img/favicon.ico' %}">
     <!-- Google Fonts
         ============================================ -->
@@ -79,7 +79,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="logo-area">
-                        <a href="#"><h1 style="color:snow"> Dublin Bikes </h1></a>
+                        <a href="#"><h1 style="color:snow"> Irish Rail </h1></a>
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
@@ -372,7 +372,7 @@
                                     <ul class="collapse dropdown-header-top">
                                         <li><a href="templates/index.html">Dashboard One</a></li>
                                         <li><a href="templates/index_2.html">Dashboard Two</a></li>
-                                        <li><a href="templates/index-3.html">Dashboard Three</a></li>
+                                        <li><a href="templates/index_3.html">Dashboard Three</a></li>
                                         <li><a href="templates/index-4.html">Dashboard Four</a></li>
                                         <li><a href="templates/analytics.html">Analytics</a></li>
                                         <li><a href="templates/widgets.html">Widgets</a></li>
@@ -514,7 +514,7 @@
                         <!--<li>
                             <a data-toggle="tab" href="#Appviews"><i class="notika-icon notika-app"></i> App views</a>
                         </li>-->
-                        <!--<li>
+                        <!--li>
                             <a data-toggle="tab" href="#Page"><i class="notika-icon notika-support"></i> Pages</a>
                         </li>-->
                     </ul>
@@ -525,19 +525,19 @@
                                     <a href="/">Home Dashboard</a>
                                 </li>
                                 <li>
-                                    <a href="index_2">Dublin bikes </a>
+                                    <a href="DublinBikes">Dublin bikes </a>
                                 </li>
                                 <li>
-                                    <a href="index_4">City Events Calendar</a>
+                                    <a href="CityEvents">City Events Calendar</a>
                                 </li>
                                 <li>
-                                    <a href="index_3">Irish Rail </a>
+                                    <a href="IrishRail">Irish Rail </a>
                                 </li>
                                 <li>
-                                    <a href="index_5">Weather</a>
+                                    <a href="Weather">Weather</a>
                                 </li>
                                 <li>
-                                    <a href="index_6">Car Parking</a>
+                                    <a href="CarPark">Car Parking</a>
                                 </li>
                                 <li>
                                     <a href="templates/analytics.html">Analytics</a>
@@ -690,12 +690,12 @@
                     <div class="sale-statistic-inner notika-shadow mg-tb-30">
                         <div class="curved-inner-pro">
                             <div class="curved-ctn">
-                                <h2>Bike Statistics</h2>
+                                <h2>Train Status</h2>
                                 <p></p>
                             </div>
                         </div>
                         <div>
-                            <iframe src="Bike/bike_emulated" width="1100" height="650" style="over"></iframe>
+                            <iframe src="BusLuas" width="1100" height="650" style="over"></iframe>
                             <!--<embed src="Bike/bike_emu" width="1200" height="600">-->
                         </div>
                         <!--<div id="curved-line-chart" class="flot-chart-sts flot-chart"></div>-->
@@ -707,7 +707,6 @@
     </div>
     <!-- End Sale Statistic area-->
     <!-- Start Email Statistic area-->
-    
     <!-- End Email Statistic area-->
     <!-- Start Realtime sts area-->
     <!--</div>
@@ -796,7 +795,7 @@
     <script src="{% static 'Main/js/main.js' %}"></script>
     <!-- tawk chat JS
         ============================================ -->
-    <script src="{% static 'Main/js/tawk-chat.js' %}"></script>
+    {% comment %} <script src="{% static 'Main/js/tawk-chat.js' %}"></script> {% endcomment %}
 </body>
 
 </html>
