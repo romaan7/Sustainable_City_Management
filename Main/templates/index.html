@@ -65,10 +65,7 @@
     <script src="http://d3js.org/d3.v4.min.js" language="JavaScript"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 
-    <script>
-    
-</script>
-    <script>
+<script>
    // var i = 0; // index of data to iterate.
 var temp = []; // where we store the result of the query.
 var interval = 1000;  
@@ -76,7 +73,7 @@ var name = "";
 var bikes = "";
 var delays = "";
 var temperature = "";
-
+var bike = 0;
 var total_bikes_stands = 0;
 var total_available_stands = 0;
 var total_available_bikes = 0;
@@ -84,7 +81,7 @@ var total_available_bikes = 0;
         $(document).ready(function () {
              
             $.ajax({
-                url: "/send_city_json",
+                url: "/CityEvents/CityEventData",
                 type: "GET",
                 success: function (data) {
                     var today = new Date();
@@ -102,6 +99,7 @@ var total_available_bikes = 0;
                     
                     $.each(data, function (i,item) {
                     
+                    
                     var dateString = data[i].endutc;
                     var currentTime = new Date((dateString ));
                     var month = currentTime.getMonth() + 1;
@@ -109,7 +107,7 @@ var total_available_bikes = 0;
                     var year = currentTime.getFullYear();
                     var date = day + "/" + month + "/" + year;
                       // ------------------TODo---------------------//
-                      if(date == '10/3/2019') //replace withtoday
+                      if(date == '4/4/2019') //replace withtoday
                       { 
                        
                       // console.log(data[i]);
@@ -125,6 +123,7 @@ var total_available_bikes = 0;
                      name = name + ";" + (data[temp[j]].nametext);
                      
                    }
+                  // console.log(data);
                 },
                 error: function (error) {
                     console.log("Error:");
@@ -135,7 +134,7 @@ var total_available_bikes = 0;
         
 
             $.ajax({
-                url: "/send_bike_json",
+                url: "/Bike/bike_data",
                 type: "GET",
                 success: function (data_bike) {
                     
@@ -151,9 +150,11 @@ var total_available_bikes = 0;
                       }
                        
                     })
-                    console.log(total_bikes_stands);
-                    console.log(total_available_stands);
-                    console.log(total_available_bikes);
+
+                   bike = Math.round((total_available_bikes/total_bikes_stands)*100);
+                   console.log(total_available_bikes);
+                   // console.log(total_available_stands);
+                   // console.log(total_available_bikes);
                 },
                 error: function (error) {
                     console.log("Error:");
@@ -162,7 +163,7 @@ var total_available_bikes = 0;
             })
        
        $.ajax({
-                url: "/send_rail_json",
+                url: "/BusLuas/IrishRailData",
                 type: "GET",
                 success: function (data_rail) {
                     $.each(data_rail, function (i,item) {
@@ -172,7 +173,7 @@ var total_available_bikes = 0;
                         delays = delays + " " +  data_rail[i].TrainCode + "<br>" + data_rail[i].Late + " mins </br> ;"; //+ " " + data_rail[i].Direction + "; " ;
                       }
                     })
-                    //console.log(delays);
+                   // console.log(delays);
                 },
                 error: function (error) {
                     console.log("Error:");
@@ -181,7 +182,7 @@ var total_available_bikes = 0;
             })
 
             $.ajax({
-                url: "/send_weather_json",
+                url: "/WeatherPollution/weatherData",
                 type: "GET",
                 success: function (data_weather) {
                     var today = new Date();
@@ -193,20 +194,21 @@ var total_available_bikes = 0;
                     var today = dd + '/' + mm + '/' + yyyy ;
                     //console.log(today);
                     $.each(data_weather, function (i,item) {
-                    var dateString = data_weather[i].last_update;
+                    var dateString = data_weather[i].cm_last_insert_dttm;
                     var currentTime = new Date(dateString);
                     var month = currentTime.getMonth() + 1;
                     var day = currentTime.getDate();
                     var year = currentTime.getFullYear();
                     var hh = currentTime.getHours() + ":" + currentTime.getMinutes() + ":" + currentTime.getSeconds();
                     var date = day + "/" + month + "/" + year ;
-                      if(date == today) 
+                   // console.log(hh);
+                      if(date == '23/3/2019') 
                       { 
                        { 
                           
-                         temperature = temperature + data_weather[i].Temperature + " °C , " +currentTime.getHours() + ":" + currentTime.getMinutes() + "<br> " + data_weather[i].Weathercol + " </br> ;";
+                         temperature = temperature + data_weather[i].Temperature + " °C , " + hh + "<br> " + data_weather[i].Weather + " </br> ;";
                        }
-                       console.log(data_weather[i]);
+                       //console.log(temperature);
                       }
                     })
                     
@@ -261,21 +263,13 @@ var total_available_bikes = 0;
    }
    function callWeather(){
     var currentTemp = temperature.split(";");
-  //  console.log(currentTemp);
-     for(i=1 ; i < currentTemp.length; i++ )
+    
+     for(i=0 ; i < currentTemp.length; i++ )
      {
-         
+         //console.log(currentTemp[i]);
          (function(i){
 
         window.setTimeout(function(){
-         if(currentTemp[i].includes("Rain"))
-         {
-             $(".weatherImg").html(" <img class=weatherImg style=width:60%; style = float:right; src = '/static/Main/Sun.jpg' />");
-         }
-         if(currentTemp[i].includes("Sun"))
-         {
-             $(".weatherImg").html(" <img class=weatherImg style=width:60%; style = float:right; src = '/static/Main/Sun.jpg' />");
-         }
 
          $(".getTemp").html(currentTemp[i]);
             }, i * 5000);
@@ -283,14 +277,14 @@ var total_available_bikes = 0;
         }(i));
      }
    }
-  
-var bikes_total = Math.round((total_available_bikes/total_bikes_stands)*100);
+
+
 setInterval(function() {    
   callEvents();
   callBikes();
   callRail();
   callWeather();
-}, 7000);
+}, 6000);
 
 
     
@@ -298,7 +292,7 @@ setInterval(function() {
 
 
 
-    </script>
+</script>
 
 
 </head>
@@ -314,7 +308,7 @@ setInterval(function() {
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="">
                         <div class="curved-ctn">
-                            <img src="static/Main/img/logo/logo1.png" alt="" style="height:100%">
+                            <img src="static/Main/img/logo/logo1.png" alt="" style="height:100%; width:35%; padding-top:10px;">
                            {% comment %} <h2 style="color:snow">Sustainable City Management</h2> {% endcomment %}
                         </div>
                     </div>
@@ -774,9 +768,10 @@ setInterval(function() {
 
                                     <input type="text" id="totalbikes" class="knob" value="0" data-linecap="round" data-width="130" data-bgcolor="#E4E4E4" data-fgcolor="#5D3F6A" data-thickness=".10" data-readonly="true">
                                 <script>
-                                var bike = Math.round((total_available_bikes/total_bikes_stands)*100);
+                                
                                 var d =  document.getElementById("totalbikes");
                                 d.setAttribute("data-rel", bike);
+                                
                                 </script>
                                 </div>
                                 <div class="email-ctn-nock">

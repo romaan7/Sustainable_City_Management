@@ -26,30 +26,6 @@ def Weather(request):
 def CarPark(request):
     template = loader.get_template('CarPark.html')
     return HttpResponse(template.render({}, request))
-    
-def send_city_json(request):
-    data = (CityEvents.CityEventData(request))
-    json_data = json.loads(data.content)
-    return JsonResponse(json_data, safe=False)
-
-def send_bike_json(request):
-    data = (Bike.bike_data(request))
-    json_data = json.loads(data.content)
-    #print(json_data)
-    return JsonResponse(json_data, safe=False)
-
-def send_rail_json(request):
-    data = (IrishRail.IrishRailData(request))
-    json_data = json.loads(data.content)
-
-    #print(json_data)
-    return JsonResponse(json_data, safe=False)
-
-def send_weather_json(request):
-    data = (Weather.weatherData(request))
-    json_data = json.loads(data.content)
-    #print(json_data)
-    return JsonResponse(json_data, safe=False)
    
 def handler404(request):
     return render(request, '404.html', status=404)
