@@ -14,7 +14,7 @@ def index(request):
     return HttpResponse(template.render(context, request))
 
 def weatherData(request):
-    queryset = list(wq.objects.filter(Station='Dublin').values())
+    queryset = list(wq.objects.all().values())
     # data = CityEvents.objects.all()
     #print(queryset)
     return JsonResponse(queryset, safe=False)

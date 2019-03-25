@@ -64,9 +64,9 @@
     <!-- Login Register area Start-->
     <div class="login-content">
         <!-- Login -->
-        <div class="nk-block toggled" id="l-login">
+        <div class="nk-block toggled notification-demo" id="l-login">
             <div class="nk-form" >
-           <form id="login_form" method="post">{% csrf_token %}
+           <form id="login_form" method="POST" >{% csrf_token %}
                 <div class="input-group">
                     <span class="input-group-addon nk-ic-st-pro"><i class="notika-icon notika-support"></i></span>
                     <div class="nk-int-st">
@@ -79,7 +79,12 @@
                         <input type="password" name="password" class="form-control" placeholder="Password">
                     </div>
                 </div>
-                <a href="#"  onclick="document.getElementById('login_form').submit();" data-ma-action="nk-login-switch" class="btn btn-login btn-success btn-float"><i class="notika-icon notika-right-arrow right-arrow-ant"></i></a>
+               <br>
+                {% if login_message == "init" %}
+               {% else %}
+               <div class="alert alert-danger alert-mg-b-0" role="alert" >{{ login_message }}</div>
+               {% endif %}
+                <a href=""  onclick="document.getElementById('login_form').submit();" data-ma-action="nk-login-switch" class="btn btn-login btn-success btn-float" data-type="danger" data-from="top" data-align="center"><i class="notika-icon notika-right-arrow right-arrow-ant"></i></a>
                 </form>
             </div>
         </div>
@@ -142,9 +147,10 @@
     <!--  todo JS
 		============================================ -->
     <script src="{% static 'Authentication/js/todo/jquery.todo.js' %}"></script>
-    <!-- Login JS
+    <!--notification-active
 		============================================ -->
-    <script src="{% static 'Authentication/js/login/login-action.js' %}"></script>
+    <script src="{% static 'Authentication/js/notification/bootstrap-growl.min.js' %} "></script>
+    <script src="{% static 'Authentication/js/notification/notification-active.js' %} "></script>
     <!-- plugins JS
 		============================================ -->
     <script src="{% static 'Authentication/js/plugins.js' %} "></script>

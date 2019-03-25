@@ -6,6 +6,25 @@
         .col-lg-9 {
             width: 100% !important;
         }
+
+        .resp-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%;
+}
+
+.resp-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+::-webkit-scrollbar {
+    width: 13px;
+    height: 13px;
+}
     </style>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -683,6 +702,9 @@
     <!-- Start Status area -->
     <!-- End Status area-->
     <!-- Start Sale Statistic area-->
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+     </div>
     <div class="sale-statistic-area">
         <div class="container">
             <div class="row">
@@ -695,8 +717,9 @@
                             </div>
                         </div>
                         <div>
-                            <iframe src="WeatherPollution" width="1100" height="650"></iframe>
-                            <!--<embed src="Bike/bike_emu" width="1200" height="600">-->
+                    <div class="line-chart-wp chart-display-nn"><iframe class="chartjs-hidden-iframe" tabindex="-1" style="display: block; overflow: hidden; border: 0px; margin: 0px; top: 0px; left: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;"></iframe>
+                        <canvas height="400" width="515" id="basiclinechart" style="display: block; width: 515px; height: 400px;"></canvas>
+                    </div>
                         </div>
                         <!--<div id="curved-line-chart" class="flot-chart-sts flot-chart"></div>-->
                     </div>
@@ -786,6 +809,10 @@
     <!-- plugins JS
         ============================================ -->
     <script src="{% static 'Main/js/plugins.js' %}"></script>
+        <!-- Charts JS
+		============================================ -->
+    <script src="{% static 'Main/js/charts/Chart.js' %}"></script>
+    <script src="{% static 'Main/js/charts/line-chart.js' %}"></script>
     <!--  Chat JS
         ============================================ -->
     <script src="{% static 'Main/js/chat/moment.min.js' %}"></script>

@@ -1,6 +1,30 @@
 (function ($) {
  "use strict";
- 
+ /*-----------------------------------------------*/
+ /* Get data from json*/
+ /*----------------------------------------------*/
+
+  var jsonData = $.ajax({
+    url: 'WeatherPollution/weatherData',
+    dataType: 'json',
+  }).done(function (results) {
+    // Split timestamp and data into separate arrays
+    console.log(results);
+    var labels = [], data=[], dataWind=[], dataHumid=[];
+    results.forEach(function(i) {
+      labels.push(i.Station);
+      data.push(i.Temperature);
+      dataWind.push(i.WindSpeed);
+      dataHumid.push(i.Humidity);
+    });
+
+    // Create the chart.js data structure using 'labels' and 'data'
+    var tempData = {
+      labels : labels,
+      datasets : [{data : data
+      }]
+    };
+
 	 /*----------------------------------------*/
 	/*  1.  Basic Line Chart
 	/*----------------------------------------*/
@@ -8,20 +32,27 @@
 	var basiclinechart = new Chart(ctx, {
 		type: 'line',
 		data: {
-			labels: ["January", "February", "March"],
+			labels: tempData.labels,
 			datasets: [{
-				label: "My First dataset",
+				label: "Temperature",
 				fill: false,
-                backgroundColor: '#5D3F6A',
+        backgroundColor: '#5D3F6A',
 				borderColor: '#5D3F6A',
-				data: [9, 12, 19]
+				data: data
             }, {
-                label: "My Second dataset",
+        label: "Wind Speed",
 				fill: false,
-                backgroundColor: '#fb9678',
+        backgroundColor: '#fb9678',
 				borderColor: '#fb9678',
-				data: [-12, -3, -4]
-				
+				data: dataWind
+
+		}, {
+        label: "Humidity",
+				fill: false,
+        backgroundColor: '#3f6a48',
+				borderColor: '#3f6a48',
+				data: dataHumid
+
 		}]
 		},
 		options: {
@@ -43,7 +74,7 @@
 					display: true,
 					scaleLabel: {
 						display: true,
-						labelString: 'Month'
+						labelString: 'Station'
 					}
 				}],
 				yAxes: [{
@@ -56,11 +87,11 @@
 			}
 		}
 	});
-	
+	});
 	/*----------------------------------------*/
 	/*  2.  Line Chart Interpolation
 	/*----------------------------------------*/
-	
+	/*
 	var ctx = document.getElementById("linechartinterpolation");
 	var linechartinterpolation = new Chart(ctx, {
 		type: 'line',
@@ -79,7 +110,7 @@
                 backgroundColor: '#fb9678',
 				borderColor: '#fb9678',
 				data: [-100, 200, 12, -200, 12, 200, 8, -200, 9, 200, -200, -12, -200]
-				
+
 		}]
 		},
 		options: {
@@ -112,12 +143,12 @@
 			}
 		}
 	});
-	
-	
+	*/
+
 	/*----------------------------------------*/
 	/*  3.  Line Chart styles
 	/*----------------------------------------*/
-	
+	/*
 	var ctx = document.getElementById("linechartstyles");
 	var linechartstyles = new Chart(ctx, {
 		type: 'line',
@@ -136,7 +167,7 @@
 				borderColor: '#fb9678',
 				borderDash: [5, 5],
 				data: [-100, 200, 12, -200, 12]
-				
+
 		}]
 		},
 		options: {
@@ -171,10 +202,12 @@
 			}
 		}
 	});
+
+  */
 	/*----------------------------------------*/
 	/*  4.  Line Chart point circle
 	/*----------------------------------------*/
-	
+	/*
 	var ctx = document.getElementById("linechartpointcircle");
 	var linechartpointcircle = new Chart(ctx, {
 		type: 'line',
@@ -188,7 +221,7 @@
 				fill: false,
 				pointRadius: 4,
 				pointHoverRadius: 10,
-				showLine: false 
+				showLine: false
 			}]
 		},
 		options: {
@@ -207,7 +240,7 @@
 			}
 		}
 	});
-	
+	*/
 	
 		
 })(jQuery); 
