@@ -256,7 +256,6 @@ def create_weather_objects(data):
             Humidity = row['Humidity (%)']
             Rainfall = row['Rainfall (mm)']
             Pressure = row['Pressure (hPa)']
-            print(Temperature)
             if Temperature == 'n/a' or Temperature == '' or Temperature == '-':
                 Temperature = None
             if Weather == '-' or Weather == 'n/a' or Weather == "":
