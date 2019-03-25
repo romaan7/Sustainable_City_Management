@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'CityEvents.apps.CityeventsConfig',
     'WeatherPollution',
     'Parking',
+    'CarTraffic.apps.CarTrafficConfig',
     #'APIHandling.apps.ApiHandlingConfig',
     'django.contrib.admin',
     'django.contrib.auth',

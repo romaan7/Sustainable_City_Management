@@ -6,29 +6,10 @@
         .col-lg-9 {
             width: 100% !important;
         }
-        
-.resp-container {
-    position: relative;
-    overflow: hidden;
-    padding-top: 56.25%;
-}
-
-.resp-iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-}
-::-webkit-scrollbar {
-    width: 13px;
-    height: 13px;
-}
     </style>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Dublin Bikes</title>
+    <title>Dashboard Two | Notika - Notika Admin Template</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
@@ -85,9 +66,7 @@
     <link rel="stylesheet" href="{% static 'Main/css/responsive.css' %}">
     <!-- modernizr JS
         ============================================ -->
-    <script src="{% static 'Main/js/vendor/modernizr-2.8.3.min.js' %}"></script>     
-    <script src="https://d3js.org/d3.v4.min.js"></script>
-
+    <script src="{% static 'Main/js/vendor/modernizr-2.8.3.min.js' %}"></script>
 </head>
 
 <body>
@@ -115,7 +94,74 @@
                                     </div>
                                 </div>
                             </li>
-
+                            <li class="nav-item dropdown">
+                                <!--<a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><span><i class="notika-icon notika-mail"></i></span></a>-->
+                                <div role="menu" class="dropdown-menu message-dd animated zoomIn">
+                                    <div class="hd-mg-tt">
+                                        <h2>Messages</h2>
+                                    </div>
+                                    <div class="hd-message-info">
+                                        <a href="#">
+                                            <div class="hd-message-sn">
+                                                <div class="hd-message-img">
+                                                    <img src="img/post/1.jpg" alt="" />
+                                                </div>
+                                                <div class="hd-mg-ctn">
+                                                    <h3>David Belle</h3>
+                                                    <p>Cum sociis natoque penatibus et magnis dis parturient montes</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#">
+                                            <div class="hd-message-sn">
+                                                <div class="hd-message-img">
+                                                    <img src="img/post/2.jpg" alt="" />
+                                                </div>
+                                                <div class="hd-mg-ctn">
+                                                    <h3>Jonathan Morris</h3>
+                                                    <p>Cum sociis natoque penatibus et magnis dis parturient montes</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#">
+                                            <div class="hd-message-sn">
+                                                <div class="hd-message-img">
+                                                    <img src="static/Main/img/post/4.jpg" alt="" />
+                                                </div>
+                                                <div class="hd-mg-ctn">
+                                                    <h3>Fredric Mitchell</h3>
+                                                    <p>Cum sociis natoque penatibus et magnis dis parturient montes</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#">
+                                            <div class="hd-message-sn">
+                                                <div class="hd-message-img">
+                                                    <img src="static/Main/img/post/1.jpg" alt="" />
+                                                </div>
+                                                <div class="hd-mg-ctn">
+                                                    <h3>David Belle</h3>
+                                                    <p>Cum sociis natoque penatibus et magnis dis parturient montes</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#">
+                                            <div class="hd-message-sn">
+                                                <div class="hd-message-img">
+                                                    <img src="static/Main/img/post/2.jpg" alt="" />
+                                                </div>
+                                                <div class="hd-mg-ctn">
+                                                    <h3>Glenn Jecobs</h3>
+                                                    <p>Cum sociis natoque penatibus et magnis dis parturient montes</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="hd-mg-va">
+                                        <a href="#">View All</a>
+                                    </div>
+                                </div>
+                            </li>
                             <li class="nav-item nc-al">
                                 <!--<a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><span><i class="notika-icon notika-alarm"></i></span><div class="spinner4 spinner-4"></div><div class="ntd-ctn"><span>3</span></div></a>-->
                                 <div role="menu" class="dropdown-menu message-dd notification-dd animated zoomIn">
@@ -641,71 +687,21 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-9 col-md-8 col-sm-7 col-xs-12">
-                    <div class="sale-statistic-inner notika-shadow mg-tb-30" style="height:510px;">
+                    <div class="sale-statistic-inner notika-shadow mg-tb-30">
                         <div class="curved-inner-pro">
                             <div class="curved-ctn">
                                 <h2>Bike Statistics</h2>
                                 <p></p>
                             </div>
                         </div>
-                        <div class="resp-container">
-                            <iframe class="resp-iframe" src="Bike/" ></iframe>
+                        <div>
+                            <iframe src="Bike/bike_emulated" width="1100" height="650" style="over"></iframe>
+                            <!--<embed src="Bike/bike_emu" width="1200" height="600">-->
                         </div>
                         <!--<div id="curved-line-chart" class="flot-chart-sts flot-chart"></div>-->
                     </div>
                 </div>
-                <!-- bike table 1-->
-                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <div class="recent-items-wp notika-shadow sm-res-mg-t-30">
-                        <div class="rc-it-ltd">
-                            <div class="recent-items-ctn">
-                                <div class="recent-items-title">
-                                    <h2>Top 5 Busy Stations</h2>
-                                </div>
-                            </div>
-                            <div class="recent-items-inn">
-                                <table class="table table-inner table-vmiddle">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Name</th>
-                                            <th style="width: 60px">Avaliable</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="top-5-busy">
-                                    </tbody>
-                                </table>
-                            </div>
-                          <div id="recent-items-chart" class="flot-chart-items flot-chart vt-ct-it tb-rc-it-res" style="padding: 0px; position: relative;"><canvas class="flot-base" width="339" height="98" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 339px; height: 98px;"></canvas><canvas class="flot-overlay" width="339" height="98" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 339px; height: 98px;"></canvas></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- bike table 2-->
-                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <div class="recent-items-wp notika-shadow sm-res-mg-t-30">
-                        <div class="rc-it-ltd">
-                            <div class="recent-items-ctn">
-                                <div class="recent-items-title">
-                                    <h2>Top 5 Available Stations</h2>
-                                </div>
-                            </div>
-                            <div class="recent-items-inn">
-                                <table class="table table-inner table-vmiddle">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Name</th>
-                                            <th style="width: 60px">Avaliable</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="top-5-available">
-                                    </tbody>
-                                </table>
-                            </div>
-                          <div id="recent-items-chart" class="flot-chart-items flot-chart vt-ct-it tb-rc-it-res" style="padding: 0px; position: relative;"><canvas class="flot-base" width="339" height="98" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 339px; height: 98px;"></canvas><canvas class="flot-overlay" width="339" height="98" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 339px; height: 98px;"></canvas></div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
@@ -732,96 +728,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-    //load bike data from api url
-  var bike_data = []
-
-d3.json("/Bike/bike_data", function(error, bdata) {
-    for (i in bdata) {
-        var obj = {};
-        obj.name = bdata[i].name;
-        obj.available_bike_stands = bdata[i].available_bike_stands;
-        obj.available_bikes = bdata[i].available_bikes;
-        obj.bike_stands = bdata[i].bike_stands;
-        obj.last_update = bdata[i].last_update;
-        obj.status = bdata[i].status;
-        bike_data.push(obj);
-    }
-
-//get only name and avaliable_bikes from data
-    var avaliable_bikes_1 = bike_data.map(function(val) {
-        var s = {};
-        s.name = val.name
-        s.available_bikes = val.available_bikes;
-        return s;
-    });
-
-//get top 5 sorted stands 
-    var top5_avaliable_bikes = avaliable_bikes_1.sort(function(a, b) {
-        return parseFloat(a.available_bikes) - parseFloat(b.available_bikes);
-    }).reverse().slice(0, 5);
-
-//get only name and avaliable_bikes from data
-    var avaliable_stands_1 = bike_data.map(function(val) {
-        var s = {};
-        s.name = val.name
-        s.available_bike_stands = val.available_bike_stands;
-        return s;
-    });
-
-//get top 5 sorted stands 
-    var top5_avaliable_stands = avaliable_stands_1.sort(function(a, b) {
-        return parseFloat(a.available_bike_stands) - parseFloat(b.available_bike_stands);
-    }).slice(0, 5);
-
-//select table for entry
-    var busy_enterSelection = d3.select('#top-5-busy').selectAll('p').data(top5_avaliable_stands).enter();
-    
-//create row
-    var row_busy = busy_enterSelection.append('tr');
-    
-//add data
-    row_busy.append('td')
-        .text(function(value, i) {
-            return i + 1
-        });
-
-    row_busy.append('td')
-        .text(function(value, i) {
-            return value.name
-        });
-
-    row_busy.append('td')
-        .text(function(value, i) {
-            return value.available_bike_stands
-        });
-
-//select table for entry
-    var avaliable_enterSelection = d3.select('#top-5-available').selectAll('p').data(top5_avaliable_bikes).enter();
-    
-//create row    
-    var row_avaliable = avaliable_enterSelection.append('tr');
-    
-//add entry
-    row_avaliable.append('td')
-        .text(function(value, i) {
-            return i + 1
-        });
-
-    row_avaliable.append('td')
-        .text(function(value, i) {
-            return value.name
-        });
-
-    row_avaliable.append('td')
-        .text(function(value, i) {
-            return value.available_bikes
-        });
-
-});
-
-    </script>
     <!-- End Footer area-->
     {% load static %}
     <script src="{% static 'Main/js/vendor/jquery-1.12.4.min.js' %}"></script>
