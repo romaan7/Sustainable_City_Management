@@ -64,220 +64,222 @@
     <script src="{% static 'Main/js/vendor/modernizr-2.8.3.min.js' %}"></script>
     <script src="http://d3js.org/d3.v4.min.js" language="JavaScript"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script>
+<script type='text/javascript'>
    // var i = 0; // index of data to iterate.
-var temp = []; // where we store the result of the query.
-var interval = 1000;  
-var name = "";  
-var bikes = "";
-var delays = "";
-var temperature = "";
-        $(document).ready(function () {
-            $.ajax({
-                url: "/send_city_json",
-                type: "GET",
-                success: function (data) {
-                    var today = new Date();
-                    var dd = today.getDate();
-                    var mm = today.getMonth() + 1; //January is 0!
+   var temp = []; // where we store the result of the query.
+   var interval = 1000;
+   var name = "";
+   var bikes = "";
+   var delays = "";
+   var temperature = "";
+   var bike = 49;
+   var total_bikes_stands = 0;
+   var total_available_stands = 0;
+   var total_available_bikes = 0;
 
-                    var yyyy = today.getFullYear();
-                    if (dd < 10) {
-                      dd = '0' + dd;
-                    } 
-                    if (mm < 10) {
-                      mm = '0' + mm;
-                    } 
-                    var today = dd + '/' + mm + '/' + yyyy;
-                    
-                    $.each(data, function (i,item) {
-                    
-                    var dateString = data[i].endutc;
-                    var currentTime = new Date((dateString ));
-                    var month = currentTime.getMonth() + 1;
-                    var day = currentTime.getDate();
-                    var year = currentTime.getFullYear();
-                    var date = day + "/" + month + "/" + year;
-                      // ------------------TODo---------------------//
-                      if(date == '10/3/2019') //replace withtoday
-                      { 
-                       
-                      // console.log(data[i]);
-                       var index = i;                   
+   $(document).ready(function() {
+
+       $.ajax({
+           url: "/CityEvents/CityEventData",
+           type: "GET",
+           success: function(data) {
+               var today = new Date();
+               var dd = today.getDate();
+               var mm = today.getMonth() + 1; //January is 0!
+
+               var yyyy = today.getFullYear();
+               if (dd < 10) {
+                   dd = '0' + dd;
+               }
+               if (mm < 10) {
+                   mm = '0' + mm;
+               }
+               var today = dd + '/' + mm + '/' + yyyy;
+
+               $.each(data, function(i, item) {
+
+                   var dateString = data[i].endutc;
+                   var currentTime = new Date((dateString));
+                   var month = currentTime.getMonth() + 1;
+                   var day = currentTime.getDate();
+                   var year = currentTime.getFullYear();
+                   var date = day + "/" + month + "/" + year;
+                   // ------------------TODo---------------------//
+                   if (date == '4/4/2019') //replace withtoday
+                   {
+                       var index = i;
                        temp = temp.concat(index);
 
-                      }
-                     
-                    });
-                
-                    for (var j = 0; j < temp.length; j++) {
-                     //window.setInterval(function(){
-                     name = name + ";" + (data[temp[j]].nametext);
-                     
                    }
-                },
-                error: function (error) {
-                    console.log("Error:");
-                    console.log(error);
-                }
-            })
-        });
 
-            $.ajax({
-                url: "/send_bike_json",
-                type: "GET",
-                success: function (data_bike) {
-                    
-                    $.each(data_bike, function (i,item) {
-                    
-                      { 
-                        
-                        bikes = bikes + " " + data_bike[i].available_bikes + ", " + (data_bike[i].name) + "; ";
-                        
-                      }
-                    })
-                },
-                error: function (error) {
-                    console.log("Error:");
-                    console.log(error);
-                }
-            })
-       
-       $.ajax({
-                url: "/send_rail_json",
-                type: "GET",
-                success: function (data_rail) {
-                    $.each(data_rail, function (i,item) {
-                      { 
-                        
-                        
-                        delays = delays + " " +  data_rail[i].TrainCode + "<br>" + data_rail[i].Late + " mins </br> ;"; //+ " " + data_rail[i].Direction + "; " ;
-                      }
-                    })
-                    //console.log(delays);
-                },
-                error: function (error) {
-                    console.log("Error:");
-                    console.log(error);
-                }
-            })
+               });
 
-            $.ajax({
-                url: "/send_weather_json",
-                type: "GET",
-                success: function (data_weather) {
-                    var today = new Date();
-                    var dd = today.getDate();
-                    var mm = today.getMonth() + 1; //January is 0!
-                    var hh = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-                    var yyyy = today.getFullYear();
-                     
-                    var today = dd + '/' + mm + '/' + yyyy ;
-                    //console.log(today);
-                    $.each(data_weather, function (i,item) {
-                    var dateString = data_weather[i].last_update;
-                    var currentTime = new Date(dateString);
-                    var month = currentTime.getMonth() + 1;
-                    var day = currentTime.getDate();
-                    var year = currentTime.getFullYear();
-                    var hh = currentTime.getHours() + ":" + currentTime.getMinutes() + ":" + currentTime.getSeconds();
-                    var date = day + "/" + month + "/" + year ;
-                      if(date == today) 
-                      { 
-                       { 
-                          
-                         temperature = temperature + data_weather[i].Temperature + " °C , " +currentTime.getHours() + ":" + currentTime.getMinutes() + "<br> " + data_weather[i].Weathercol + " </br> ;";
-                       }
-                       console.log(data_weather[i]);
-                      }
-                    })
-                    
-                },
-                error: function (error) {
-                    console.log("Error:");
-                    console.log(error);
-                }
-            })
-   //set labels every 5 seconds  
-   function callEvents(){
-    var nametext = name.split(";");
-    // console.log(nametext[2]);
-     for(i=1; i < nametext.length; i++ )
-     {
-         (function(i){
+               for (var j = 0; j < temp.length; j++) {
+                   name = name + ";" + (data[temp[j]].nametext);
+               }
+           },
+           error: function(error) {
+               console.log("Error:");
+               console.log(error);
+           }
+       })
+   });
 
-        window.setTimeout(function(){
-         $(".getEvents").html(nametext[i]);
-            }, i * 5000);
+   $.ajax({
+       url: "/Bike/bike_data",
+       type: "GET",
+       success: function(data_bike) {
 
-        }(i));
-     }
+           $.each(data_bike, function(i, item) {
+
+               {
+                   total_bikes_stands = total_bikes_stands + data_bike[i].bike_stands;
+                   total_available_stands = total_available_stands + data_bike[i].available_bike_stands;
+                   total_available_bikes = total_available_bikes + data_bike[i].available_bikes;
+
+                   bikes = bikes + " " + data_bike[i].available_bikes + ", " + (data_bike[i].name) + "; ";
+
+               }
+           })
+         bike = Math.round((total_available_bikes / total_bikes_stands) * 100);
+       },
+       error: function(error) {
+           console.log("Error:");
+           console.log(error);
+       }
+   })
+
+   $.ajax({
+       url: "/BusLuas/IrishRailData",
+       type: "GET",
+       success: function(data_rail) {
+           $.each(data_rail, function(i, item) {
+               {
+
+                   delays = delays + " " + data_rail[i].TrainCode + "<br>" + data_rail[i].Late + " mins </br> ;"; //+ " " + data_rail[i].Direction + "; " ;
+               }
+           })
+       },
+       error: function(error) {
+           console.log("Error:");
+           console.log(error);
+       }
+   })
+
+   $.ajax({
+       url: "/WeatherPollution/weatherData",
+       type: "GET",
+       success: function(data_weather) {
+           var today = new Date();
+           var dd = today.getDate();
+           var mm = today.getMonth() + 1; //January is 0!
+           var hh = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+           var yyyy = today.getFullYear();
+
+           var today = dd + '/' + mm + '/' + yyyy;
+           //console.log(today);
+           $.each(data_weather, function(i, item) {
+               var dateString = data_weather[i].cm_last_insert_dttm;
+               var currentTime = new Date(dateString);
+               var month = currentTime.getMonth() + 1;
+               var day = currentTime.getDate();
+               var year = currentTime.getFullYear();
+               var hh = currentTime.getHours() + ":" + currentTime.getMinutes() + ":" + currentTime.getSeconds();
+               var date = day + "/" + month + "/" + year;
+               // console.log(hh);
+               if (date == '23/3/2019') {
+                   {
+
+                       temperature = temperature + data_weather[i].Temperature + " °C , " + hh + "<br> " + data_weather[i].Weather + " </br> ;";
+                   }
+                   //console.log(temperature);
+               }
+           })
+
+       },
+       error: function(error) {
+           console.log("Error:");
+           console.log(error);
+       }
+   })
+   //set labels every 5 seconds
+   function callEvents() {
+       var nametext = name.split(";");
+       // console.log(nametext[2]);
+       for (i = 1; i < nametext.length; i++) {
+           (function(i) {
+
+               window.setTimeout(function() {
+                   $(".event-box-animation").addClass("animated flipInX").one("webkitAnimationEnd mozAnimationEnd oAnimationEnd animationend", function() {
+                       $(this).removeClass("animated flipInX");
+                   });
+                   $(".getEvents").html(nametext[i]);
+               }, i * 6000);
+
+           }(i));
+       }
    }
-   function callBikes(){
-    var bike_info = bikes.split(";");
-   // console.log(bike_info);
-     for(i=1; i < bike_info.length; i++ )
-     {
-         (function(i){
 
-        window.setTimeout(function(){
-         $(".getBikes").html(bike_info[i]);
-            }, i * 5000);
+   function callBikes() {
+       var bike_info = bikes.split(";");
+       // console.log(bike_info);
+       for (i = 1; i < bike_info.length; i++) {
+           (function(i) {
+               window.setTimeout(function() {
+                   $(".bike-box-animation").addClass("animated flipInX").one("webkitAnimationEnd mozAnimationEnd oAnimationEnd animationend", function() {
+                       $(this).removeClass("animated flipInX");
+                   });
+                   $(".getBikes").html(bike_info[i]);
 
-        }(i));
-     }
+               }, i * 6000);
+
+           }(i));
+       }
    }
-   function callRail(){
-    var delay = delays.split(";");
-    // console.log(nametext[2]);
-     for(i=1; i < delay.length; i++ )
-     {
-         (function(i){
 
-        window.setTimeout(function(){
-         $(".getDelays").html(delay[i]);
-            }, i * 5000);
+   function callRail() {
+       var delay = delays.split(";");
+       for (i = 1; i < delay.length; i++) {
+           (function(i) {
 
-        }(i));
-     }
+               window.setTimeout(function() {
+                   $(".train-box-animation").addClass("animated flipInX").one("webkitAnimationEnd mozAnimationEnd oAnimationEnd animationend", function() {
+                       $(this).removeClass("animated flipInX");
+                   });
+                   $(".getDelays").html(delay[i]);
+               }, i * 6000);
+
+           }(i));
+       }
    }
-   function callWeather(){
-    var currentTemp = temperature.split(";");
-  //  console.log(currentTemp);
-     for(i=1 ; i < currentTemp.length; i++ )
-     {
-         
-         (function(i){
 
-        window.setTimeout(function(){
-         if(currentTemp[i].includes("Rain"))
-         {
-             $(".weatherImg").html(" <img class=weatherImg style=width:60%; style = float:right; src = '/static/Main/Sun.jpg' />");
-         }
-         if(currentTemp[i].includes("Sun"))
-         {
-             $(".weatherImg").html(" <img class=weatherImg style=width:60%; style = float:right; src = '/static/Main/Sun.jpg' />");
-         }
+   function callWeather() {
+       var currentTemp = temperature.split(";");
 
-         $(".getTemp").html(currentTemp[i]);
-            }, i * 5000);
+       for (i = 0; i < currentTemp.length; i++) {
 
-        }(i));
-     }
+           (function(i) {
+
+               window.setTimeout(function() {
+                   $(".weather-box-animation").addClass("animated flipInX").one("webkitAnimationEnd mozAnimationEnd oAnimationEnd animationend", function() {
+                       $(this).removeClass("animated flipInX");
+                   });
+                   $(".getTemp").html(currentTemp[i]);
+               }, i * 6000);
+
+           }(i));
+       }
    }
-  callEvents();
-  callBikes();
-  callRail();
-  callWeather();
-setInterval(function() {
-  callEvents();
-  callBikes();
-  callRail();
-  callWeather();
-}, 6000);
 
-    </script>
 
+   setInterval(function() {
+       callEvents();
+       callBikes();
+       callRail();
+       callWeather();
+   }, 6000);
+
+</script>
 
 </head>
 
@@ -292,9 +294,7 @@ setInterval(function() {
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="">
                         <div class="curved-ctn">
-
-                            <!--<h1 style="color:snow">Sustainable City Management</h2>-->
-                            <img src="static/Main/img/logo/logo1.png" alt="">
+                            <img src="static/Main/img/logo/logo1.png" alt="" style="height:100%; width:35%; padding-top:10px;">
                            {% comment %} <h2 style="color:snow">Sustainable City Management</h2> {% endcomment %}
                         </div>
                     </div>
@@ -316,9 +316,9 @@ setInterval(function() {
                             <!---LOGIN BLOCK START-->
                             <li class="nav-item">
                                 {% if user.is_authenticated %}
-                                    <a href="{% url 'logout' %}"  role="button" class="nav-link"><p style="display:inline; font-size:15px;">Welcome {{ user.username }} </p><span><i class="notika-icon notika-close"></i></span></a>
+                                    <a href="{% url 'Authentication:logout' %}"  role="button" class="nav-link"><p style="display:inline; font-size:15px;">Welcome {{ user.username }} </p><span><i class="notika-icon notika-close"></i></span></a>
                                 {% else %}
-                                    <a href="{% url 'login' %}"  role="button" class="nav-link"><p style="display:inline; font-size:15px;">You are not logged in </p><span><i class="notika-icon notika-support"></i></span></a>
+                                    <a href="{% url 'Authentication:login' %}"  role="button" class="nav-link"><p style="display:inline; font-size:15px;">You are not logged in </p><span><i class="notika-icon notika-support"></i></span></a>
                                 {% endif %}
                             </li>
                             <!---LOGIN BLOCK END-->
@@ -341,7 +341,7 @@ setInterval(function() {
                                     <a data-toggle="collapse" data-target="#Charts" href="#">Home</a>
                                     <ul class="collapse dropdown-header-top">
                                         <li><a href="#">Home Dashboard</a></li>
-                                        <li><a href="index_2">Dublin bikes</a></li>
+                                        <li><a href="DublinBikes">Dublin bikes</a></li>
                                         <li><a href="index_4">City Events Calendar</a></li>
                                         <li><a href="index_3">Irish Rail</a></li>
                                         <li><a href="index_5">Weather</a></li>
@@ -427,7 +427,7 @@ setInterval(function() {
                                         </li>
                                     </ul>
                                 </li>
-                              
+
                             </ul>
                         </nav>
                     </div>
@@ -443,7 +443,7 @@ setInterval(function() {
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
                         <li class="active">
-                            <a data-toggle="tab" href="#Home"><i class="notika-icon notika-house"></i> Home</a>
+                            <a data-toggle="tab" href="#Home" title="Login to view other dashboards"><i class="notika-icon notika-house"></i> Home</a>
                         </li>
                         <!--<li>
                             <a data-toggle="tab" href="#mailbox"><i class="notika-icon notika-mail"></i> Email</a>
@@ -469,33 +469,35 @@ setInterval(function() {
                     </ul>
                     <div class="tab-content custom-menu-content">
                         <div id="Home" class="tab-pane in active notika-tab-menu-bg animated flipInX">
+                        {% if user.is_authenticated %}
                             <ul class="notika-main-menu-dropdown">
                                 <li>
                                     <a href="#">Home Dashboard</a>
                                 </li>
                                 <li>
-                                    <a href="index_2">Dublin bikes </a>
+                                    <a href="DublinBikes">Dublin bikes </a>
                                 </li>
                                 <li>
-                                    <a href="index_4">City Events Calendar</a>
+                                    <a href="CityEvents">City Events Calendar</a>
                                 </li>
                                 <li>
-                                    <a href="index_3">Irish Rail </a>
+                                    <a href="IrishRail">Irish Rail </a>
 
                                    <!-- <a href="CityEvents/ListEventData">City Events Calendar</a> -->
 
                                 </li>
                                 <li>
-                                    <a href="index_5">Weather</a>
+                                    <a href="Weather">Weather</a>
                                 </li>
                                 <li>
-                                    <a href="index_6">Car Park</a>
+                                    <a href="CarPark">Car Park</a>
                                 </li>
                                 <li>
                                     <a href="templates/analytics.html">Analytics</a>
                                 </li>
 
                             </ul>
+                            {% endif %}
                         </div>
                         <div id="mailbox" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
@@ -638,7 +640,7 @@ setInterval(function() {
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 weather-box-animation">
                         <div class="website-traffic-ctn">
                             <h2><span class="getTemp"></span></h2>
                             <p>Weather</p>
@@ -649,7 +651,7 @@ setInterval(function() {
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                        <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 bike-box-animation">
                         <div class="website-traffic-ctn">
                             <h2><span class="getBikes"></span></h2>
                             <p>Available Bikes</p>
@@ -658,7 +660,7 @@ setInterval(function() {
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30 event-box-animation">
                         <div class="website-traffic-ctn">
                             <h2><span class="getEvents"></span></h2>
                             <p>Today's Events</p>
@@ -667,7 +669,7 @@ setInterval(function() {
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30 train-box-animation">
                         <div class="website-traffic-ctn">
                             <h2><span class="getDelays"></span></h2>
                             <p>Train Delays</p>
@@ -684,19 +686,19 @@ setInterval(function() {
         <div class="container">
             <div class="row">
                 <div class="col-lg-9 col-md-8 col-sm-7 col-xs-12">
-                    <div class="sale-statistic-inner notika-shadow mg-tb-30" style="height:340px;">
+                    <div class="sale-statistic-inner notika-shadow mg-tb-30" style="height:500px;">
                         <div class="curved-inner-pro" style="margin-bottom: 0px;">
                             <div class="curved-ctn">
-                                <h2>Events Calendar</h2>
+                                <h2> Real Time Traffic</h2>
                                 <p></p>
                             </div>
                         </div>
-                        <div><embed src = "CityEvents/MonthView" style="width:100%; height:265px;"></div>
+                        <div><embed src = "CarTraffic" style="width:100%; height:450px;"></div>
                         {% comment %} <div id="curved-line-chart" class="flot-chart-sts flot-chart"></div> {% endcomment %}
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
-                    <div class="statistic-right-area notika-shadow mg-tb-30 sm-res-mg-t-0">
+                    <div class="statistic-right-area notika-shadow mg-tb-30 sm-res-mg-t-0" style="height:500px;">
                         <div class="past-day-statis">
                             <h2>For The Past 30 Days</h2>
                             <p></p>
@@ -704,7 +706,7 @@ setInterval(function() {
                         <div class="dash-widget-visits"></div>
                         <div class="past-statistic-an">
                             <div class="past-statistic-ctn">
-                                <h3><span class="counter"></span>22</h3>
+                                <h2><span class="counter"></span>22</h2>
                                 <p>Total Available Cycles</p>
                             </div>
                             <div class="past-statistic-graph">
@@ -713,7 +715,7 @@ setInterval(function() {
                         </div>
                         <div class="past-statistic-an">
                             <div class="past-statistic-ctn">
-                                <h3><span class="counter">22</span></h3>
+                                <h2><span class="counter">22</span></h2>
                                 <p>Total Events this month</p>
                             </div>
                             <div class="past-statistic-graph">
@@ -722,7 +724,7 @@ setInterval(function() {
                         </div>
                         <div class="past-statistic-an">
                             <div class="past-statistic-ctn">
-                                <h3><span class="counter">12</span></h3>
+                                <h2><span class="counter">12</span></h2>
                                 <p>Total Delays</p>
                             </div>
                             <div class="past-statistic-graph">
@@ -747,10 +749,10 @@ setInterval(function() {
                             </div>
                             <div class="email-statis-wrap">
                                 <div class="email-round-nock">
-
-                                    
-
-                                    <input type="text" class="knob" value="0" data-rel="70" data-linecap="round" data-width="130" data-bgcolor="#E4E4E4" data-fgcolor="#00c292" data-thickness=".10" data-readonly="true">
+                                    <input type="text" id="totalbikes" class="knob" value="0" data-linecap="round" data-width="130" data-bgcolor="#E4E4E4" data-fgcolor="#5D3F6A" data-thickness=".10" data-readonly="true" data-rel="50">
+                                <script>
+                                $('#totalbikes').attr('data-rel', bike);
+                                </script>
                                 </div>
                                 <div class="email-ctn-nock">
                                     <p>Total Bikes</p>
@@ -785,12 +787,12 @@ setInterval(function() {
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <div class="recent-post-wrapper notika-shadow sm-res-mg-t-30 tb-res-ds-n dk-res-ds">
+                <div class="col-md-6 col-sm-6 col-xs-12" style="width:66% !important">
+                    <div class="recent-post-wrapper notika-shadow sm-res-mg-t-30 tb-res-ds-n dk-res-ds" style="height:422px;">
                         <div class="recent-post-ctn">
                             <div class="recent-post-title">
-                                <h2>Dashboard 1</h2>
-                                
+                                <h2>Events Calendar</h2>
+                                <div><embed src = "CityEvents/MonthView" style="width:100%; height:350px;"></div>
                             </div>
                         </div>
                         <div class="recent-post-items">

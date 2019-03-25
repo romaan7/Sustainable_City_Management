@@ -65,14 +65,14 @@
         .bottom(250)
         .left(10)
         .right(10)
-        .width(window.innerWidth)
-        .height(window.innerHeight);
+        .width(3000)
+        .height(480);
 
     setup.render();
 
     var width = setup.innerWidth(), height = setup.innerHeight(), svg = setup.svg();
 
-    var color = d3.scaleOrdinal(["#fc8d62","#66c2a5"])
+    var color = d3.scaleOrdinal(["#5d3f6a","#875c9a"])
 
     var x = d3.scaleBand()
         .rangeRound([0, width])

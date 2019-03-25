@@ -12,11 +12,17 @@ def index(request):
     template = loader.get_template('bike.html')
     return HttpResponse(template.render())
 
+def bike_indi(request):
+    #Return the templet for bike visulization
+    template = loader.get_template('bike_indi.html')
+    return HttpResponse(template.render())
+
 def bike_data(request):
     #get data from database
     this_hour = timezone.now().replace(minute=0, second=0, microsecond=0)
     one_hour_later = this_hour + timedelta(hours=1)
-    q = Bike.objects.filter(cm_last_insert_dttm__range=(this_hour, one_hour_later)).values()
+    #q = Bike.objects.filter(cm_last_insert_dttm__range=(this_hour, one_hour_later)).values()
+    q = Bike.objects.all().order_by('-id')[:113].values()
     json_object = CustomUtil.query_to_json(q)
     return JsonResponse(json_object, safe=False)
 
