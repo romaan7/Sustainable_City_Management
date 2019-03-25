@@ -35,3 +35,10 @@ class IrishRailStationCode(models.Model):
     StationCode = models.CharField(max_length=6, null=True)
     StationId = models.IntegerField()
     cm_last_insert_dttm = models.DateTimeField(default=timezone.now, blank=True)
+
+class BusStopData(models.Model):
+    BusStopNumber = models.CharField(max_length=100, null=True)
+    BusStopStationName = models.CharField(max_length=100, null=True)
+    BusStopLatitude = models.DecimalField(max_digits=9, decimal_places=6)
+    BusStopLongitude = models.DecimalField(max_digits=9, decimal_places=6)
+    cm_last_insert_dttm = models.DateTimeField(default=timezone.now, blank=True)
