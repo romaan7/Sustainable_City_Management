@@ -20,11 +20,12 @@ import Main
 
 #Start the threads to load the data into database as soon as the server starts
 
-# DataHandling.start_bike_thread()
-# DataHandling.start_busLuas_thread()
-# DataHandling.start_cityEvent_thread()
-# DataHandling.start_parking_thread()
-# DataHandling.start_weather_thread()
+#DataHandling.start_bike_thread()
+#DataHandling.start_busLuas_thread()
+#DataHandling.start_cityEvent_thread()
+#DataHandling.start_parking_thread()
+#DataHandling.start_weather_thread()
+
 
 handler404 = 'Main.views.handler404'
 handler500 = 'Main.views.handler500'
@@ -39,4 +40,6 @@ urlpatterns = [
     path('CityEvents/', include('CityEvents.urls')),
     path('WeatherPollution/', include('WeatherPollution.urls')),
     path('Parking/', include('Parking.urls')),
+    path('CarTraffic/', include('CarTraffic.urls')),
+
 ]

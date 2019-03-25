@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class CartrafficConfig(AppConfig):
+class CarTrafficConfig(AppConfig):
     name = 'CarTraffic'
