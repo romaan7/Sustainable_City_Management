@@ -26,6 +26,10 @@ def Weather(request):
 def CarPark(request):
     template = loader.get_template('CarPark.html')
     return HttpResponse(template.render({}, request))
+
+def CityEventsAnimations(request):
+    template = loader.get_template('CityEvents/animations.html')
+    return HttpResponse(template.render({}, request))
    
 def handler404(request):
     return render(request, '404.html', status=404)
