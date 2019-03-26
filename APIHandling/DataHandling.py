@@ -13,12 +13,15 @@ from CityEvents.models import CityEvents
 from Parking.models import Parking
 from Parking.models import carparkData
 from WeatherPollution.models import WeatherData
+from BusLuas.models import BusStopData
 
 from APIHandling import DublinBikesAPI
 from APIHandling import CityEventAPI
 from APIHandling import WeatherPollutionAPI
 from APIHandling import IrishRailAPI
 from APIHandling import ParkingAPI
+from APIHandling import DublinBusAPI
+
 
 ############# Defines the methods for starting threads for each of the module###########################################
 
@@ -72,6 +75,16 @@ def start_weather_thread():
             return "WeatherPollution thread started"
     except IOError as e:
         logging.exception('I/O Error with CSV file ' + str(e))
+
+
+def start_BusStop_thread():
+    threading.Timer(BUSLUAS_THREAD_RUN_FREQUENCY, start_busLuas_thread).start()
+    data = DublinBusAPI.getAllDublinBusStandInfo()
+    print('-----------------------------')
+    if check_intigrity(data):
+        create_BusStopData_objects(data)
+        return "BusLuas thread started"
+
 
 
 #######################Method to check intigrity of data before writing it to the database. This needs to be more rovhust################
@@ -161,6 +174,36 @@ def create_busLuas_objects(data):
     except ex.FailedToCreateObjectException:
         logging.exception("Failed to create BusLuas Object")
         return False
+
+
+def create_BusStopData_objects(data):
+    try:
+        current_dttm = datetime.now(tz=timezone.utc)
+        loaded_json = json.loads(data)
+        # print(data)
+        
+        for row in loaded_json:
+            # print(int(row['StopNumber']))
+            # print(int(row['Longitude']))
+            StopNumber = int(row['StopNumber'])
+            Longitude = float(row['Longitude'])
+            Latitude = row['Latitude']
+            Description = row['Description']
+            cm_last_insert_dttm = current_dttm
+            # print('--------------------------')
+            BusLuas_object = BusStopData.objects.create(BusStopNumber=StopNumber, BusStopLatitude=float(Longitude),
+                                                       BusStopLongitude=Latitude, BusStopStationName=Description,
+                                                       cm_last_insert_dttm=cm_last_insert_dttm)
+            BusLuas_object.save()
+            # print('------------TestData--------------')
+            # for key in row:
+               
+        return True
+    except ex.FailedToCreateObjectException:
+        logging.exception("Failed to create BusLuas Object")
+        return False
+
+
 
 #Inserts CityEvent Data int DB
 def create_cityEvent_objects(data):
@@ -256,7 +299,6 @@ def create_weather_objects(data):
             Humidity = row['Humidity (%)']
             Rainfall = row['Rainfall (mm)']
             Pressure = row['Pressure (hPa)']
-            print(Temperature)
             if Temperature == 'n/a' or Temperature == '' or Temperature == '-':
                 Temperature = None
             if Weather == '-' or Weather == 'n/a' or Weather == "":

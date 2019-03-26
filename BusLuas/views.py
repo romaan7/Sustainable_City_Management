@@ -2,6 +2,7 @@ from django.template import loader
 from django.http import HttpResponse, HttpResponseRedirect
 from BusLuas.models import BusLuas as IrishRail
 from django.http import JsonResponse
+from APIHandling import DublinBusAPI
 
 
 def index(request):
@@ -23,7 +24,6 @@ def IrishRailData(request):
 def DublinBusData(request):
     print('Testthe----------------')
     test=DublinBusAPI.getAllDublinBusStandInfo()
-    context = {
-            'data': [],
-        }
-    return HttpResponse(template.render(context, request))
+    queryset = list(IrishRail.objects.filter().values())
+    #print(queryset)
+    return JsonResponse(queryset, safe=False)

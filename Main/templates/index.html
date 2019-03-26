@@ -64,236 +64,222 @@
     <script src="{% static 'Main/js/vendor/modernizr-2.8.3.min.js' %}"></script>
     <script src="http://d3js.org/d3.v4.min.js" language="JavaScript"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-
-<script>
+<script type='text/javascript'>
    // var i = 0; // index of data to iterate.
-var temp = []; // where we store the result of the query.
-var interval = 1000;  
-var name = "";  
-var bikes = "";
-var delays = "";
-var temperature = "";
-var bike = 0;
-var total_bikes_stands = 0;
-var total_available_stands = 0;
-var total_available_bikes = 0;
+   var temp = []; // where we store the result of the query.
+   var interval = 1000;
+   var name = "";
+   var bikes = "";
+   var delays = "";
+   var temperature = "";
+   var bike = 49;
+   var total_bikes_stands = 0;
+   var total_available_stands = 0;
+   var total_available_bikes = 0;
 
-        $(document).ready(function () {
-             
-            $.ajax({
-                url: "/CityEvents/CityEventData",
-                type: "GET",
-                success: function (data) {
-                    var today = new Date();
-                    var dd = today.getDate();
-                    var mm = today.getMonth() + 1; //January is 0!
+   $(document).ready(function() {
 
-                    var yyyy = today.getFullYear();
-                    if (dd < 10) {
-                      dd = '0' + dd;
-                    } 
-                    if (mm < 10) {
-                      mm = '0' + mm;
-                    } 
-                    var today = dd + '/' + mm + '/' + yyyy;
-                    
-                    $.each(data, function (i,item) {
-                    
-                    
-                    var dateString = data[i].endutc;
-                    var currentTime = new Date((dateString ));
-                    var month = currentTime.getMonth() + 1;
-                    var day = currentTime.getDate();
-                    var year = currentTime.getFullYear();
-                    var date = day + "/" + month + "/" + year;
-                      // ------------------TODo---------------------//
-                      if(date == '4/4/2019') //replace withtoday
-                      { 
-                       
-                      // console.log(data[i]);
-                       var index = i;                   
+       $.ajax({
+           url: "/CityEvents/CityEventData",
+           type: "GET",
+           success: function(data) {
+               var today = new Date();
+               var dd = today.getDate();
+               var mm = today.getMonth() + 1; //January is 0!
+
+               var yyyy = today.getFullYear();
+               if (dd < 10) {
+                   dd = '0' + dd;
+               }
+               if (mm < 10) {
+                   mm = '0' + mm;
+               }
+               var today = dd + '/' + mm + '/' + yyyy;
+
+               $.each(data, function(i, item) {
+
+                   var dateString = data[i].endutc;
+                   var currentTime = new Date((dateString));
+                   var month = currentTime.getMonth() + 1;
+                   var day = currentTime.getDate();
+                   var year = currentTime.getFullYear();
+                   var date = day + "/" + month + "/" + year;
+                   // ------------------TODo---------------------//
+                   if (date == '4/4/2019') //replace withtoday
+                   {
+                       var index = i;
                        temp = temp.concat(index);
 
-                      }
-                     
-                    });
-                
-                    for (var j = 0; j < temp.length; j++) {
-                     //window.setInterval(function(){
-                     name = name + ";" + (data[temp[j]].nametext);
-                     
                    }
-                  // console.log(data);
-                },
-                error: function (error) {
-                    console.log("Error:");
-                    console.log(error);
-                }
-            })
-        });
-        
 
-            $.ajax({
-                url: "/Bike/bike_data",
-                type: "GET",
-                success: function (data_bike) {
-                    
-                    $.each(data_bike, function (i,item) {
-                    
-                      { 
-                        total_bikes_stands = total_bikes_stands + data_bike[i].bike_stands;
-                        total_available_stands = total_available_stands + data_bike[i].available_bike_stands;
-                        total_available_bikes = total_available_bikes + data_bike[i].available_bikes;
+               });
 
-                        bikes = bikes + " " + data_bike[i].available_bikes + ", " + (data_bike[i].name) + "; ";
-                        
-                      }
-                       
-                    })
+               for (var j = 0; j < temp.length; j++) {
+                   name = name + ";" + (data[temp[j]].nametext);
+               }
+           },
+           error: function(error) {
+               console.log("Error:");
+               console.log(error);
+           }
+       })
+   });
 
-                   bike = Math.round((total_available_bikes/total_bikes_stands)*100);
-                   console.log(total_available_bikes);
-                   // console.log(total_available_stands);
-                   // console.log(total_available_bikes);
-                },
-                error: function (error) {
-                    console.log("Error:");
-                    console.log(error);
-                }
-            })
-       
-       $.ajax({
-                url: "/BusLuas/IrishRailData",
-                type: "GET",
-                success: function (data_rail) {
-                    $.each(data_rail, function (i,item) {
-                      { 
-                        
-                        
-                        delays = delays + " " +  data_rail[i].TrainCode + "<br>" + data_rail[i].Late + " mins </br> ;"; //+ " " + data_rail[i].Direction + "; " ;
-                      }
-                    })
-                   // console.log(delays);
-                },
-                error: function (error) {
-                    console.log("Error:");
-                    console.log(error);
-                }
-            })
+   $.ajax({
+       url: "/Bike/bike_data",
+       type: "GET",
+       success: function(data_bike) {
 
-            $.ajax({
-                url: "/WeatherPollution/weatherData",
-                type: "GET",
-                success: function (data_weather) {
-                    var today = new Date();
-                    var dd = today.getDate();
-                    var mm = today.getMonth() + 1; //January is 0!
-                    var hh = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-                    var yyyy = today.getFullYear();
-                     
-                    var today = dd + '/' + mm + '/' + yyyy ;
-                    //console.log(today);
-                    $.each(data_weather, function (i,item) {
-                    var dateString = data_weather[i].cm_last_insert_dttm;
-                    var currentTime = new Date(dateString);
-                    var month = currentTime.getMonth() + 1;
-                    var day = currentTime.getDate();
-                    var year = currentTime.getFullYear();
-                    var hh = currentTime.getHours() + ":" + currentTime.getMinutes() + ":" + currentTime.getSeconds();
-                    var date = day + "/" + month + "/" + year ;
-                   // console.log(hh);
-                      if(date == '23/3/2019') 
-                      { 
-                       { 
-                          
-                         temperature = temperature + data_weather[i].Temperature + " °C , " + hh + "<br> " + data_weather[i].Weather + " </br> ;";
-                       }
-                       //console.log(temperature);
-                      }
-                    })
-                    
-                },
-                error: function (error) {
-                    console.log("Error:");
-                    console.log(error);
-                }
-            })
-   //set labels every 5 seconds  
-   function callEvents(){
-    var nametext = name.split(";");
-    // console.log(nametext[2]);
-     for(i=1; i < nametext.length; i++ )
-     {
-         (function(i){
+           $.each(data_bike, function(i, item) {
 
-        window.setTimeout(function(){
-         $(".getEvents").html(nametext[i]);
-            }, i * 5000);
+               {
+                   total_bikes_stands = total_bikes_stands + data_bike[i].bike_stands;
+                   total_available_stands = total_available_stands + data_bike[i].available_bike_stands;
+                   total_available_bikes = total_available_bikes + data_bike[i].available_bikes;
 
-        }(i));
-     }
-   }
-   function callBikes(){
-    var bike_info = bikes.split(";");
-   // console.log(bike_info);
-     for(i=1; i < bike_info.length; i++ )
-     {
-         (function(i){
+                   bikes = bikes + " " + data_bike[i].available_bikes + ", " + (data_bike[i].name) + "; ";
 
-        window.setTimeout(function(){
-         $(".getBikes").html(bike_info[i]);
-            }, i * 5000);
+               }
+           })
+         bike = Math.round((total_available_bikes / total_bikes_stands) * 100);
+       },
+       error: function(error) {
+           console.log("Error:");
+           console.log(error);
+       }
+   })
 
-        }(i));
-     }
-   }
-   function callRail(){
-    var delay = delays.split(";");
-    // console.log(nametext[2]);
-     for(i=1; i < delay.length; i++ )
-     {
-         (function(i){
+   $.ajax({
+       url: "/BusLuas/IrishRailData",
+       type: "GET",
+       success: function(data_rail) {
+           $.each(data_rail, function(i, item) {
+               {
 
-        window.setTimeout(function(){
-         $(".getDelays").html(delay[i]);
-            }, i * 5000);
+                   delays = delays + " " + data_rail[i].TrainCode + "<br>" + data_rail[i].Late + " mins </br> ;"; //+ " " + data_rail[i].Direction + "; " ;
+               }
+           })
+       },
+       error: function(error) {
+           console.log("Error:");
+           console.log(error);
+       }
+   })
 
-        }(i));
-     }
-   }
-   function callWeather(){
-    var currentTemp = temperature.split(";");
-    
-     for(i=0 ; i < currentTemp.length; i++ )
-     {
-         //console.log(currentTemp[i]);
-         (function(i){
+   $.ajax({
+       url: "/WeatherPollution/weatherData",
+       type: "GET",
+       success: function(data_weather) {
+           var today = new Date();
+           var dd = today.getDate();
+           var mm = today.getMonth() + 1; //January is 0!
+           var hh = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+           var yyyy = today.getFullYear();
 
-        window.setTimeout(function(){
+           var today = dd + '/' + mm + '/' + yyyy;
+           //console.log(today);
+           $.each(data_weather, function(i, item) {
+               var dateString = data_weather[i].cm_last_insert_dttm;
+               var currentTime = new Date(dateString);
+               var month = currentTime.getMonth() + 1;
+               var day = currentTime.getDate();
+               var year = currentTime.getFullYear();
+               var hh = currentTime.getHours() + ":" + currentTime.getMinutes() + ":" + currentTime.getSeconds();
+               var date = day + "/" + month + "/" + year;
+               // console.log(hh);
+               if (date == '23/3/2019') {
+                   {
 
-         $(".getTemp").html(currentTemp[i]);
-            }, i * 5000);
+                       temperature = temperature + data_weather[i].Temperature + " °C , " + hh + "<br> " + data_weather[i].Weather + " </br> ;";
+                   }
+                   //console.log(temperature);
+               }
+           })
 
-        }(i));
-     }
+       },
+       error: function(error) {
+           console.log("Error:");
+           console.log(error);
+       }
+   })
+   //set labels every 5 seconds
+   function callEvents() {
+       var nametext = name.split(";");
+       // console.log(nametext[2]);
+       for (i = 1; i < nametext.length; i++) {
+           (function(i) {
+
+               window.setTimeout(function() {
+                   $(".event-box-animation").addClass("animated flipInX").one("webkitAnimationEnd mozAnimationEnd oAnimationEnd animationend", function() {
+                       $(this).removeClass("animated flipInX");
+                   });
+                   $(".getEvents").html(nametext[i]);
+               }, i * 6000);
+
+           }(i));
+       }
    }
 
+   function callBikes() {
+       var bike_info = bikes.split(";");
+       // console.log(bike_info);
+       for (i = 1; i < bike_info.length; i++) {
+           (function(i) {
+               window.setTimeout(function() {
+                   $(".bike-box-animation").addClass("animated flipInX").one("webkitAnimationEnd mozAnimationEnd oAnimationEnd animationend", function() {
+                       $(this).removeClass("animated flipInX");
+                   });
+                   $(".getBikes").html(bike_info[i]);
 
-setInterval(function() {    
-  callEvents();
-  callBikes();
-  callRail();
-  callWeather();
-}, 6000);
+               }, i * 6000);
+
+           }(i));
+       }
+   }
+
+   function callRail() {
+       var delay = delays.split(";");
+       for (i = 1; i < delay.length; i++) {
+           (function(i) {
+
+               window.setTimeout(function() {
+                   $(".train-box-animation").addClass("animated flipInX").one("webkitAnimationEnd mozAnimationEnd oAnimationEnd animationend", function() {
+                       $(this).removeClass("animated flipInX");
+                   });
+                   $(".getDelays").html(delay[i]);
+               }, i * 6000);
+
+           }(i));
+       }
+   }
+
+   function callWeather() {
+       var currentTemp = temperature.split(";");
+
+       for (i = 0; i < currentTemp.length; i++) {
+
+           (function(i) {
+
+               window.setTimeout(function() {
+                   $(".weather-box-animation").addClass("animated flipInX").one("webkitAnimationEnd mozAnimationEnd oAnimationEnd animationend", function() {
+                       $(this).removeClass("animated flipInX");
+                   });
+                   $(".getTemp").html(currentTemp[i]);
+               }, i * 6000);
+
+           }(i));
+       }
+   }
 
 
-    
-
-
-
+   setInterval(function() {
+       callEvents();
+       callBikes();
+       callRail();
+       callWeather();
+   }, 6000);
 
 </script>
-
 
 </head>
 
@@ -330,9 +316,9 @@ setInterval(function() {
                             <!---LOGIN BLOCK START-->
                             <li class="nav-item">
                                 {% if user.is_authenticated %}
-                                    <a href="{% url 'logout' %}"  role="button" class="nav-link"><p style="display:inline; font-size:15px;">Welcome {{ user.username }} </p><span><i class="notika-icon notika-close"></i></span></a>
+                                    <a href="{% url 'Authentication:logout' %}"  role="button" class="nav-link"><p style="display:inline; font-size:15px;">Welcome {{ user.username }} </p><span><i class="notika-icon notika-close"></i></span></a>
                                 {% else %}
-                                    <a href="{% url 'login' %}"  role="button" class="nav-link"><p style="display:inline; font-size:15px;">You are not logged in </p><span><i class="notika-icon notika-support"></i></span></a>
+                                    <a href="{% url 'Authentication:login' %}"  role="button" class="nav-link"><p style="display:inline; font-size:15px;">You are not logged in </p><span><i class="notika-icon notika-support"></i></span></a>
                                 {% endif %}
                             </li>
                             <!---LOGIN BLOCK END-->
@@ -441,7 +427,7 @@ setInterval(function() {
                                         </li>
                                     </ul>
                                 </li>
-                              
+
                             </ul>
                         </nav>
                     </div>
@@ -654,7 +640,7 @@ setInterval(function() {
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 weather-box-animation">
                         <div class="website-traffic-ctn">
                             <h2><span class="getTemp"></span></h2>
                             <p>Weather</p>
@@ -665,7 +651,7 @@ setInterval(function() {
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                        <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 bike-box-animation">
                         <div class="website-traffic-ctn">
                             <h2><span class="getBikes"></span></h2>
                             <p>Available Bikes</p>
@@ -674,7 +660,7 @@ setInterval(function() {
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30 event-box-animation">
                         <div class="website-traffic-ctn">
                             <h2><span class="getEvents"></span></h2>
                             <p>Today's Events</p>
@@ -683,7 +669,7 @@ setInterval(function() {
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30 train-box-animation">
                         <div class="website-traffic-ctn">
                             <h2><span class="getDelays"></span></h2>
                             <p>Train Delays</p>
@@ -763,15 +749,9 @@ setInterval(function() {
                             </div>
                             <div class="email-statis-wrap">
                                 <div class="email-round-nock">
-
-                                    
-
-                                    <input type="text" id="totalbikes" class="knob" value="0" data-linecap="round" data-width="130" data-bgcolor="#E4E4E4" data-fgcolor="#5D3F6A" data-thickness=".10" data-readonly="true">
+                                    <input type="text" id="totalbikes" class="knob" value="0" data-linecap="round" data-width="130" data-bgcolor="#E4E4E4" data-fgcolor="#5D3F6A" data-thickness=".10" data-readonly="true" data-rel="50">
                                 <script>
-                                
-                                var d =  document.getElementById("totalbikes");
-                                d.setAttribute("data-rel", bike);
-                                
+                                $('#totalbikes').attr('data-rel', bike);
                                 </script>
                                 </div>
                                 <div class="email-ctn-nock">
@@ -893,7 +873,56 @@ setInterval(function() {
                         </div>
                     </div>
                 </div>
-               
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <div class="recent-items-wp notika-shadow sm-res-mg-t-30">
+                        <div class="rc-it-ltd">
+                            <div class="recent-items-ctn">
+                                <div class="recent-items-title">
+                                    <h2>Dashboard 2</h2>
+                                </div>
+                            </div>
+                            <!--<div class="recent-items-inn">
+                                <table class="table table-inner table-vmiddle">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th style="width: 60px">Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="f-500 c-cyan">4555</td>
+                                            <td>Samsung Galaxy Mega</td>
+                                            <td class="f-500 c-cyan">$921</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="f-500 c-cyan">4556</td>
+                                            <td>Huawei Ascend P6</td>
+                                            <td class="f-500 c-cyan">$240</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="f-500 c-cyan">8778</td>
+                                            <td>HTC One M8</td>
+                                            <td class="f-500 c-cyan">$400</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="f-500 c-cyan">5667</td>
+                                            <td>Samsung Galaxy Alpha</td>
+                                            <td class="f-500 c-cyan">$870</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="f-500 c-cyan">7886</td>
+                                            <td>LG G3</td>
+                                            <td class="f-500 c-cyan">$790</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>-->
+                            <div id="recent-items-chart" class="flot-chart-items flot-chart vt-ct-it tb-rc-it-res"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -1189,7 +1218,6 @@ setInterval(function() {
     <script src="{% static 'Main/js/knob/jquery.knob.js' %}"></script>
     <script src="{% static 'Main/js/knob/jquery.appear.js' %}"></script>
     <script src="{% static 'Main/js/knob/knob-active.js' %}"></script>
-   
     <!--  wave JS
         ============================================ -->
     <script src="{% static 'Main/js/wave/waves.min.js' %}"></script>
@@ -1207,7 +1235,7 @@ setInterval(function() {
     <!-- 'Main JS
         ============================================ -->
     <script src="{% static 'Main/js/main.js' %}"></script>
-     
+
 </body>
 
 </html>

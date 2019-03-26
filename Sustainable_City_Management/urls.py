@@ -20,12 +20,12 @@ import Main
 
 #Start the threads to load the data into database as soon as the server starts
 
-#DataHandling.start_bike_thread()
-#DataHandling.start_busLuas_thread()
-#DataHandling.start_cityEvent_thread()
-#DataHandling.start_parking_thread()
-#DataHandling.start_weather_thread()
-
+# DataHandling.start_bike_thread()
+# DataHandling.start_busLuas_thread()
+# DataHandling.start_cityEvent_thread()
+# DataHandling.start_parking_thread()
+# DataHandling.start_weather_thread()
+#DataHandling.start_BusStop_thread()
 
 handler404 = 'Main.views.handler404'
 handler500 = 'Main.views.handler500'
@@ -36,7 +36,7 @@ urlpatterns = [
     path('APIHandling/', include('APIHandling.urls')),
     path('BusLuas/', include('BusLuas.urls')),
     path('Bike/', include('Bike.urls')),
-    path('Authentication/', include('django.contrib.auth.urls')),
+    path('Authentication/', include('Authentication.urls')),
     path('CityEvents/', include('CityEvents.urls')),
     path('WeatherPollution/', include('WeatherPollution.urls')),
     path('Parking/', include('Parking.urls')),
