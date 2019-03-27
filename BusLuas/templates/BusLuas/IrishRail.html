@@ -62,7 +62,16 @@
 		============================================ -->
     <script src="{% static 'Main/js/vendor/modernizr-2.8.3.min.js' %}"></script>
     
+<style>
+.table-responsive
+{
 
+    overflow-y: hidden !important;
+    height: 625px;
+    margin-left : 10px!important;
+    margin-right : 10px!important;
+}
+</style>
 
 </head>
 <body>
@@ -72,9 +81,8 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="data-table-list">
                         <div class="basic-tb-hd">
-                            <h2></h2>
-                            <h4>To search for a specific train or route, use the search box at the top of the table or the search box below every column name</h4>
-                            <br></br>
+                            <p>To search for a specific train or route, use the search box at the top of the table or the search box below every column name</p>
+                            
                         </div>
                         <div class="table-responsive">
     <table id="data-table-basic" class="table table-striped">

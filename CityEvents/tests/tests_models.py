@@ -3,7 +3,6 @@ import pytest
 from mixer.backend.django import mixer
 pytestmark = pytest.mark.django_db
 from CityEvents.models import CityEvents
-from CityEvents.views import EventsPerWeek
 from django.test import TestCase
 from datetime import datetime
 from django.urls import reverse, resolve
@@ -17,10 +16,6 @@ class TestCityEvents(TestCase):
         resp = self.client.get('/CityEvents/')
         self.assertEqual(resp.status_code, 200)
 
-    def test_url_EventsPerWeek(self):
-        resp = self.client.get('/CityEvents/EventsPerWeek')
-        self.assertEqual(resp.status_code, 200)
-
     def test_url_monthView(self):
         resp = self.client.get('/CityEvents/MonthView')
         self.assertEqual(resp.status_code, 200)
@@ -28,7 +23,10 @@ class TestCityEvents(TestCase):
     def test_url_CityEventData(self):
         resp = self.client.get('/CityEvents/CityEventData')
         self.assertEqual(resp.status_code, 200)
-
+    
+    def test_url_ListEventData(self):
+        resp = self.client.get('/CityEvents/ListEventData')
+        self.assertEqual(resp.status_code, 200)
 
 
     def test_data_character_fields(self):
@@ -47,12 +45,11 @@ class TestCityEvents(TestCase):
     def test_views_index(self):
         view = resolve('/CityEvents/')
         self.assertEquals(view.view_name, 'CityEvents:index')
-
-    def test_view_monthView(self):
-        view = resolve('/CityEvents/EventsPerWeek')
-        print(view)
-        self.assertEquals(view.view_name, 'CityEvents:EventsPerWeek')
         
     def test_view_CityEventData(self):
         view = resolve('/CityEvents/MonthView')
         self.assertEquals(view.view_name, 'CityEvents:MonthView')
+    
+    def test_view_ListEventData(self):
+        view = resolve('/CityEvents/ListEventData')
+        self.assertEquals(view.view_name, 'CityEvents:ListEventData')
