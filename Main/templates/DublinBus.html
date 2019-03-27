@@ -3,7 +3,7 @@
 
 <head>
     <style>
-        .col-lg-9 {
+        /* .col-lg-9 {
             width: 100% !important;
         }
 
@@ -24,7 +24,7 @@
 ::-webkit-scrollbar {
     width: 13px;
     height: 13px;
-}
+} */
     </style>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -89,7 +89,7 @@
 
     <!--Bus Data -->
         <link rel="stylesheet" href="{% static 'Main/css/BusStop/leaflet.css' %}" />
-        <link rel="stylesheet" type="text/css" href="{% static 'Main/css/BusStop/qgis2web.css' %}">
+        <!-- <link rel="stylesheet" type="text/css" href="{% static 'Main/css/BusStop/qgis2web.css' %}"> -->
         <link rel="stylesheet" href="{% static 'Main/css/BusStop/label.css' %}" />
         <link rel="stylesheet" href="{% static 'Main/css/BusStop/MarkerCluster.css' %}" />
         <link rel="stylesheet" href="{% static 'Main/css/BusStop/MarkerCluster.Default.css' %}" />
@@ -717,62 +717,62 @@
     <!-- Main Menu area End-->
     <!-- Start Status area -->
     <!-- End Status area-->
-    <!-- Start Sale Statistic area-->
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-
-     </div>
     <div class="sale-statistic-area">
         <div class="container">
             <div class="row">
-                <div class="col-lg-9 col-md-8 col-sm-7 col-xs-12">
-                        <div id="map" style="height: 600px"> 
+                <div class="col-lg-12 col-md-8 col-sm-7 col-xs-12">
+                    <div class="sale-statistic-inner notika-shadow mg-tb-30" style="height:510px;">
+                        <div class="curved-inner-pro">
+                            <div class="curved-ctn">
+                                <h2>Bus Stop Data</h2>
+                                <p></p>
                             </div>
-                    
+                        </div>
+                        <div class="resp-container">
+                            <div id="map" style="height: 600px"> 
+                            </div>
+                        </div>
+                        <!--<div id="curved-line-chart" class="flot-chart-sts flot-chart"></div>-->
+                    </div>
                 </div>
-
+                <!-- bike table 1-->
+                <div class="col-lg-12 col-md-8 col-sm-7 col-xs-12">
+                   <div class="add-todo-list notika-shadow mg-t-30">
+                        <div class="realtime-ctn">
+                            <div class="realtime-title">
+                                <h2>Real Time Bus Data Fetch</h2>
+                            </div>
+                        </div>
+                        <div class="card-box">
+                            <div class="chat-widget-input">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-sm-12 col-xs-12 chat-inputbar">
+                                        <div class="form-group todo-flex">
+                                                <form id="search" method="POST" action="{% url 'BusLuas:DublinBusSearchResult' %}">
+                                            <div class="nk-int-st">
+                                                <input type="text" class="form-control chat-input" id="busSearch" name="busSearch" placeholder="Enter your text">
+                                            </div>
+                                            <div class="chat-send">
+                                                <button type="submit" class="btn btn-md btn-primary btn-block notika-chat-btn waves-effect">Send</button>
+                                            </div>
+                                        </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- bike table 2-->
+                
             </div>
         </div>
     </div>
-    <div class="col-lg-9 col-md-8 col-sm-7 col-xs-12">
-            <div class="form-element-list mg-t-30">
-                <div class="cmp-tb-hd">
-                    <h2>Different Sizes</h2>
-                    <p>You may use the extra sizing classes (<code>.input-sm, .input-lg </code>) to change size of the feilds.</p>
-                </div>
-                <div class="row">
-                    <div class="col-lg-9 col-md-8 col-sm-7 col-xs-12">
-                        <div class="form-group ic-cmp-int">
-                            <div class="form-ic-cmp">
-                                <i class="notika-icon notika-wifi"></i>
-                            </div>
-                            <div class="nk-int-st">
-                                <input type="text" class="form-control input-sm" placeholder="Internet">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-9 col-md-8 col-sm-7 col-xs-12">
-                        <div class="form-group ic-cmp-int">
-                            <div class="form-ic-cmp">
-                                <i class="notika-icon notika-wifi"></i>
-                            </div>
-                            <div class="nk-int-st">
-                                <input type="text" class="form-control" placeholder="Internet">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-9 col-md-8 col-sm-7 col-xs-12">
-                        <div class="form-group ic-cmp-int int-bg-it form-elet-mg">
-                            <div class="form-ic-cmp">
-                                <i class="notika-icon notika-wifi"></i>
-                            </div>
-                            <div class="nk-int-st">
-                                <input type="text" class="form-control input-lg" placeholder="Internet">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    
+
+    
+    
+    
     <!-- End Sale Statistic area-->
     <!-- Start Email Statistic area-->
     <!-- End Email Statistic area-->
@@ -868,7 +868,28 @@
         <script src="{% static 'Main/js/BusStop/leaflet.markercluster.js' %}"></script>
         <!-- <script src="{% static 'Main/js/BusStop/mapData.js' %}"></script> -->
         <script src="{% static 'Main/js/BusStop/json_sfbusstops20123.js' %}"></script>
+    <!-- jquery AutoCompletet -->
+
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" media="all" />
+     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"> </script> 
+     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" type="text/javascript"></script>
         
+
+    <!-- Ajax call -->
+     <script>
+            $(document).ready(function(){ 
+                $("#busSearch").autocomplete({
+                    source: "/BusLuas/DublinBusSearchResult",
+                    minLength: 1,
+                    open: function(){
+                        setTimeout(function () {
+                            $('.ui-autocomplete').css('z-index', 99);
+                        }, 0);
+                    }
+                  });
+            });
+    </script>
+     <!-- Map Script -->
         <script>
         //  var json_sfbusstops20123=   jQuery.getJSON("{% static 'Main/js/BusStop/json_sfbusstops20123.js' %}")
                 L.ImageOverlay.include({
@@ -911,11 +932,11 @@
                 }
 
                 function pop_sfbusstops20120(feature, layer) {
-                    console.log('test')
+                    // console.log('test')
                     var popupContent = '<table><tr><th scope="row">Stop Name</th><td>' + (feature.properties['Descriptiongid'] !== null ? Autolinker.link(String(feature.properties['Description'])) : '') + '</td></tr><tr><th scope="row">Stop Number</th><td>' + (feature.properties['StopNumber'] !== null ? Autolinker.link(String(feature.properties['StopNumber'])) : '') + '</td></tr></table>';
                     layer.bindPopup(popupContent);
                     layer.on({
-                    click: whenClicked(feature)
+                    // click: whenClicked(feature)
                     });
                 }
         

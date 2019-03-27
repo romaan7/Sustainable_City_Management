@@ -1,9 +1,9 @@
 from django.template import loader
 from django.http import HttpResponse, HttpResponseRedirect
 from BusLuas.models import BusLuas as IrishRail
+from BusLuas.models import DublinBusStopData
 from django.http import JsonResponse
-from APIHandling import DublinBusAPI
-
+import json
 
 def index(request):
     template = loader.get_template('BusLuas/IrishRail.html')
@@ -24,7 +24,7 @@ def IrishRailData(request):
 def DublinBusData(request):
     print('Testthe----------------')
     test=DublinBusAPI.getAllDublinBusStandInfo()
-    queryset = list(IrishRail.objects.filter().values())
+    queryset = list(DublinBusStopData.objects.filter().values())
     #print(queryset)
     return JsonResponse(queryset, safe=False)
 
@@ -85,6 +85,32 @@ def jsonResponse(xmlText):
     # print(type(response['soap:Envelope']["soap:Body"]["GetRealTimeStopDataResponse"]["GetRealTimeStopDataResult"]["diffgr:diffgram"]["DocumentElement"]["StopData"]))
     return stopDataRealTime
 
+def DublinBusSearchResult(request):
+    print('recieved')
+    if request.is_ajax():
+        print('ajax')
+        print(request)
+        q = request.GET.get('term', '').capitalize()
+        print(q)
+        print('search_qs')
+        test=list(DublinBusStopData.objects.filter(BusStopNumber__icontains=q))
+        print(test)
+        # search_qs = DublinBusStopData.objects.filter()
+        # print('search_qs')
+        results = []
+        for r in test:
+            print(r.BusStopNumber)
+            results.append(r.BusStopNumber)
+        print(results)
+        data = json.dumps(results)
+        print('json')
+        print(data)
+
+    else:
+        data = 'fail'
+    mimetype = 'application/json'
+
+    return HttpResponse(data, mimetype)
 
 # def BusDashBoard(request):
 #     template = loader.get_template('DublinBus.html')
