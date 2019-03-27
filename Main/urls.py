@@ -10,6 +10,7 @@ urlpatterns = [
     path('CityEvents', views.CityEvents, name ='CityEvents'),
     path('Weather', views.Weather, name ='Weather'),
     path('CarPark', views.CarPark, name ='CarPark'),
+    path('BusDashBoard', views.BusDashBoard, name ='DublinBus'),
     # path('send_city_json', views.send_city_json, name='send_city_json'),
     # path('send_bike_json', views.send_bike_json, name='send_bike_json'),
     # path('send_rail_json', views.send_rail_json, name='send_rail_json'),
