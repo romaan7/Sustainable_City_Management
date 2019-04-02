@@ -11,9 +11,6 @@ def index(request):
     return HttpResponse(template.render())
 
 def parking_data(request):
-    # q = carparkData.objects.all().values()
-    # json_object = CustomUtil.query_to_json(q)
-    # return JsonResponse(json_object, safe=False)
     this_hour = timezone.now().replace(minute=0, second=0, microsecond=0)
     print("hr")
     print(this_hour)
