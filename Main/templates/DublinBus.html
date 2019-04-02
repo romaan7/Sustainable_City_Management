@@ -736,6 +736,50 @@
     <div class="sale-statistic-area">
         <div class="container">
             <div class="row">
+                <!-- bike table 1-->
+                <div class="col-lg-12 col-md-8 col-sm-7 col-xs-12">
+                        <div class="add-todo-list notika-shadow mg-t-30">
+                            <div class="realtime-ctn">
+                                <div class="realtime-title">
+                                    <h2>Real Time Bus Data Fetch</h2>
+                                </div>
+                            </div>
+                            <div class="card-box">
+                                <div class="chat-widget-input">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12 col-sm-12 col-xs-12 chat-inputbar">
+                                            <div class="form-group todo-flex">
+                                                <!-- <form id="search" method="POST"
+                                                    action="{% url 'BusLuas:DublinBusSearchResult' %}">
+                                                    <div class="nk-int-st">
+                                                        <input type="text" class="form-control chat-input" id="busSearch"
+                                                            name="busSearch" placeholder="Enter your text">
+                                                    </div>
+                                                    <div class="chat-send">
+                                                        <button type="submit"
+                                                            class="btn btn-md btn-primary btn-block notika-chat-btn waves-effect">Send</button>
+                                                    </div>
+                                                </form> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="form-group ic-cmp-int int-bg-it form-elet-mg">
+                                                <div class="form-ic-cmp">
+                                                    <i class="notika-icon notika-wifi"></i>
+                                                </div>
+                                                <div class="nk-int-st">
+                                                    <input type="text" id="busSearch"
+                                                    name="busSearch"  class="form-control input-lg" placeholder="Enter Bus Station Name">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 <div class="col-lg-12 col-md-8 col-sm-7 col-xs-12">
                     <div class="sale-statistic-inner notika-shadow mg-tb-30" style="height:510px;">
                         <div class="curved-inner-pro">
@@ -751,37 +795,7 @@
                         <!--<div id="curved-line-chart" class="flot-chart-sts flot-chart"></div>-->
                     </div>
                 </div>
-                <!-- bike table 1-->
-                <div class="col-lg-12 col-md-8 col-sm-7 col-xs-12">
-                    <div class="add-todo-list notika-shadow mg-t-30">
-                        <div class="realtime-ctn">
-                            <div class="realtime-title">
-                                <h2>Real Time Bus Data Fetch</h2>
-                            </div>
-                        </div>
-                        <div class="card-box">
-                            <div class="chat-widget-input">
-                                <div class="row">
-                                    <div class="col-sm-12 col-md-12 col-sm-12 col-xs-12 chat-inputbar">
-                                        <div class="form-group todo-flex">
-                                            <form id="search" method="POST"
-                                                action="{% url 'BusLuas:DublinBusSearchResult' %}">
-                                                <div class="nk-int-st">
-                                                    <input type="text" class="form-control chat-input" id="busSearch"
-                                                        name="busSearch" placeholder="Enter your text">
-                                                </div>
-                                                <div class="chat-send">
-                                                    <button type="submit"
-                                                        class="btn btn-md btn-primary btn-block notika-chat-btn waves-effect">Send</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
                 <!-- bike table 2-->
 
             </div>
@@ -1044,10 +1058,12 @@
 
             // });
 
-  
+                var objArray = []
+                var arraywithLatlong=[]
+                var busStopName='';
                 $("#busSearch").autocomplete({
                     source: function (request, response) {
-
+                        var obj='null';
                         $.ajax({
                             url: "/BusLuas/DublinBusSearchResult",
                             dataType: "json",
@@ -1055,11 +1071,11 @@
                                 term: request.term
                             },
                             success: function (data) {
-                                objArray = []
                                 $.each(data, function (i, jsondata) {
-                                    
-                                    var obj = $.parseJSON(jsondata)
-                                    objArray.push((obj['StopName']))
+                                    obj = $.parseJSON(jsondata)
+                                    console.log(obj);
+                                    objArray.push((obj['StationId']+'-'+obj['StopName']))
+                                    arraywithLatlong.push((obj['StationId']+'--'+obj['StopName']+'--'+obj['lat']+'--'+obj['lng']))
                                     response(objArray);
                                 });
                             
@@ -1073,31 +1089,47 @@
                         AutoCompleteSelectHandler(event, ui)                    
                     }
                 });
+
+
+                function AutoCompleteSelectHandler(event, ui) {
+            var busNumberSelected=ui.item.label.split('-')[0]
+
+
+            var selectedObj = ui.item;
+            console.log(selectedObj)
+            // map.panTo({lon: -6.275459, lat: 53.339596});
+            // map.setZoom(20)
+            // map.panTo(new LatLng( -6.275459,53.339596));
+            $.each(arraywithLatlong, function (index, value) {
+                    commaSeperatedBusDetails=value.split('--')
+
+                    if(busNumberSelected==commaSeperatedBusDetails[0])
+                    {
+                        lat=commaSeperatedBusDetails[3]
+                        lng=commaSeperatedBusDetails[2]
+                        busStopName=commaSeperatedBusDetails[1]
+                        return false;
+                    }
+                });
+            console.log('**************************************************');
+                console.log(busStopName);
+                // map.panTo({lon: -6.275459, lat: 53.339596});
+                map.panTo([parseFloat(lat), parseFloat(lng)]);
+                $("#busSearch").val(ui.item.label.split('-')[1]);
+                // map.panTo({ lon: parseInt(lat), lng: parseInt(lng)});
+                map.setZoom(20);
+                objArray=[];
+            // console.log(selectedObj.label['StopName']);
+            // console.log(ui);
+            // console.log(event);
+        }
             });
 
 
             //   Real Time Bus Data Call
 
 
-        function AutoCompleteSelectHandler(event, ui) {
-
-            var selectedObj = ui.item;
-            console.log(selectedObj)
-            map.panTo({lon: -6.275459, lat: 53.339596});
-            map.setZoom(20)
-            // map.panTo(new LatLng( -6.275459,53.339596));
-            $.each(selectedObj, function (key, val) {
-                // map.panTo(new LatLng( -6.275459,53.339596));
-                console.log(val);
-                console.log($.parseJSON(val).lat)
-
-                // map.panTo(new LatLng($.parseJSON(val).lat, $.parseJSON(val).lng));
-                
-            });
-            // console.log(selectedObj.label['StopName']);
-            // console.log(ui);
-            // console.log(event);
-        }
+        
     </script>
 </body>
 
