@@ -88,20 +88,20 @@
     <script src="{% static 'Main/js/vendor/modernizr-2.8.3.min.js' %}"></script>
 
     <!--Bus Data -->
-        <link rel="stylesheet" href="{% static 'Main/css/BusStop/leaflet.css' %}" />
-        <!-- <link rel="stylesheet" type="text/css" href="{% static 'Main/css/BusStop/qgis2web.css' %}"> -->
-        <link rel="stylesheet" href="{% static 'Main/css/BusStop/label.css' %}" />
-        <link rel="stylesheet" href="{% static 'Main/css/BusStop/MarkerCluster.css' %}" />
-        <link rel="stylesheet" href="{% static 'Main/css/BusStop/MarkerCluster.Default.css' %}" />
+    <link rel="stylesheet" href="{% static 'Main/css/BusStop/leaflet.css' %}" />
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'Main/css/BusStop/qgis2web.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'Main/css/BusStop/label.css' %}" />
+    <link rel="stylesheet" href="{% static 'Main/css/BusStop/MarkerCluster.css' %}" />
+    <link rel="stylesheet" href="{% static 'Main/css/BusStop/MarkerCluster.Default.css' %}" />
 
-        <style>
-                /* html, body, #map {
+    <style>
+        /* html, body, #map {
                     width: 100%;
                     height: 100%;
                     padding: 0;
                     margin: 0;
                 } */
-                </style>
+    </style>
 </head>
 
 <body>
@@ -114,7 +114,9 @@
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="logo-area">
+
                         <a href="#"><h1 style="color:snow"> Dublin Bus </h1></a>
+
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
@@ -199,9 +201,146 @@
                                 </div>
                             </li>
                             <li class="nav-item">
+
                                 
                                     <a href="/Authentication/logout/" role="button" class="nav-link"><p style="display:inline; font-size:15px;">Welcome uditar </p><span><i class="notika-icon notika-close"></i></span></a>
                                 
+
+                                <!--<a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><span><i class="notika-icon notika-menus"></i></span><div class="spinner4 spinner-4"></div><div class="ntd-ctn"><span>2</span></div></a>-->
+                                <div role="menu" class="dropdown-menu message-dd task-dd animated zoomIn">
+                                    <div class="hd-mg-tt">
+                                        <h2>Tasks</h2>
+                                    </div>
+                                    <div class="hd-message-info hd-task-info">
+                                        <div class="skill">
+                                            <div class="progress">
+                                                <div class="lead-content">
+                                                    <p>HTML5 Validation Report</p>
+                                                </div>
+                                                <div class="progress-bar wow fadeInLeft" data-progress="95%"
+                                                    style="width: 95%;" data-wow-duration="1.5s" data-wow-delay="1.2s">
+                                                    <span>95%</span>
+                                                </div>
+                                            </div>
+                                            <div class="progress">
+                                                <div class="lead-content">
+                                                    <p>Google Chrome Extension</p>
+                                                </div>
+                                                <div class="progress-bar wow fadeInLeft" data-progress="85%"
+                                                    style="width: 85%;" data-wow-duration="1.5s" data-wow-delay="1.2s">
+                                                    <span>85%</span> </div>
+                                            </div>
+                                            <div class="progress">
+                                                <div class="lead-content">
+                                                    <p>Social Internet Projects</p>
+                                                </div>
+                                                <div class="progress-bar wow fadeInLeft" data-progress="75%"
+                                                    style="width: 75%;" data-wow-duration="1.5s" data-wow-delay="1.2s">
+                                                    <span>75%</span> </div>
+                                            </div>
+                                            <div class="progress">
+                                                <div class="lead-content">
+                                                    <p>Bootstrap Admin</p>
+                                                </div>
+                                                <div class="progress-bar wow fadeInLeft" data-progress="93%"
+                                                    style="width: 65%;" data-wow-duration="1.5s" data-wow-delay="1.2s">
+                                                    <span>65%</span> </div>
+                                            </div>
+                                            <div class="progress progress-bt">
+                                                <div class="lead-content">
+                                                    <p>Youtube App</p>
+                                                </div>
+                                                <div class="progress-bar wow fadeInLeft" data-progress="55%"
+                                                    style="width: 55%;" data-wow-duration="1.5s" data-wow-delay="1.2s">
+                                                    <span>55%</span> </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hd-mg-va">
+                                        <a href="#">View All</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false"
+                                    class="nav-link dropdown-toggle"><span><i
+                                            class="notika-icon notika-chat"></i></span></a>
+                                <div role="menu" class="dropdown-menu message-dd chat-dd animated zoomIn">
+                                    <div class="hd-mg-tt">
+                                        <h2>Chat</h2>
+                                    </div>
+                                    <div class="search-people">
+                                        <i class="notika-icon notika-left-arrow"></i>
+                                        <input type="text" placeholder="Search People" />
+                                    </div>
+                                    <div class="hd-message-info">
+                                        <a href="#">
+                                            <div class="hd-message-sn">
+                                                <div class="hd-message-img chat-img">
+                                                    <img src="static/Main/img/post/1.jpg" alt="" />
+                                                    <div class="chat-avaible"><i class="notika-icon notika-dot"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="hd-mg-ctn">
+                                                    <h3>David Belle</h3>
+                                                    <p>Available</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#">
+                                            <div class="hd-message-sn">
+                                                <div class="hd-message-img chat-img">
+                                                    <img src="static/Main/img/post/2.jpg" alt="" />
+                                                </div>
+                                                <div class="hd-mg-ctn">
+                                                    <h3>Jonathan Morris</h3>
+                                                    <p>Last seen 3 hours ago</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#">
+                                            <div class="hd-message-sn">
+                                                <div class="hd-message-img chat-img">
+                                                    <img src="static/Main/img/post/4.jpg" alt="" />
+                                                </div>
+                                                <div class="hd-mg-ctn">
+                                                    <h3>Fredric Mitchell</h3>
+                                                    <p>Last seen 2 minutes ago</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#">
+                                            <div class="hd-message-sn">
+                                                <div class="hd-message-img chat-img">
+                                                    <img src="static/Main/img/post/1.jpg" alt="" />
+                                                    <div class="chat-avaible"><i class="notika-icon notika-dot"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="hd-mg-ctn">
+                                                    <h3>David Belle</h3>
+                                                    <p>Available</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#">
+                                            <div class="hd-message-sn">
+                                                <div class="hd-message-img chat-img">
+                                                    <img src="static/Main/img/post/2.jpg" alt="" />
+                                                    <div class="chat-avaible"><i class="notika-icon notika-dot"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="hd-mg-ctn">
+                                                    <h3>Glenn Jecobs</h3>
+                                                    <p>Available</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="hd-mg-va">
+                                        <a href="#">View All</a>
+                                    </div>
+                                </div>
+
                             </li>
                             
                         </ul>
@@ -544,6 +683,50 @@
     <div class="sale-statistic-area">
         <div class="container">
             <div class="row">
+                <!-- bike table 1-->
+                <div class="col-lg-12 col-md-8 col-sm-7 col-xs-12">
+                        <div class="add-todo-list notika-shadow mg-t-30">
+                            <div class="realtime-ctn">
+                                <div class="realtime-title">
+                                    <h2>Real Time Bus Data Fetch</h2>
+                                </div>
+                            </div>
+                            <div class="card-box">
+                                <div class="chat-widget-input">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12 col-sm-12 col-xs-12 chat-inputbar">
+                                            <div class="form-group todo-flex">
+                                                <!-- <form id="search" method="POST"
+                                                    action="{% url 'BusLuas:DublinBusSearchResult' %}">
+                                                    <div class="nk-int-st">
+                                                        <input type="text" class="form-control chat-input" id="busSearch"
+                                                            name="busSearch" placeholder="Enter your text">
+                                                    </div>
+                                                    <div class="chat-send">
+                                                        <button type="submit"
+                                                            class="btn btn-md btn-primary btn-block notika-chat-btn waves-effect">Send</button>
+                                                    </div>
+                                                </form> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="form-group ic-cmp-int int-bg-it form-elet-mg">
+                                                <div class="form-ic-cmp">
+                                                    <i class="notika-icon notika-wifi"></i>
+                                                </div>
+                                                <div class="nk-int-st">
+                                                    <input type="text" id="busSearch"
+                                                    name="busSearch"  class="form-control input-lg" placeholder="Enter Bus Station Name">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 <div class="col-lg-12 col-md-8 col-sm-7 col-xs-12">
                     <div class="sale-statistic-inner notika-shadow mg-tb-30" style="height:510px;">
                         <div class="curved-inner-pro">
@@ -553,12 +736,13 @@
                             </div>
                         </div>
                         <div class="resp-container">
-                            <div id="map" style="height: 600px"> 
+                            <div id="map" style="height: 600px">
                             </div>
                         </div>
                         <!--<div id="curved-line-chart" class="flot-chart-sts flot-chart"></div>-->
                     </div>
                 </div>
+
                 <!-- bike table 1-->
                 {% comment %} <div class="col-lg-12 col-md-8 col-sm-7 col-xs-12">
                    <div class="add-todo-list notika-shadow mg-t-30">
@@ -588,15 +772,18 @@
                     </div>
                 </div> {% endcomment %}
                 <!-- bike table 2-->
+
                 
+                <!-- bike table 2-->
+
             </div>
         </div>
     </div>
-    
 
-    
-    
-    
+
+
+
+
     <!-- End Sale Statistic area-->
     <!-- Start Email Statistic area-->
     <!-- End Email Statistic area-->
@@ -627,7 +814,7 @@
     <script src="{% static 'Main/js/bootstrap.min.js' %}"></script>
     <!-- wow JS
         ============================================ -->
-    
+
     <!-- meanmenu JS
         ============================================ -->
     <script src="{% static 'Main/js/meanmenu/jquery.meanmenu.js' %}"></script>
@@ -669,7 +856,7 @@
     <!-- plugins JS
         ============================================ -->
     <script src="{% static 'Main/js/plugins.js' %}"></script>
-        <!-- Charts JS
+    <!-- Charts JS
 		============================================ -->
     <script src="{% static 'Main/js/charts/Chart.js' %}"></script>
     <!-- <script src="{% static 'Main/js/charts/line-chart.js' %}"></script> -->
@@ -685,143 +872,243 @@
     {% comment %} <script src="{% static 'Main/js/tawk-chat.js' %}"></script> {% endcomment %}
     <!--Dublin Bus Script-->
     <script src="{% static 'Main/js/BusStop/leaflet.js' %}"></script>
-        <script src="{% static 'Main/js/BusStop/OSMBuildings-Leaflet.js' %}"></script>
-        <script src="{% static 'Main/js/BusStop/leaflet-hash.js' %}"></script>
-        <script src="{% static 'Main/js/BusStop/label.js' %}"></script>
-        <script src="{% static 'Main/js/BusStop/Autolinker.min.js' %}"></script>
-        <script src="{% static 'Main/js/BusStop/leaflet.markercluster.js' %}"></script>
-        <!-- <script src="{% static 'Main/js/BusStop/mapData.js' %}"></script> -->
-        <script src="{% static 'Main/js/BusStop/json_sfbusstops20123.js' %}"></script>
+    <script src="{% static 'Main/js/BusStop/OSMBuildings-Leaflet.js' %}"></script>
+    <script src="{% static 'Main/js/BusStop/leaflet-hash.js' %}"></script>
+    <script src="{% static 'Main/js/BusStop/label.js' %}"></script>
+    <script src="{% static 'Main/js/BusStop/Autolinker.min.js' %}"></script>
+    <script src="{% static 'Main/js/BusStop/leaflet.markercluster.js' %}"></script>
+    <!-- <script src="{% static 'Main/js/BusStop/mapData.js' %}"></script> -->
+    <script src="{% static 'Main/js/BusStop/json_sfbusstops20123.js' %}"></script>
     <!-- jquery AutoCompletet -->
 
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" media="all" />
-     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"> </script> 
-     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" type="text/javascript"></script>
-        
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css"
+        media="all" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"> </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"
+        type="text/javascript"></script>
 
-    <!-- Ajax call -->
-     <script>
-            $(document).ready(function(){ 
-                $("#busSearch").autocomplete({
-                    source: "/BusLuas/DublinBusSearchResult",
-                    minLength: 1,
-                    open: function(){
-                        setTimeout(function () {
-                            $('.ui-autocomplete').css('z-index', 99);
-                        }, 0);
-                    }
-                  });
-            });
+
+
+
+
+    <script>
     </script>
-     <!-- Map Script -->
-        <script>
+
+
+    <!-- Ajax bus stop fetch call -->
+    
+    <!-- Map Script -->
+    <script>
         //  var json_sfbusstops20123=   jQuery.getJSON("{% static 'Main/js/BusStop/json_sfbusstops20123.js' %}")
-                L.ImageOverlay.include({
-                    getBounds: function () {
-                        return this._bounds;
-                    }
-                });
-                var map = L.map('map', {
-                    zoomControl:true, maxZoom:28, minZoom:1
-                }).fitBounds([[53.3764,-6.7291],[53.2880,-6.1434]]);
-                var hash = new L.Hash(map);
-                map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
-                var feature_group = new L.featureGroup([]);
-                var bounds_group = new L.featureGroup([]);
-                var raster_group = new L.LayerGroup([]);
-                var basemap0 = L.tileLayer('http://a.tile.stamen.com/toner/{z}/{x}/{y}.png', {
-                    attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>,<a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Mapdata: &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-                    maxZoom: 28
-                });
-                basemap0.addTo(map);
-                var layerOrder = new Array();
-                function stackLayers() {
-                    for (index = 0; index < layerOrder.length; index++) {
-                        map.removeLayer(layerOrder[index]);
-                        map.addLayer(layerOrder[index]);
-                    }
-                }
-                function restackLayers() {
-                    for (index = 0; index < layerOrder.length; index++) {
-                        layerOrder[index].bringToFront();
-                    }
-                }
-                layerControl = L.control.layers({},{},{collapsed:false});
+        L.ImageOverlay.include({
+            getBounds: function () {
+                return this._bounds;
+            }
+        });
+        var map = L.map('map', {
+            zoomControl: true, maxZoom: 28, minZoom: 1
+        }).fitBounds([[53.3764, -6.7291], [53.2880, -6.1434]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        var feature_group = new L.featureGroup([]);
+        var bounds_group = new L.featureGroup([]);
+        var raster_group = new L.LayerGroup([]);
+        var basemap0 = L.tileLayer('http://a.tile.stamen.com/toner/{z}/{x}/{y}.png', {
+            attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>,<a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Mapdata: &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+            maxZoom: 28
+        });
+        basemap0.addTo(map);
+        var layerOrder = new Array();
+        function stackLayers() {
+            for (index = 0; index < layerOrder.length; index++) {
+                map.removeLayer(layerOrder[index]);
+                map.addLayer(layerOrder[index]);
+            }
+        }
+        function restackLayers() {
+            for (index = 0; index < layerOrder.length; index++) {
+                layerOrder[index].bringToFront();
+            }
+        }
+        layerControl = L.control.layers({}, {}, { collapsed: false });
 
-                function whenClicked(e) {
+
+        function pop_sfbusstops20120(feature, layer) {
+            console.log('test')
+            layer.on('click', function (e) {
                 // e = event
-                console.log(e.properties['StopNumber']);
-                // You can make your ajax call declaration here
-                //$.ajax(...
-                }
 
-                function pop_sfbusstops20120(feature, layer) {
-                    // console.log('test')
-                    var popupContent = '<table><tr><th scope="row">Stop Name</th><td>' + (feature.properties['Descriptiongid'] !== null ? Autolinker.link(String(feature.properties['Description'])) : '') + '</td></tr><tr><th scope="row">Stop Number</th><td>' + (feature.properties['StopNumber'] !== null ? Autolinker.link(String(feature.properties['StopNumber'])) : '') + '</td></tr></table>';
-                    layer.bindPopup(popupContent);
-                    layer.on({
-                    // click: whenClicked(feature)
-                    });
-                }
-        
-                
-                var myIcon = L.icon({
-                        iconUrl: 'legend/dublin-bus-squarelogo.png',
-                        // iconSize: [38, 95],
-                        // iconAnchor: [22, 94],
-                        // popupAnchor: [-3, -76],
-                        // shadowUrl: 'my-icon-shadow.png',
-                        // shadowSize: [68, 95],
-                        // shadowAnchor: [22, 94]
-                    });
-        
-                function popUpBusDetails(feature,layer){
-                    layer.bindPopup("<h1>This is a popup </h1>");
-                    // layer.icon(myIcon)
-        
-                }
-        
-        
-                function doStylesfbusstops20120() {
-                    return {
-                        radius: 6.0,
-                        fillColor: '#938fe8',
-                        color: '#000000',
-                        weight: 0.0,
-                        opacity: 1.0,
-                        dashArray: '',
-                        lineCap: 'butt',
-                        lineJoin: 'miter',
-                        fillOpacity: 1.0
-                    }
-                }
-                function doPointToLayersfbusstops20120(feature, latlng) {
-                    return L.circleMarker(latlng, doStylesfbusstops20120())
-                }
-                var json_sfbusstops20120JSON = new L.geoJson(json_sfbusstops20123, {
-                    // onEachFeature: pop_sfbusstops20120, 
-                    onEachFeature:pop_sfbusstops20120,
-                    pointToLayer: doPointToLayersfbusstops20120
-                    });
-                var cluster_groupsfbusstops20120JSON = new L.MarkerClusterGroup({showCoverageOnHover: false});
-                cluster_groupsfbusstops20120JSON.addLayer(json_sfbusstops20120JSON);
-        
-                layerOrder[layerOrder.length] = cluster_groupsfbusstops20120JSON;
-        
-                bounds_group.addLayer(json_sfbusstops20120JSON);
-                cluster_groupsfbusstops20120JSON.addTo(map);
-                var overlay_ManhattanNYpointsofinterest1 = L.tileLayer.wms('http://45.33.40.104:8080/geoserver/tiger/wms?', {
-                    layers: 'poi',
-                    format: 'image/png',
-                    transparent: true,
-                    continuousWorld : true,
+                var popupContent = '<table><tr><th scope="row">Stop Name</th><td>' + (feature.properties['Descriptiongid'] !== null ? Autolinker.link(String(feature.properties['Description'])) : '') + '</td></tr><tr><th scope="row">Stop Number</th><td>' + (feature.properties['StopNumber'] !== null ? Autolinker.link(String(feature.properties['StopNumber'])) : '') + '</td></tr>';
+
+                $.ajax({
+                    type: "GET",
+                    url: "/BusLuas/RealTimeBusData?stopnumber=" + feature.properties['StopNumber'],
+                    success: function (data) {
+                        console.log(data);
+
+                        jQuery.each(data, function (i, val) {
+                            popupContent = popupContent + '<tr><th scope="row">' + val.MonitoredVehicleJourney_LineRef + '<th><td>' + val.MonitoredCall_ExpectedDepartureTime + '</td></tr>'
+                        });
+                        popupContent = popupContent + '</table>'
+                        console.log(popupContent)
+                        layer.bindPopup(popupContent);
+
+                    },
                 });
-                raster_group.addLayer(overlay_ManhattanNYpointsofinterest1);
-                raster_group.addTo(map);
-                feature_group.addTo(map);
-                stackLayers();
-                map.on('overlayadd', restackLayers);
-                </script>
+
+            });
+
+        }
+
+
+        var myIcon = L.icon({
+            iconUrl: 'legend/dublin-bus-squarelogo.png',
+            // iconSize: [38, 95],
+            // iconAnchor: [22, 94],
+            // popupAnchor: [-3, -76],
+            // shadowUrl: 'my-icon-shadow.png',
+            // shadowSize: [68, 95],
+            // shadowAnchor: [22, 94]
+        });
+
+        function popUpBusDetails(feature, layer) {
+            layer.bindPopup("<h1>This is a popup </h1>");
+            // layer.icon(myIcon)
+
+        }
+
+
+        function doStylesfbusstops20120() {
+            return {
+                radius: 6.0,
+                fillColor: '#938fe8',
+                color: '#000000',
+                weight: 0.0,
+                opacity: 1.0,
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                fillOpacity: 1.0
+            }
+        }
+        function doPointToLayersfbusstops20120(feature, latlng) {
+            return L.circleMarker(latlng, doStylesfbusstops20120())
+        }
+        var json_sfbusstops20120JSON = new L.geoJson(json_sfbusstops20123, {
+            // onEachFeature: pop_sfbusstops20120, 
+            onEachFeature: pop_sfbusstops20120,
+            pointToLayer: doPointToLayersfbusstops20120
+        });
+        var cluster_groupsfbusstops20120JSON = new L.MarkerClusterGroup({ showCoverageOnHover: false });
+        cluster_groupsfbusstops20120JSON.addLayer(json_sfbusstops20120JSON);
+
+        layerOrder[layerOrder.length] = cluster_groupsfbusstops20120JSON;
+
+        bounds_group.addLayer(json_sfbusstops20120JSON);
+        cluster_groupsfbusstops20120JSON.addTo(map);
+        // var overlay_ManhattanNYpointsofinterest1 = L.tileLayer.wms('http://45.33.40.104:8080/geoserver/tiger/wms?', {
+        //     layers: 'poi',
+        //     format: 'image/png',
+        //     transparent: true,
+        //     continuousWorld : true,
+        // });
+        // raster_group.addLayer(overlay_ManhattanNYpointsofinterest1);
+        raster_group.addTo(map);
+        feature_group.addTo(map);
+        stackLayers();
+        map.on('overlayadd', restackLayers);
+    </script>
+    <script>
+        $(document).ready(function () {
+
+            // $("#busSearch").autocomplete({
+            //     source: "/BusLuas/DublinBusSearchResult",
+            //     minLength: 1,
+               
+            //     response: function (event,ui) {
+            //         lable: ui.StopName
+            //         value: ui.StopName
+            //     },
+            //     dataType: 'jsonp',
+            //     select: function (event, ui) { //item selected
+            //         AutoCompleteSelectHandler(event, ui)
+            //     }
+
+            // });
+
+                var objArray = []
+                var arraywithLatlong=[]
+                var busStopName='';
+                $("#busSearch").autocomplete({
+                    source: function (request, response) {
+                        var obj='null';
+                        $.ajax({
+                            url: "/BusLuas/DublinBusSearchResult",
+                            dataType: "json",
+                            data: {
+                                term: request.term
+                            },
+                            success: function (data) {
+                                $.each(data, function (i, jsondata) {
+                                    obj = $.parseJSON(jsondata)
+                                    console.log(obj);
+                                    objArray.push((obj['StationId']+'-'+obj['StopName']))
+                                    arraywithLatlong.push((obj['StationId']+'--'+obj['StopName']+'--'+obj['lat']+'--'+obj['lng']))
+                                    response(objArray);
+                                });
+                            
+                            }
+                        });
+                    },
+                    minLength: 2,
+                    select: function (event, ui) {
+                        console.log(event)
+                        console.log(ui)
+                        AutoCompleteSelectHandler(event, ui)                    
+                    }
+                });
+
+
+                function AutoCompleteSelectHandler(event, ui) {
+            var busNumberSelected=ui.item.label.split('-')[0]
+
+
+            var selectedObj = ui.item;
+            console.log(selectedObj)
+            // map.panTo({lon: -6.275459, lat: 53.339596});
+            // map.setZoom(20)
+            // map.panTo(new LatLng( -6.275459,53.339596));
+            $.each(arraywithLatlong, function (index, value) {
+                    commaSeperatedBusDetails=value.split('--')
+
+                    if(busNumberSelected==commaSeperatedBusDetails[0])
+                    {
+                        lat=commaSeperatedBusDetails[3]
+                        lng=commaSeperatedBusDetails[2]
+                        busStopName=commaSeperatedBusDetails[1]
+                        return false;
+                    }
+                });
+            console.log('**************************************************');
+                console.log(busStopName);
+                // map.panTo({lon: -6.275459, lat: 53.339596});
+                map.panTo([parseFloat(lat), parseFloat(lng)]);
+                $("#busSearch").val(ui.item.label.split('-')[1]);
+                // map.panTo({ lon: parseInt(lat), lng: parseInt(lng)});
+                map.setZoom(20);
+                objArray=[];
+            // console.log(selectedObj.label['StopName']);
+            // console.log(ui);
+            // console.log(event);
+        }
+            });
+
+
+            //   Real Time Bus Data Call
+
+
+        
+    </script>
 </body>
 
 </html>

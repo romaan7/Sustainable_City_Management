@@ -3,7 +3,11 @@ from django.http import HttpResponse, HttpResponseRedirect
 from BusLuas.models import BusLuas as IrishRail
 from BusLuas.models import DublinBusStopData
 from django.http import JsonResponse
-import json
+import xmltodict
+
+import requests
+import simplejson as json
+# import json
 
 def index(request):
     template = loader.get_template('BusLuas/IrishRail.html')
@@ -28,10 +32,14 @@ def DublinBusData(request):
     #print(queryset)
     return JsonResponse(queryset, safe=False)
 
-def RealTimeBusData(stopnumber):
-    print('test')
-    stopid = request.form['stopid']
+def RealTimeBusData(request):
+    print(request.GET)
+    print('----------------')
+    # stopid = request.GET.get('stopnumber')
+    stopid=request.GET['stopnumber']
     print(stopid)
+    # stopid = request.form['stopid']
+    # print(stopid)
 
 
 
@@ -52,6 +60,7 @@ def RealTimeBusData(stopnumber):
     stopDataRealTime=jsonResponse(response.text)
 
 
+
     # dblink = 'http://data.dublinked.ie/cgi-bin/rtpi/realtimebusinformation?stopid=' + str(stopid)+ '&format=json'
     # r = requests.get(dblink)
     # print(r)
@@ -67,17 +76,18 @@ def RealTimeBusData(stopnumber):
     #     os.makedirs(dir)
     # with open(jsonpath, 'w') as f:
     #     json.dump(jsondata, f)
-    return render_template('search.html', stopid = stopid)
+    print(type(stopDataRealTime))
+    return JsonResponse(stopDataRealTime, safe=False) 
 
 
 def jsonResponse(xmlText):
     print('recieved')
 
     o = xmltodict.parse(xmlText)
-    print(type(dict(o)))
+    print(o)
     response=json.loads(json.dumps(o['soap:Envelope']["soap:Body"]["GetRealTimeStopDataResponse"]["GetRealTimeStopDataResult"]["diffgr:diffgram"]["DocumentElement"]["StopData"]))
     stopDataRealTime=json.loads(json.dumps(o['soap:Envelope']["soap:Body"]["GetRealTimeStopDataResponse"]["GetRealTimeStopDataResult"]["diffgr:diffgram"]["DocumentElement"]["StopData"]))
-    print(stopDataRealTime)
+    # print(stopDataRealTime)
     for element in stopDataRealTime:
         # print(json.dumps(element))
         print(element['MonitoredCall_ExpectedDepartureTime'])
@@ -85,32 +95,31 @@ def jsonResponse(xmlText):
     # print(type(response['soap:Envelope']["soap:Body"]["GetRealTimeStopDataResponse"]["GetRealTimeStopDataResult"]["diffgr:diffgram"]["DocumentElement"]["StopData"]))
     return stopDataRealTime
 
+
 def DublinBusSearchResult(request):
-    print('recieved')
+    print(request)
     if request.is_ajax():
-        print('ajax')
-        print(request)
         q = request.GET.get('term', '').capitalize()
+        print('--------------------------------------------')
         print(q)
-        print('search_qs')
-        test=list(DublinBusStopData.objects.filter(BusStopNumber__icontains=q))
-        print(test)
+        test=list(DublinBusStopData.objects.filter(BusStopStationName__icontains=q))
+        # print(test)
         # search_qs = DublinBusStopData.objects.filter()
         # print('search_qs')
         results = []
         for r in test:
-            print(r.BusStopNumber)
-            results.append(r.BusStopNumber)
-        print(results)
+            results.append(json.dumps({'StopName': r.BusStopStationName,'StationId':r.BusStopNumber,'lat':r.BusStopLatitude,'lng':r.BusStopLongitude},use_decimal=True ))
+        # print(results)
         data = json.dumps(results)
-        print('json')
-        print(data)
+        
 
     else:
         data = 'fail'
     mimetype = 'application/json'
 
     return HttpResponse(data, mimetype)
+
+
 
 # def BusDashBoard(request):
 #     template = loader.get_template('DublinBus.html')
