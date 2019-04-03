@@ -42,6 +42,7 @@ class DublinBusStopData(models.Model):
     BusStopStationName = models.CharField(max_length=100, null=True)
     BusStopLatitude = models.DecimalField(max_digits=9, decimal_places=6)
     BusStopLongitude = models.DecimalField(max_digits=9, decimal_places=6)
+    BusStopZone= models.CharField(max_length=10, null=True)
     cm_last_insert_dttm = models.DateTimeField(default=timezone.now, blank=True)
 
 class DublinBusRealTimeStopData(models.Model):
@@ -49,4 +50,11 @@ class DublinBusRealTimeStopData(models.Model):
     BusStopRouteNumber = models.CharField(max_length=100, null=True)
     BusStopIncomingTime=models.DateTimeField(default=timezone.now, blank=True)
     BusStopZone = models.DecimalField(max_digits=9, decimal_places=6)
+    cm_last_insert_dttm = models.DateTimeField(default=timezone.now, blank=True)
+
+class DublinBusStopZoneData(models.Model):
+    BusStopNumber = models.CharField(max_length=100, null=True)
+    BusStopZone = models.CharField(max_length=100, null=True)
+    BusStopRoute = models.CharField(max_length=100, null=True)
+    BusStopIncomingTime=models.DateTimeField(default=timezone.now, blank=True)
     cm_last_insert_dttm = models.DateTimeField(default=timezone.now, blank=True)
