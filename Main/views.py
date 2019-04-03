@@ -26,10 +26,12 @@ def Weather(request):
 def CarPark(request):
     template = loader.get_template('CarPark.html')
     return HttpResponse(template.render({}, request))
+
 def BusDashBoard(request):
     template = loader.get_template('DublinBus.html')
     return HttpResponse(template.render())
-   
+
+
 def handler404(request):
     return render(request, '404.html', status=404)
 

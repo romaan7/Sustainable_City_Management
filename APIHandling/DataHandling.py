@@ -225,6 +225,7 @@ def create_parking_objects(data):
         for key in data['carparkData']['Northwest']['carpark']:
             name = key['@name']
             spaces = 0 if not str(key['@spaces']).strip() else key['@spaces']
+            if spaces == "FULL": spaces = 0
             area = 'Northwest'
             Timestamp = datetime_cleaned
             cm_last_insert_dttm = current_dttm
@@ -235,6 +236,7 @@ def create_parking_objects(data):
         for key in data['carparkData']['Northeast']['carpark']:
             name = key['@name']
             spaces = 0 if not str(key['@spaces']).strip() else key['@spaces']
+            if spaces == "FULL": spaces = 0
             area = 'Northeast'
             Timestamp = datetime_cleaned
             cm_last_insert_dttm = current_dttm
@@ -245,6 +247,7 @@ def create_parking_objects(data):
         for key in data['carparkData']['Southwest']['carpark']:
             name = key['@name']
             spaces = 0 if not str(key['@spaces']).strip() else key['@spaces']
+            if spaces == "FULL": spaces = 0
             area = 'Southwest'
             Timestamp = datetime_cleaned
             cm_last_insert_dttm = current_dttm
@@ -255,6 +258,7 @@ def create_parking_objects(data):
         for key in data['carparkData']['Southeast']['carpark']:
             name = key['@name']
             spaces = 0 if not str(key['@spaces']).strip() else key['@spaces']
+            if spaces == "FULL": spaces = 0
             area = 'Southwest'
             Timestamp = datetime_cleaned
             cm_last_insert_dttm = current_dttm
@@ -265,8 +269,7 @@ def create_parking_objects(data):
     except ex.FailedToCreateObjectException:
         logging.exception("Failed to create CityEvent Object")
         return False
-
-
+      
 #Inserts Weather Data int DB
 def create_weather_objects(data):
     try:
@@ -369,4 +372,3 @@ def create_DublinBusRealTimeStopData_objects(data):
     except ex.FailedToCreateObjectException:
         logging.exception("Failed to create BusLuas Object")
         return False
-
