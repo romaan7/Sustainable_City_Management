@@ -31,6 +31,9 @@ BUSLUAS_THREAD_RUN_FREQUENCY = 1200.0
 CITYEVENT_THREAD_RUN_FREQUENCY = 60.0
 PARKING_THREAD_RUN_FREQUENCY = 60.0
 WEATHER_THREAD_RUN_FREQUENCY = 1800.0
+REALTIMEBUS_THREAD_RUN_FREQUENCY = 300.0
+
+
 
 
 
@@ -71,6 +74,17 @@ def start_BusStop_thread():
     if check_intigrity(data):
         create_DublinBusStopData_objects(data)
         return "BusLuas thread started"
+
+def start_RealTimeBusStop_thread():
+    threading.Timer(REALTIMEBUS_THREAD_RUN_FREQUENCY, start_busLuas_thread).start()
+    data = DublinBusAPI.getRealTimeDublinBusStandData()
+    print('-----------------------------')
+    return "BusLuas thread started"
+    # print(data)
+    # if check_intigrity(data):
+    #     create_DublinBusRealTimeStopData_objects(data)
+    #     
+
 
 def start_weather_thread():
     threading.Timer(WEATHER_THREAD_RUN_FREQUENCY, start_weather_thread).start()
@@ -255,8 +269,7 @@ def create_parking_objects(data):
     except ex.FailedToCreateObjectException:
         logging.exception("Failed to create CityEvent Object")
         return False
-
-
+      
 #Inserts Weather Data int DB
 def create_weather_objects(data):
     try:
@@ -307,6 +320,33 @@ def create_weather_objects(data):
 
 
 def create_DublinBusStopData_objects(data):
+    try:
+        current_dttm = datetime.now(tz=timezone.utc)
+        loaded_json = json.loads(data)
+        print(loaded_json)
+        
+        for row in loaded_json:
+            # print(int(row['StopNumber']))
+            # print(int(row['Longitude']))
+            StopNumber = int(row['StopNumber'])
+            Longitude = float(row['Longitude'])
+            Latitude = row['Latitude']
+            Description = row['Description']
+            cm_last_insert_dttm = current_dttm
+            # print('--------------------------')
+            BusLuas_object = DublinBusStopData.objects.create(BusStopNumber=StopNumber, BusStopLatitude=float(Longitude),
+                                                       BusStopLongitude=Latitude, BusStopStationName=Description,BusStopZone='City',
+                                                       cm_last_insert_dttm=cm_last_insert_dttm)
+            BusLuas_object.save()
+            print('------------TestData--------------')
+            # for key in row:
+               
+        return True
+    except ex.FailedToCreateObjectException:
+        logging.exception("Failed to create BusLuas Object")
+        return False
+
+def create_DublinBusRealTimeStopData_objects(data):
     try:
         current_dttm = datetime.now(tz=timezone.utc)
         loaded_json = json.loads(data)
