@@ -85,6 +85,7 @@
     for (var d1 = [], i = 0; 10 >= i; i += 1) d1.push([i, parseInt(30 * Math.random())]);
     for (var d2 = [], i = 0; 20 >= i; i += 1) d2.push([i, parseInt(30 * Math.random())]);
     for (var d3 = [], i = 0; 10 >= i; i += 1) d3.push([i, parseInt(30 * Math.random())]);
+    for (var d4 = [], i = 0; 30 >= i; i += 1) d3.push([i, parseInt(30 * Math.random())]);
     var options = {
         series: {
             shadowSize: 0,
@@ -136,6 +137,15 @@
         label: "Product 2",
         stack: !0,
         color: "#5D3F6A"
+    },{
+        data: d4,
+        lines: {
+            show: !0,
+            fill: .98
+        },
+        label: "Product 3",
+        stack: !0,
+        color: "#ff3a3a"
     }], options), $(".flot-chart")[0] && ($(".flot-chart").bind("plothover", function(event, pos, item) {
         if (item) {
             var x = item.datapoint[0].toFixed(2),

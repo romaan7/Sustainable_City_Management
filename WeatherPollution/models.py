@@ -13,3 +13,8 @@ class WeatherData(models.Model):
     Rainfall = models.DecimalField(max_digits=9, decimal_places=3,null=True)
     Pressure = models.IntegerField(null=True)
     cm_last_insert_dttm = models.DateTimeField(default=timezone.now, blank=True)
+
+class WeatherPrediction(models.Model):
+    time = models.DateTimeField()
+    Temperature = models.DecimalField(max_digits=9, decimal_places=3,null=True)
+    WindSpeed = models.DecimalField(max_digits=9, decimal_places=3,null=True)

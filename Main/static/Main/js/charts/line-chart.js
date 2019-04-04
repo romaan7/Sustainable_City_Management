@@ -1,5 +1,7 @@
 (function ($) {
  "use strict";
+
+
  /*-----------------------------------------------*/
  /* Get data from json*/
  /*----------------------------------------------*/
@@ -9,7 +11,6 @@
     dataType: 'json',
   }).done(function (results) {
     // Split timestamp and data into separate arrays
-    console.log(results);
     var labels = [], data=[], dataWind=[], dataHumid=[];
     results.forEach(function(i) {
       labels.push(i.Station);
@@ -148,25 +149,43 @@
 	/*----------------------------------------*/
 	/*  3.  Line Chart styles
 	/*----------------------------------------*/
-	/*
+ var jsonData = $.ajax({
+    url: 'WeatherPollution/weatherPrediction',
+    dataType: 'json',
+  }).done(function (results) {
+    // Split timestamp and data into separate arrays
+    var labels = [], data=[], dataWind=[];
+    results.forEach(function(i) {
+      labels.push(i.time);
+      data.push(i.Temperature);
+      dataWind.push(i.WindSpeed);
+    });
+
+    // Create the chart.js data structure using 'labels' and 'data'
+    var tempData = {
+      labels : labels,
+      datasets : [{data : data
+      }]
+    };
+
 	var ctx = document.getElementById("linechartstyles");
 	var linechartstyles = new Chart(ctx, {
 		type: 'line',
 		data: {
-			labels: ["January", "February", "March"],
+			labels: tempData.labels,
 			datasets: [{
-				label: "Unfilled",
+				label: "Temprature",
 				fill: false,
                 backgroundColor: '#01c0c8',
 				borderColor: '#01c0c8',
-				data: [0, 15, 17, 200, 0, 12]
+				data: data
             }, {
-                label: "Dashed",
+                label: "Wind Speed",
 				fill: false,
                 backgroundColor: '#fb9678',
 				borderColor: '#fb9678',
 				borderDash: [5, 5],
-				data: [-100, 200, 12, -200, 12]
+				data: dataWind
 
 		}]
 		},
@@ -203,7 +222,7 @@
 		}
 	});
 
-  */
+	});
 	/*----------------------------------------*/
 	/*  4.  Line Chart point circle
 	/*----------------------------------------*/
