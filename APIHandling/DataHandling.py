@@ -318,8 +318,8 @@ def create_DublinBusStopData_objects(data):
             Latitude = row['Latitude']
             Description = row['Description']
             cm_last_insert_dttm = current_dttm
-            BusLuas_object = DublinBusStopData.objects.create(BusStopNumber=StopNumber, BusStopLatitude=float(Longitude),
-                                                       BusStopLongitude=Latitude, BusStopStationName=Description,BusStopZone='City',
+            BusLuas_object = DublinBusStopData.objects.create(BusStopNumber=StopNumber, BusStopLatitude=float(Latitude),
+                                                       BusStopLongitude=Longitude, BusStopStationName=Description,BusStopZone='City',
                                                        cm_last_insert_dttm=cm_last_insert_dttm)
             BusLuas_object.save()
         return True
