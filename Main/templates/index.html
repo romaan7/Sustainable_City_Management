@@ -470,7 +470,7 @@ function updateIrishRail() {
                         {% comment %} <div id="curved-line-chart" class="flot-chart-sts flot-chart"></div> {% endcomment %}
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
+                <!-- <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
                     <div class="statistic-right-area notika-shadow mg-tb-30 sm-res-mg-t-0" style="height:500px;">
                         <div class="past-day-statis">
                             <h2>For The Past 30 Days</h2>
@@ -503,6 +503,27 @@ function updateIrishRail() {
                             <div class="past-statistic-graph">
                                 <div class="stats-bar-2"></div>
                             </div>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
+                    <div class="search-engine-int">
+                        <div class="contact-hd search-hd-eg">
+                            <h2>Car Parking</h2>
+                            <p>Real Time Car Parking Available Status</p>
+                        </div>
+                        <div class="search-eg-table">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Area Name</th>
+                                        <th class="text-right">Space Available</th>
+                                    </tr>
+                                </thead>
+                                <tbody id='topFiveCar'>
+                                   
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -959,6 +980,7 @@ function updateIrishRail() {
     <script>
     //load bike data from api url
   var bike_data_top = []
+  var car_data_top = []
 
 d3.json("/Bike/bike_data", function(error, bdata) {
     for (i in bdata) {
@@ -1041,6 +1063,86 @@ d3.json("/Bike/bike_data", function(error, bdata) {
         .text(function(value, i) {
             return value.available_bikes
         });
+
+});
+
+d3.json("/Parking/parking_statsdata", function(error, bdata) {
+    for (i in bdata) {
+        var obj = {};
+        // obj.name = bdata[i].name;
+        // obj.available_bike_stands = bdata[i].available_bike_stands;
+        // obj.available_bikes = bdata[i].available_bikes;
+        // obj.bike_stands = bdata[i].bike_stands;
+        // obj.last_update = bdata[i].last_update;
+        // obj.status = bdata[i].status;
+        // bike_data_top.push(obj);
+
+        obj.name = bdata[i].name;
+        obj.spaces = bdata[i].spaces;
+        obj.area = bdata[i].area;
+        obj.Timestamp = bdata[i].Timestamp;
+        obj.last_update = bdata[i].last_update;
+        obj.cm_last_insert_dttm = bdata[i].cm_last_insert_dttm;
+        car_data_top.push(obj);
+    }
+
+//get only name and avaliable_bikes from data
+    var avaliable_carparking_1 = car_data_top.map(function(val) {
+        var s = {};
+        s.name = val.name
+        s.spaces = val.spaces;
+        return s;
+    });
+
+//get top 5 sorted stands
+    var top5_avaliable_carpark = avaliable_carparking_1.sort(function(a, b) {
+        return parseFloat(a.spaces) - parseFloat(b.spaces);
+    }).reverse().slice(0, 9);
+
+
+//select table for entry
+    var busy_enterSelection = d3.select('#topFiveCar').selectAll('p').data(top5_avaliable_carpark).enter();
+
+//create row
+    var row_busy = busy_enterSelection.append('tr');
+
+//add data
+    // row_busy.append('td')
+    //     .text(function(value, i) {
+    //         return i + 1
+    //     });
+
+    row_busy.append('td')
+        .text(function(value, i) {
+            return value.name
+        });
+
+    row_busy.append('td')
+        .text(function(value, i) {
+            return value.spaces
+        });
+
+// //select table for entry
+//     var avaliable_enterSelection = d3.select('#top-5-available').selectAll('p').data(top5_avaliable_bikes).enter();
+
+// //create row
+//     var row_avaliable = avaliable_enterSelection.append('tr');
+
+// //add entry
+//     row_avaliable.append('td')
+//         .text(function(value, i) {
+//             return i + 1
+//         });
+
+//     row_avaliable.append('td')
+//         .text(function(value, i) {
+//             return value.name
+//         });
+
+//     row_avaliable.append('td')
+//         .text(function(value, i) {
+//             return value.available_bikes
+//         });
 
 });
 </script>
