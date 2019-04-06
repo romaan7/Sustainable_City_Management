@@ -61,124 +61,233 @@
     <link rel="stylesheet" href="{% static 'Main/css/responsive.css' %}">
     <!-- modernizr JS
         ============================================ -->
-        <!-- notification CSS
-		============================================ -->
     <script src="{% static 'Main/js/vendor/modernizr-2.8.3.min.js' %}"></script>
     <script src="http://d3js.org/d3.v4.min.js" language="JavaScript"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script type='text/javascript'>
-    
-    $.ajaxSettings.async = false;
+<script type='text/javascript'>
 
-    var weather_data = [];
-    var bike_data = [];
-    var event_data = [];
-    var irishRail_data = [];    
-    
-    $.getJSON( "/WeatherPollution/weatherData", function( data ) {
-          $.each( data, function(i) {
-                  var obj = {};
-                  obj.Station = data[i].Station;
-                  obj.Temperature = data[i].Temperature;
-                  weather_data.push(obj);
-                });
-         });
+   var temp = []; // where we store the result of the query.
+   var interval = 1000;
+   var name = "";
+   var bikes = "";
+   var delays = "";
+   var temperature = "";
+   var bike = 0;
+   var total_bikes_stands = 0;
+   var total_available_stands = 0;
+   var total_available_bikes = 0;
 
-    $.getJSON( "/Bike/bike_data", function( data ) {
-          $.each( data, function(i) {
-                  var obj = {};
-                  obj.stand_name = data[i].name;
-                  obj.available_bikes = data[i].available_bikes;
-                  bike_data.push(obj);
-                });
-         });
+   $(document).ready(function() {
+
+       $.ajax({
+           url: "/CityEvents/CityEventData",
+           type: "GET",
+           success: function(data) {
+               var today = new Date();
+               var dd = today.getDate();
+               var mm = today.getMonth() + 1; //January is 0!
+
+               var yyyy = today.getFullYear();
+               if (dd < 10) {
+                   dd = '0' + dd;
+               }
+               if (mm < 10) {
+                   mm = '0' + mm;
+               }
+               var today = dd + '/' + mm + '/' + yyyy;
+
+               $.each(data, function(i, item) {
+
+                   var dateString = data[i].endutc;
+                   var currentTime = new Date((dateString));
+                   var month = currentTime.getMonth() + 1;
+                   var day = currentTime.getDate();
+                   var year = currentTime.getFullYear();
+                   var date = day + "/" + month + "/" + year;
+                   // ------------------TODo---------------------//
+                   if (date == '4/4/2019') //replace withtoday
+                   {
+                       var index = i;
+                       temp = temp.concat(index);
+
+                   }
+
+               });
+
+               for (var j = 0; j < temp.length; j++) {
+                   name = name + ";" + (data[temp[j]].nametext);
+               }
+           },
+           error: function(error) {
+               console.log("Error:");
+               console.log(error);
+           }
+       })
+   });
+
+   $.ajax({
+       url: "/Bike/bike_data",
+       type: "GET",
+       success: function(data_bike) {
+
+           $.each(data_bike, function(i, item) {
+
+               {
+                   total_bikes_stands = total_bikes_stands + data_bike[i].bike_stands;
+                   total_available_stands = total_available_stands + data_bike[i].available_bike_stands;
+                   total_available_bikes = total_available_bikes + data_bike[i].available_bikes;
+
+                   bikes = bikes + " " + data_bike[i].available_bikes + ", " + (data_bike[i].name) + "; ";
+
+               }
+           })
+
+            bike = Math.round((total_available_bikes / total_bikes_stands) * 100);
+            //console.log(bike);
          
-     $.getJSON( "/CityEvents/CityEventData", function( data ) {
-          $.each( data, function(i) {
-                  var obj = {};
-                  obj.event_name = data[i].nametext;
-                  obj.event_date = data[i].startutc;
-                  event_data.push(obj);
-                });
-         });
-   
-     $.getJSON( "/BusLuas/IrishRailData", function( data ) {
-          $.each( data, function(i) {
-                  var obj = {};
-                  obj.train_name = data[i].TrainCode;
-                  obj.late_time = data[i].Late;
-                  irishRail_data.push(obj);
-                });
-         });
+       },
+       error: function(error) {
+           console.log("Error:");
+           console.log(error);
+       }
+   })
 
+  var bikedata = bike;
 
-   function updateWeather() {
-       for (var i = 0; i < weather_data.length; i++) {
+   $.ajax({
+       url: "/BusLuas/IrishRailData",
+       type: "GET",
+       success: function(data_rail) {
+           $.each(data_rail, function(i, item) {
+               {
+
+                   delays = delays + " " + data_rail[i].TrainCode + "<br>" + data_rail[i].Late + " mins </br> ;"; //+ " " + data_rail[i].Direction + "; " ;
+               }
+           })
+       },
+       error: function(error) {
+           console.log("Error:");
+           console.log(error);
+       }
+   })
+
+   $.ajax({
+       url: "/WeatherPollution/weatherData",
+       type: "GET",
+       success: function(data_weather) {
+           var today = new Date();
+           var dd = today.getDate();
+           var mm = today.getMonth() + 1; //January is 0!
+           var hh = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+           var yyyy = today.getFullYear();
+
+           var today = dd + '/' + mm + '/' + yyyy;
+           //console.log(today);
+           $.each(data_weather, function(i, item) {
+               var dateString = data_weather[i].cm_last_insert_dttm;
+               var currentTime = new Date(dateString);
+               var month = currentTime.getMonth() + 1;
+               var day = currentTime.getDate();
+               var year = currentTime.getFullYear();
+               var hh = currentTime.getHours() + ":" + currentTime.getMinutes() + ":" + currentTime.getSeconds();
+               var date = day + "/" + month + "/" + year;
+               // console.log(hh);
+               if (date == '23/3/2019') {
+                   {
+
+                       temperature = temperature + data_weather[i].Temperature + " °C , " + hh + "<br> " + data_weather[i].Weather + " </br> ;";
+                   }
+                   //console.log(temperature);
+               }
+           })
+
+       },
+       error: function(error) {
+           console.log("Error:");
+           console.log(error);
+       }
+   })
+   //set labels every 5 seconds
+   function callEvents() {
+       var nametext = name.split(";");
+       // console.log(nametext[2]);
+       for (i = 1; i < nametext.length; i++) {
            (function(i) {
+
                window.setTimeout(function() {
-                   $(".weather-box-animation").addClass("animated flipInX").one("webkitAnimationEnd mozAnimationEnd oAnimationEnd animationend", function() {
+                   $(".event-box-animation").addClass("animated flipInX").one("webkitAnimationEnd mozAnimationEnd oAnimationEnd animationend", function() {
                        $(this).removeClass("animated flipInX");
                    });
-                   $(".getTemp").html((weather_data[i].Station+" "+weather_data[i].Temperature).substring(0,40));
+                   $(".getEvents").html(nametext[i]);
                }, i * 6000);
 
            }(i));
        }
    }
 
-  function updateBikes() {
-       for (var i = 1; i < bike_data.length; i++) {
+   function callBikes() {
+       var bike_info = bikes.split(";");
+       // console.log(bike_info);
+       for (i = 1; i < bike_info.length; i++) {
            (function(i) {
                window.setTimeout(function() {
                    $(".bike-box-animation").addClass("animated flipInX").one("webkitAnimationEnd mozAnimationEnd oAnimationEnd animationend", function() {
                        $(this).removeClass("animated flipInX");
                    });
-                   $(".getBikes").html((bike_data[i].stand_name +":"+bike_data[i].available_bikes).substring(0,40));
+                   $(".getBikes").html(bike_info[i]);
+
                }, i * 6000);
 
            }(i));
        }
    }
-   
-   
-function updateEvents() {
-       for (i = 1; i < event_data.length; i++) {
-           (function(i) {
-               window.setTimeout(function() {
-                   $(".event-box-animation").addClass("animated flipInX").one("webkitAnimationEnd mozAnimationEnd oAnimationEnd animationend", function() {
-                       $(this).removeClass("animated flipInX");
-                   });
-                   $(".getEvents").html((event_data[i].event_name+" "+event_data[i].event_date).substring(0,30));
-                  
-               }, i * 6000);
 
-           }(i));
-       }
-   }
-   
-function updateIrishRail() {
-       for (i = 1; i < irishRail_data.length; i++) {
+   function callRail() {
+       var delay = delays.split(";");
+       for (i = 1; i < delay.length; i++) {
            (function(i) {
+
                window.setTimeout(function() {
                    $(".train-box-animation").addClass("animated flipInX").one("webkitAnimationEnd mozAnimationEnd oAnimationEnd animationend", function() {
                        $(this).removeClass("animated flipInX");
                    });
-                   $(".getDelays").html(irishRail_data[i].train_name+" "+irishRail_data[i].late_time);
+                   $(".getDelays").html(delay[i]);
                }, i * 6000);
 
            }(i));
        }
    }
-   
- setInterval(function() {updateWeather();updateBikes(); updateEvents();updateIrishRail(); }, 6000);
+
+   function callWeather() {
+       var currentTemp = temperature.split(";");
+
+       for (i = 0; i < currentTemp.length; i++) {
+
+           (function(i) {
+
+               window.setTimeout(function() {
+                   $(".weather-box-animation").addClass("animated flipInX").one("webkitAnimationEnd mozAnimationEnd oAnimationEnd animationend", function() {
+                       $(this).removeClass("animated flipInX");
+                   });
+                   $(".getTemp").html(currentTemp[i]);
+               }, i * 6000);
+
+           }(i));
+       }
+   }
 
 
+   setInterval(function() {
+       callEvents();
+       callBikes();
+       callRail();
+       callWeather();
+   }, 6000);
 
-    </script>
+</script>
 
 </head>
 <body>
-
     <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -592,7 +701,7 @@ function updateIrishRail() {
                         <div class="recent-post-ctn">
                             <div class="recent-post-title">
                                 <h2>Events Calendar</h2>
-                                <div><embed src = "CityEvents/MonthView" style="width:100%; height:680px;"></div>
+                                <div><embed src = "CityEvents/MonthView" style="width:100%; height:350px;"></div>
                             </div>
                         </div>
                         <div class="recent-post-items">
@@ -952,14 +1061,17 @@ function updateIrishRail() {
     <!-- plugins JS
         ============================================ -->
     <script src="{% static 'Main/js/plugins.js' %}"></script>
-
+    <!--  Chat JS
+        ============================================ -->
+    <script src="{% static 'Main/js/chat/moment.min.js' %}"></script>
+    <script src="{% static 'Main/js/chat/jquery.chat.js' %}"></script>
     <!-- 'Main JS
         ============================================ -->
     <script src="{% static 'Main/js/main.js' %}"></script>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script>
     //load bike data from api url
-  var bike_data_top = []
+  var bike_data = []
 
 d3.json("/Bike/bike_data", function(error, bdata) {
     for (i in bdata) {
@@ -970,11 +1082,11 @@ d3.json("/Bike/bike_data", function(error, bdata) {
         obj.bike_stands = bdata[i].bike_stands;
         obj.last_update = bdata[i].last_update;
         obj.status = bdata[i].status;
-        bike_data_top.push(obj);
+        bike_data.push(obj);
     }
 
 //get only name and avaliable_bikes from data
-    var avaliable_bikes_1 = bike_data_top.map(function(val) {
+    var avaliable_bikes_1 = bike_data.map(function(val) {
         var s = {};
         s.name = val.name
         s.available_bikes = val.available_bikes;
@@ -987,7 +1099,7 @@ d3.json("/Bike/bike_data", function(error, bdata) {
     }).reverse().slice(0, 5);
 
 //get only name and avaliable_bikes from data
-    var avaliable_stands_1 = bike_data_top.map(function(val) {
+    var avaliable_stands_1 = bike_data.map(function(val) {
         var s = {};
         s.name = val.name
         s.available_bike_stands = val.available_bike_stands;

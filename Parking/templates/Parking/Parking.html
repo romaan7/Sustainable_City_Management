@@ -2,8 +2,7 @@
 <meta charset="utf-8">
 
 <head>
-	<script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/DB381AA9-BB12-394D-B050-21A212A797A0/main.js" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="http://gc.kis.v2.scr.kaspersky-labs.com/77798AB8-F07B-8C44-91AB-0C4539FD5241/abn/main.css"/><style>
-
+  <style>
 	.axis {
 	  font: 10px sans-serif;
 	}
@@ -50,14 +49,11 @@ var margin = {top: 20, right: 20, bottom: 20, left: 20},
     radius = width/2;
 
 // color range
-var color = d3.scaleOrdinal()
-    .range(["#5A39AC", "#DD98D6", "#E7C820", "#08B2B2", "#F08080", "#1E88E5", "#008000"]);
-    <!--.range(["#F08080", "#1E88E5", "#E9967A"]);-->
+var color = d3.scale.category20();
+    <!--.range(["#5A39AC", "#DD98D6", "#E7C820", "#08B2B2", "#F08080", "#1E88E5", "#008000"]);-->
 
-var color1 = d3.scaleOrdinal()
-    .range(["#5A39AC", "#DD98D6", "#E7C820", "#08B2B2", "#F08080", "#1E88E5", "#E9967A", "#00FFFF", "#008000"]);
-    <!--"#42A5F5", "#2196F3", "#1E88E5", "#1976D2", "#CD5C5C",-->
-            <!--"#F08080", "#FA8072", "#E9967A", "#FFA07A", "#9C640C", "#229954"]);-->
+var color1 = d3.scale.category20();
+    <!--.range(["#5A39AC", "#DD98D6", "#E7C820", "#08B2B2", "#F08080", "#1E88E5", "#E9967A", "#00FFFF", "#008000"]);-->
 
 
 
@@ -71,7 +67,7 @@ var arc2 = d3.arc()
     .outerRadius(radius - 10)
     .innerRadius(radius - 110);
 
-//third chart
+//chart3
 var arc3 = d3.arc()
     .outerRadius(radius - 30)
     .innerRadius(0);
@@ -104,24 +100,12 @@ var svg2 = d3.select("body").append("svg")
   	.append("g")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-<!--var text1 = svg2.append("text")-->
-    <!--.attr('x', -70)-->
-    <!--.attr('y', 10)-->
-    <!--.text('South Dublin')-->
-    <!--.attr("font-size", 30);-->
 
-
-//third chart
+//chart3
 var svg3 = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height)
     .append("g")
-<!--var text = svg3.append("text")-->
-    <!--.attr('x', 160)-->
-    <!--.attr('y', 70)-->
-    <!--.text('Available Spaces')-->
-    <!--.attr("font-size", 30)-->
-    <!--&lt;!&ndash;.attr("fill", "red");&ndash;&gt;-->
 
 // forth chart
 var svg4 = d3.select("body").append("svg")
@@ -141,13 +125,10 @@ var svg4 = d3.select("body").append("svg")
  var parking_dataSW = []
     // parse data
     d3.json("/Parking/parking_data", function(error, parkdata) {
-    //print(parkdata)
     console.log(parkdata)
     var obj = new Array();
     var obj1 = new Array();
     var obj2 = new Array();
-    //var spaces = {};
-    //for (feature[i] in parking_data)
     for (i in parkdata) {
         var obj = {};
         var obj1 = {};
@@ -159,15 +140,6 @@ var svg4 = d3.select("body").append("svg")
         parking_data.push(obj);
         }
 
-        <!--if (parkdata[i].area == 'Northeast')-->
-        <!--{-->
-        <!--obj2.name = parkdata[i].name;-->
-        <!--obj2.spaces = parkdata[i].spaces;-->
-        <!--obj2.area = parkdata[i].area;-->
-        <!--parking_dataNE.push(obj2);-->
-        <!--//names.push(parkdata[i].name);-->
-          <!--}-->
-
         if (parkdata[i].area == 'Southwest' | parkdata[i].area == 'Southeast')
         {
         obj1.name = parkdata[i].name;
@@ -178,7 +150,7 @@ var svg4 = d3.select("body").append("svg")
           }
           }
 
-  // "g element is a container used to group other SVG elements"
+  // adding element g
   var g = svg.selectAll(".arc")
       .data(pie(parking_data))
  	  .enter().append("g")
@@ -192,7 +164,6 @@ var svg4 = d3.select("body").append("svg")
   g.append("path")
       .attr("d", arc)
       .style("fill", function(d) { return color(d.data.name); })
-    // transition
     .transition()
       .ease(d3.easeLinear)
       .duration(2000)
@@ -207,7 +178,6 @@ var svg4 = d3.select("body").append("svg")
       .attr("transform", function(d) { return "translate(" + labelArc.centroid(d) + ")"; })
       .style("text-anchor", "middle")
       .attr('font-size', '0.7em')
-      <!--.attr("dy", ".35em")-->
       .text(function(d) { return d.data.spaces == 0 ? "" : d.data.name; });
 
       var_north = d3.sum(parking_data, function(d) { return d.spaces; })
@@ -219,7 +189,7 @@ var svg4 = d3.select("body").append("svg")
 	     .text("North Dublin");
 
 
-    // "g element is a container used to group other SVG elements"
+    // Adding g element
   var g2 = svg2.selectAll(".arc2")
       .data(pie(parking_dataSW))
     .enter().append("g")
@@ -246,7 +216,7 @@ var svg4 = d3.select("body").append("svg")
       .attr("transform", function(d) { return "translate(" + labelArc.centroid(d) + ")"; })
       .style("text-anchor", "middle")
       .attr('font-size', '0.7em')
-      <!--.attr("dy", ".35em")-->
+      .style("font-weight", "bold")
       .text(function(d) { return d.data.spaces == 0 ? "" : d.data.name; });
 
       g2.append("text")
@@ -255,49 +225,17 @@ var svg4 = d3.select("body").append("svg")
 		 .attr('y', 10)
 	     .text("South Dublin");
 
-
-
-      <!--var g3 = svg.selectAll(".arc3")-->
-      <!--.data(pie(parking_dataNE))-->
- 	  <!--.enter().append("g3")-->
-      <!--.attr("class", "arc3")-->
-      <!--.on('mouseover', mouseover)-->
-      <!--.on('mousemove', mousemove)-->
-      <!--.on('mouseout', mouseout);-->
-
-  <!--// append path-->
-  <!--g3.append("path")-->
-      <!--.attr("d", arc3)-->
-      <!--.style("fill", function(d) { return color1(d.data.name); })-->
-    <!--// transition-->
-    <!--.transition()-->
-      <!--.ease(d3.easeLinear)-->
-      <!--.duration(0)-->
-      <!--.attrTween("d", tweenPie3);-->
-
-  <!--// append text-->
-  <!--g3.append("text")-->
-    <!--.transition()-->
-      <!--.ease(d3.easeLinear)-->
-      <!--.duration(2000)-->
-      <!--.attr("transform", function(d) { return "translate(" + labelArc.centroid(d) + ")"; })-->
-      <!--.attr("dy", ".35em")-->
-      <!--.text(function(d) { return d.data.spaces == 0 ? "" : d.data.name; });-->
-
      var text = svg3.append("text")
     .attr('x', 100)
     .attr('y', 70)
     .text('Available Spaces: ' + var_north  )
     .attr("font-size", 30)
-    <!--.attr("fill", "red");-->
 
      var text = svg4.append("text")
     .attr('x', 200)
     .attr('y', 70)
     .text('Available Spaces: ' + var_south  )
     .attr("font-size", 30)
-    <!--.attr("fill", "red");-->
-
 
 
 

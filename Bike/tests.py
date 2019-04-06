@@ -1,5 +1,4 @@
 
-# pytestmark = pytest.mark.django_db
 from django.test import TestCase
 from Bike.models import Bike
 from django.urls import reverse, resolve

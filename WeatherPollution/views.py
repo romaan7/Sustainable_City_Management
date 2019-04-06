@@ -2,6 +2,7 @@ from django.template import loader
 from django.http import HttpResponse, HttpResponseRedirect
 from WeatherPollution.models import WeatherData as wq
 from django.http import JsonResponse
+from WeatherPollution.models import WeatherPrediction
 
 
 
@@ -27,3 +28,8 @@ def interactiveLine(request):
        'data': [],
     }
     return HttpResponse(template.render(context, request))
+
+
+def weatherPrediction(request):
+    queryset = list(WeatherPrediction.objects.all().values())
+    return JsonResponse(queryset, safe=False)

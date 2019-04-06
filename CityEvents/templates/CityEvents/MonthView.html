@@ -9,7 +9,6 @@
 
     {% load static %}
     <link rel="stylesheet" href="{% static 'CityEvents/custom.css' %}">
-    <link rel="stylesheet" href="{% static 'CityEvents/test.css' %}">
 
   </head>
   <body style="overflow-y:auto;">
@@ -349,15 +348,11 @@ function createElement(tagName, className, innerText) {
             contentType: 'application/json',
             success: function(data){
                 cityDataTemp=data;
-                console.log(data)
-                // alert(data1);
             },
             async: false
         })
 
-  console.log(cityDataTemp);
   var data= cityDataTemp;
-  //Adding color property to Beautify the data
   var ColorSet =['red','blue','green']
 
 
@@ -372,12 +367,6 @@ function createElement(tagName, className, innerText) {
       data[index].color='blue'
     }
   }
-  console.log(data);
-
-
-
-
-
 
 // var data = [
 //   { eventName: 'Lunch Meeting w/ Mark', date: '2019-02-18' },

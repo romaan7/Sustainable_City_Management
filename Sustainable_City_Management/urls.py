@@ -26,9 +26,10 @@ import Main
 # DataHandling.start_parking_thread()
 # DataHandling.start_weather_thread()
 # DataHandling.start_BusStop_thread()
+# DataHandling.start_RealTimeBusStop_thread()
 
-handler404 = 'Main.views.handler404'
-handler500 = 'Main.views.handler500'
+# handler404 = 'Main.views.handler404'
+# handler500 = 'Main.views.handler500'
 
 urlpatterns = [
     path('', include('Main.urls')),

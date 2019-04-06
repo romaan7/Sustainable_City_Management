@@ -10,7 +10,7 @@ from APIHandling import CustomExceptions as ex
 from Bike.models import Bike
 from BusLuas.models import BusLuas
 from CityEvents.models import CityEvents
-from Parking.models import Parking
+#from Parking.models import Parking
 from Parking.models import carparkData
 from WeatherPollution.models import WeatherData
 from BusLuas.models import DublinBusStopData
@@ -24,15 +24,13 @@ from APIHandling import DublinBusAPI
 
 ############# Defines the methods for starting threads for each of the module###########################################
 
-
 #Run frequency for each thread
 BIKE_THREAD_RUN_FREQUENCY = 300.0
 BUSLUAS_THREAD_RUN_FREQUENCY = 1200.0
 CITYEVENT_THREAD_RUN_FREQUENCY = 60.0
 PARKING_THREAD_RUN_FREQUENCY = 60.0
 WEATHER_THREAD_RUN_FREQUENCY = 1800.0
-
-
+REALTIMEBUS_THREAD_RUN_FREQUENCY = 300.0
 
 def start_bike_thread():
     threading.Timer(BIKE_THREAD_RUN_FREQUENCY, start_bike_thread).start()
@@ -46,7 +44,7 @@ def start_busLuas_thread():
     data = IrishRailAPI.get_trains_at_all_stations()
     if check_intigrity(data):
         create_busLuas_objects(data)
-        return "BusLuas thread started"
+        return "BusLuas Irish Rail thread started"
 
 
 def start_cityEvent_thread():
@@ -66,11 +64,16 @@ def start_parking_thread():
 def start_BusStop_thread():
     threading.Timer(BUSLUAS_THREAD_RUN_FREQUENCY, start_busLuas_thread).start()
     data = DublinBusAPI.getAllDublinBusStandInfo()
-    print('-----------------------------')
-    # print(data)
     if check_intigrity(data):
         create_DublinBusStopData_objects(data)
-        return "BusLuas thread started"
+        return "Bus Stop thread started"
+
+def start_RealTimeBusStop_thread():
+    threading.Timer(REALTIMEBUS_THREAD_RUN_FREQUENCY, start_busLuas_thread).start()
+    data = DublinBusAPI.getRealTimeDublinBusStandData()
+    if check_intigrity(data):
+        create_DublinBusRealTimeStopData_objects(data)
+        return "Real Time busStop thread started"
 
 def start_weather_thread():
     threading.Timer(WEATHER_THREAD_RUN_FREQUENCY, start_weather_thread).start()
@@ -211,6 +214,7 @@ def create_parking_objects(data):
         for key in data['carparkData']['Northwest']['carpark']:
             name = key['@name']
             spaces = 0 if not str(key['@spaces']).strip() else key['@spaces']
+            if spaces == "FULL": spaces = 0
             area = 'Northwest'
             Timestamp = datetime_cleaned
             cm_last_insert_dttm = current_dttm
@@ -221,6 +225,7 @@ def create_parking_objects(data):
         for key in data['carparkData']['Northeast']['carpark']:
             name = key['@name']
             spaces = 0 if not str(key['@spaces']).strip() else key['@spaces']
+            if spaces == "FULL": spaces = 0
             area = 'Northeast'
             Timestamp = datetime_cleaned
             cm_last_insert_dttm = current_dttm
@@ -231,6 +236,7 @@ def create_parking_objects(data):
         for key in data['carparkData']['Southwest']['carpark']:
             name = key['@name']
             spaces = 0 if not str(key['@spaces']).strip() else key['@spaces']
+            if spaces == "FULL": spaces = 0
             area = 'Southwest'
             Timestamp = datetime_cleaned
             cm_last_insert_dttm = current_dttm
@@ -241,6 +247,7 @@ def create_parking_objects(data):
         for key in data['carparkData']['Southeast']['carpark']:
             name = key['@name']
             spaces = 0 if not str(key['@spaces']).strip() else key['@spaces']
+            if spaces == "FULL": spaces = 0
             area = 'Southwest'
             Timestamp = datetime_cleaned
             cm_last_insert_dttm = current_dttm
@@ -249,10 +256,9 @@ def create_parking_objects(data):
             parking_object.save()
         return True
     except ex.FailedToCreateObjectException:
-        logging.exception("Failed to create CityEvent Object")
+        logging.exception("Failed to create Parking Object")
         return False
-
-
+      
 #Inserts Weather Data int DB
 def create_weather_objects(data):
     try:
@@ -267,7 +273,6 @@ def create_weather_objects(data):
             Humidity = row['Humidity (%)']
             Rainfall = row['Rainfall (mm)']
             Pressure = row['Pressure (hPa)']
-            print(Temperature)
             if Temperature == 'n/a' or Temperature == '' or Temperature == '-':
                 Temperature = None
             if Weather == '-' or Weather == 'n/a' or Weather == "":
@@ -306,24 +311,37 @@ def create_DublinBusStopData_objects(data):
     try:
         current_dttm = datetime.now(tz=timezone.utc)
         loaded_json = json.loads(data)
-        print(loaded_json)
-        
+
         for row in loaded_json:
-            # print(int(row['StopNumber']))
-            # print(int(row['Longitude']))
             StopNumber = int(row['StopNumber'])
             Longitude = float(row['Longitude'])
             Latitude = row['Latitude']
             Description = row['Description']
             cm_last_insert_dttm = current_dttm
-            # print('--------------------------')
+            BusLuas_object = DublinBusStopData.objects.create(BusStopNumber=StopNumber, BusStopLatitude=float(Latitude),
+                                                       BusStopLongitude=Longitude, BusStopStationName=Description,BusStopZone='City',
+                                                       cm_last_insert_dttm=cm_last_insert_dttm)
+            BusLuas_object.save()
+        return True
+    except ex.FailedToCreateObjectException:
+        logging.exception("Failed to create BusLuas Object")
+        return False
+
+def create_DublinBusRealTimeStopData_objects(data):
+    try:
+        current_dttm = datetime.now(tz=timezone.utc)
+        loaded_json = json.loads(data)
+
+        for row in loaded_json:
+            StopNumber = int(row['StopNumber'])
+            Longitude = float(row['Longitude'])
+            Latitude = row['Latitude']
+            Description = row['Description']
+            cm_last_insert_dttm = current_dttm
             BusLuas_object = DublinBusStopData.objects.create(BusStopNumber=StopNumber, BusStopLatitude=float(Longitude),
                                                        BusStopLongitude=Latitude, BusStopStationName=Description,
                                                        cm_last_insert_dttm=cm_last_insert_dttm)
             BusLuas_object.save()
-            print('------------TestData--------------')
-            # for key in row:
-               
         return True
     except ex.FailedToCreateObjectException:
         logging.exception("Failed to create BusLuas Object")

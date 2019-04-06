@@ -11,12 +11,17 @@ def index(request):
     return HttpResponse(template.render())
 
 def parking_data(request):
-    this_hour = timezone.now().replace(minute=0, second=0, microsecond=0)
-    print("hr")
-    print(this_hour)
-    one_hour_later = this_hour + timedelta(hours=1)
-    print("hr2")
-    print(one_hour_later)
-    q = carparkData.objects.filter(cm_last_insert_dttm__range=(this_hour, one_hour_later)).values()
+    q = carparkData.objects.values().order_by('-id')[:14]
     json_object = CustomUtil.query_to_json(q)
     return JsonResponse(json_object, safe=False)
+
+
+def parking_stats(request):
+    template = loader.get_template('Parking/parking_stats.html')
+    return HttpResponse(template.render())
+
+
+def parking_statsdata(request):
+        q1 = carparkData.objects.values().order_by('-id')[:14]
+        json_object1 = CustomUtil.query_to_json(q1)
+        return JsonResponse(json_object1, safe=False)
