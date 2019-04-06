@@ -10,7 +10,7 @@ from APIHandling import CustomExceptions as ex
 from Bike.models import Bike
 from BusLuas.models import BusLuas
 from CityEvents.models import CityEvents
-from Parking.models import Parking
+#from Parking.models import Parking
 from Parking.models import carparkData
 from WeatherPollution.models import WeatherData
 from BusLuas.models import DublinBusStopData
@@ -256,7 +256,7 @@ def create_parking_objects(data):
             parking_object.save()
         return True
     except ex.FailedToCreateObjectException:
-        logging.exception("Failed to create CityEvent Object")
+        logging.exception("Failed to create Parking Object")
         return False
       
 #Inserts Weather Data int DB

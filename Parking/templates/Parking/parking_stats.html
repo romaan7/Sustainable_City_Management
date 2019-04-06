@@ -10,7 +10,6 @@
 
     <script src="https://d3js.org/d3.v4.min.js"></script>
     {% load static %}
-    <!--<script src="{% static 'Parking/js/jeezy.min.js' %}"></script>-->
     <script src="https://unpkg.com/d3-marcon/build/d3-marcon.min.js"></script>
     <script>
 
@@ -19,13 +18,10 @@
     var top_free_parking_stn = []
 
     d3.json("/Parking/parking_statsdata", function(error, parkdata) {
-    //print(parkdata)
     console.log(parkdata)
     var obj = new Array();
     var obj1 = new Array();
     var obj2 = new Array();
-    //var spaces = {};
-    //for (feature[i] in parking_data)
     for (i in parkdata) {
         var obj = {};
         var obj1 = {};
@@ -50,23 +46,8 @@
        var top5_busy_parking = top5_avaliable_parking_1.sort(function(a, b) {
     return parseInt(a.spaces) - parseInt(b.spaces);
 }).slice(0,5);
-      /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-      ////////////////////////////////////////////////////////////////////////////////////////////////////
-      <!--var top5_avaliable_stn_1 = parking_data.map(function(val) {-->
-      <!--var s = {};-->
-      <!--s.name = val.name-->
-      <!--s.available_bike_stands = val.available_bike_stands;-->
-      <!--return s;-->
-        <!--});-->
-
-      <!--var top5_avaliable_stands = top5_avaliable_stn_1.sort(function(a, b) {-->
-        <!--return parseFloat(a.available_bike_stands) - parseFloat(b.available_bike_stands);-->
-    <!--}).slice(0,5);-->
-
-      console.log(top5_avaliable_parking)
-      <!--console.log(top5_avaliable_stands)-->
+      <!--//console.log(top5_avaliable_parking)-->
 
 
       var p = d3.select("#top-free")
@@ -82,8 +63,6 @@
           .enter()
           .append("p")
           .text(function(value){ return value.name +" : "+ value.spaces });
-
-        <!--p.style({"font-size":"20px","font-family":"arial"});-->
         });
 
     </script>
