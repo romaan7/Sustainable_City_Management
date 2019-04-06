@@ -20,7 +20,7 @@ import Main
 
 #Start the threads to load the data into database as soon as the server starts
 
-# DataHandling.start_bike_thread()
+DataHandling.start_bike_thread()
 # DataHandling.start_busLuas_thread()
 # DataHandling.start_cityEvent_thread()
 # DataHandling.start_parking_thread()
