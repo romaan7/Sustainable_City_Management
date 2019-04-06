@@ -7,7 +7,6 @@ from Bike import views as Bike
 from BusLuas import views as IrishRail
 from WeatherPollution import views as Weather
 import json
-#note that we have to import the Psycopg2 extras library!
 import psycopg2.extras
 import sys,os
 import configparser
