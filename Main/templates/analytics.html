@@ -88,6 +88,47 @@
     <!-- modernizr JS
         ============================================ -->
     <script src="{% static 'Main/js/vendor/modernizr-2.8.3.min.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+    real_time = [];
+    $.getJSON( "/RealTimeData", function( data ) {
+          $.each( data, function(i) {
+                  var obj = {};
+                  obj.zone = data[i].dublin_zone;
+                  obj.bikes = data[i].total_bikes;
+                  obj.park = data[i].total_parkings;
+                  obj.bus = data[i].total_buses;
+                  real_time.push(obj);
+                });
+            for (var i = 0; i < real_time.length; i++) {
+                if((real_time[i].zone).trim() == "CCITY")
+                {
+                 $(".zone1 .bus").html("<p>" + real_time[i].bus + "</p>");
+                 $(".zone1 .bike").html("<p>" + real_time[i].bikes + "</p>");
+                 $(".zone1 .park").html("<p>" + real_time[i].park + "</p>");
+                }
+                if((real_time[i].zone).trim() == "SCITY")
+                {
+                 $(".zone2 .bus").html("<p>" + real_time[i].bus + "</p>");
+                 $(".zone2 .bike").html("<p>" + real_time[i].bikes + "</p>");
+                 $(".zone2 .park").html("<p>" + real_time[i].park + "</p>");
+                }
+                if((real_time[i].zone).trim() == "WCITY")
+                {
+                 $(".zone3 .bus").html("<p>" + real_time[i].bus + "</p>");
+                 $(".zone3 .bike").html("<p>" + real_time[i].bikes + "</p>");
+                 $(".zone3 .park").html("<p>" + real_time[i].park + "</p>");
+                }
+                if((real_time[i].zone).trim() == "NCITY")
+                {
+                 $(".zone4 .bus").html("<p>" + real_time[i].bus + "</p>");
+                 $(".zone4 .bike").html("<p>" + real_time[i].bikes + "</p>");
+                 $(".zone4   .park").html("<p>" + real_time[i].park + "</p>");
+                }
+               
+            }
+         });
+    </script>
 </head>
 
 <body>
@@ -261,7 +302,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                  {% if user.is_authenticated %}
                     <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro ">
-                        <li class="active">
+                        <li>
                             <a href="/" title="Login to view other dashboards"><i class="fa fa-home"></i> Home</a>
                         </li>
                         <li>
@@ -282,7 +323,7 @@
                        <li>
                             <a  href="BusDashBoard"><i class="fa fa-bus"></i>Dublin Bus </a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a  href="Analytics"><i class="notika-icon notika-support"></i> Analytics</a>
                         </li>
                     </ul>
@@ -361,11 +402,12 @@
             </div>
             <div class="notification-demo">
            <button class="btn btn-info notika-btn-info waves-effect">Get LUAS Information.</button>
-                      <button class="btn btn-info notika-btn-info waves-effect">Get Bus Information.</button>
-           <button class="btn btn-info notika-btn-info waves-effect">Get Rail Information.</button>
-           <button class="btn btn-info notika-btn-info waves-effect">Get Bike Information.</button>
-           <button class="btn btn-info notika-btn-info waves-effect">Get Road Information.</button>
-           <button class="btn btn-info notika-btn-info waves-effect">Get Traffic Information.</button>
+                      <button class="btn btn-info notika-btn-info waves-effect" disabled="true">Get Bus Information.</button>
+           <button class="btn btn-info notika-btn-info waves-effect" disabled="true">Get Rail Information.</button>
+           <button class="btn btn-info notika-btn-info waves-effect" disabled="true">Get Bike Information.</button>
+           <button class="btn btn-info notika-btn-info waves-effect" disabled="true">Get Road Information.</button>
+           <button class="btn btn-info notika-btn-info waves-effect" disabled="true">Get Traffic Information.</button>
+
 
            </div>
         </div>
@@ -387,12 +429,13 @@
                             </div>
                         </div>
                         <div>
-                    <div class="line-chart-wp chart-display-nn"><iframe class="chartjs-hidden-iframe" tabindex="-1" style="display: block; overflow: hidden; border: 0px; margin: 0px; top: 0px; left: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;"></iframe>
+                    {% comment %} <div class="line-chart-wp chart-display-nn"><iframe class="chartjs-hidden-iframe" tabindex="-1" style="display: block; overflow: hidden; border: 0px; margin: 0px; top: 0px; left: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;"></iframe>
                         <canvas height="400" width="515" id="linechartstyles" style="display: block; width: 515px; height: 400px;"></canvas>
                     </div>
                         </div>
                         <!--<div id="curved-line-chart" class="flot-chart-sts flot-chart"></div>-->
-                    </div>
+                    </div> {% endcomment %}
+                    <div class='tableauPlaceholder' id='viz1554578891543' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Du&#47;DublinWeatherPredictions&#47;DublinCityPredictions&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='DublinWeatherPredictions&#47;DublinCityPredictions' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Du&#47;DublinWeatherPredictions&#47;DublinCityPredictions&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1554578891543');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
                 </div>
                 <!---------------zone upadte------>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -404,20 +447,20 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 zone1">
                                 <div class="accordion-stn">
-                                                            <h4>Zone 1 : NW</h4>
+                                                            <h4>Zone 1 : Centre </h4>
 
                                     <div class="panel-group" data-collapse-color="nk-green" id="accordionGreen" role="tablist" aria-multiselectable="true">
                                         <div class="panel panel-collapse notika-accrodion-cus">
                                             <div class="panel-heading" role="tab">
                                                 <h4 class="panel-title">
                                                     <a data-toggle="collapse" data-parent="#accordionGreen" href="#accordionGreen-one" aria-expanded="false" class="collapsed">
-															Traffic
+															Car Parking
 														</a>
                                                 </h4>
                                             </div>
                                             <div id="accordionGreen-one" class="collapse" role="tabpanel" aria-expanded="false" style="height: 0px;">
-                                                <div class="panel-body">
-                                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry cry then richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf msr noontemporem, sunt aliqua put a bird on it squid single-origin coffee nullassumendan shoreditch et.</p>
+                                                <div class="panel-body park">
+                                                    <p></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -430,8 +473,8 @@
                                                 </h4>
                                             </div>
                                             <div id="accordionGreen-two" class="collapse" role="tabpanel" aria-expanded="false">
-                                                <div class="panel-body">
-                                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry cry then richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf msr noontemporem, sunt aliqua put a bird on it squid single-origin coffee nullassumendan shoreditch et.</p>
+                                                <div class="panel-body bus">
+                                                   
                                                 </div>
                                             </div>
                                         </div>
@@ -439,13 +482,13 @@
                                             <div class="panel-heading" role="tab">
                                                 <h4 class="panel-title">
                                                     <a class="collapsed" data-toggle="collapse" data-parent="#accordionGreen" href="#accordionGreen-three" aria-expanded="false">
-															Bike
+															Dublin Bike
 														</a>
                                                 </h4>
                                             </div>
                                             <div id="accordionGreen-three" class="collapse" role="tabpanel" aria-expanded="false">
-                                                <div class="panel-body">
-                                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry cry then richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf msr noontemporem, sunt aliqua put a bird on it squid single-origin coffee nullassumendan shoreditch et.</p>
+                                                <div class="panel-body bike">
+                                                   
                                                 </div>
                                             </div>
                                         </div>
@@ -454,19 +497,19 @@
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 zone2">
                                 <div class="accordion-stn sm-res-mg-t-30">
-                                                            <h4>Zone 2 : NE</h4>
+                                                            <h4>Zone 2 : South</h4>
                                     <div class="panel-group" data-collapse-color="nk-red" id="accordionRed" role="tablist" aria-multiselectable="true">
                                         <div class="panel panel-collapse notika-accrodion-cus">
                                             <div class="panel-heading" role="tab">
                                                 <h4 class="panel-title">
                                                     <a data-toggle="collapse" data-parent="#accordionRed" href="#accordionRed-one" aria-expanded="false" class="collapsed">
-															Traffic
+															Car Parking
 														</a>
                                                 </h4>
                                             </div>
                                             <div id="accordionRed-one" class="collapse" role="tabpanel" aria-expanded="false" style="height: 0px;">
-                                                <div class="panel-body">
-                                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry cry then richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf msr noontemporem, sunt aliqua put a bird on it squid single-origin coffee nullassumendan shoreditch et.</p>
+                                                <div class="panel-body park">
+                                                   
                                                 </div>
                                             </div>
                                         </div>
@@ -479,8 +522,8 @@
                                                 </h4>
                                             </div>
                                             <div id="accordionRed-two" class="collapse" role="tabpanel" aria-expanded="false">
-                                                <div class="panel-body">
-                                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry cry then richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf msr noontemporem, sunt aliqua put a bird on it squid single-origin coffee nullassumendan shoreditch et.</p>
+                                                <div class="panel-body bus">
+                                                   
                                                 </div>
                                             </div>
                                         </div>
@@ -488,13 +531,13 @@
                                             <div class="panel-heading" role="tab">
                                                 <h4 class="panel-title">
                                                     <a class="collapsed" data-toggle="collapse" data-parent="#accordionRed" href="#accordionRed-three" aria-expanded="false">
-															Bike
+															Dublin Bike
 														</a>
                                                 </h4>
                                             </div>
                                             <div id="accordionRed-three" class="collapse" role="tabpanel" aria-expanded="false">
-                                                <div class="panel-body">
-                                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry cry then richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf msr noontemporem, sunt aliqua put a bird on it squid single-origin coffee nullassumendan shoreditch et.</p>
+                                                <div class="panel-body bike">
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -505,19 +548,19 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 zone3">
                                 <div class="accordion-stn mg-t-30">
-                                                            <h4>Zone 3 : SW</h4>
+                                                            <h4>Zone 3 : West</h4>
                                     <div class="panel-group" data-collapse-color="nk-pink" id="accordionPink" role="tablist" aria-multiselectable="true">
                                         <div class="panel panel-collapse notika-accrodion-cus">
                                             <div class="panel-heading" role="tab">
                                                 <h4 class="panel-title">
                                                     <a data-toggle="collapse" data-parent="#accordionPink" href="#accordionPink-one" aria-expanded="false" class="collapsed">
-															Luas
+															Car Parking
 														</a>
                                                 </h4>
                                             </div>
                                             <div id="accordionPink-one" class="collapse" role="tabpanel" aria-expanded="false" style="height: 0px;">
-                                                <div class="panel-body">
-                                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry cry then richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf msr noontemporem, sunt aliqua put a bird on it squid single-origin coffee nullassumendan shoreditch et.</p>
+                                                <div class="panel-body park">
+                                                   
                                                 </div>
                                             </div>
                                         </div>
@@ -530,8 +573,8 @@
                                                 </h4>
                                             </div>
                                             <div id="accordionPink-two" class="collapse" role="tabpanel" aria-expanded="false">
-                                                <div class="panel-body">
-                                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry cry then richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf msr noontemporem, sunt aliqua put a bird on it squid single-origin coffee nullassumendan shoreditch et.</p>
+                                                <div class="panel-body bus">
+                                                   
                                                 </div>
                                             </div>
                                         </div>
@@ -539,13 +582,13 @@
                                             <div class="panel-heading" role="tab">
                                                 <h4 class="panel-title">
                                                     <a class="collapsed" data-toggle="collapse" data-parent="#accordionPink" href="#accordionPink-three" aria-expanded="false">
-															Bike
+															Dublin Bike
 														</a>
                                                 </h4>
                                             </div>
                                             <div id="accordionPink-three" class="collapse" role="tabpanel" aria-expanded="false">
-                                                <div class="panel-body">
-                                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry cry then richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf msr noontemporem, sunt aliqua put a bird on it squid single-origin coffee nullassumendan shoreditch et.</p>
+                                                <div class="panel-body bike">
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -554,19 +597,19 @@
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 zone4">
                                 <div class="accordion-stn mg-t-30">
-                                                            <h4>Zone 4 : SE</h4>
+                                                            <h4>Zone 4 : North</h4>
                                     <div class="panel-group" data-collapse-color="nk-purple" id="accordionPurple" role="tablist" aria-multiselectable="true">
                                         <div class="panel panel-collapse notika-accrodion-cus">
                                             <div class="panel-heading" role="tab">
                                                 <h4 class="panel-title">
                                                     <a data-toggle="collapse" data-parent="#accordionPurple" href="#accordionPurple-one" aria-expanded="false" class="collapsed">
-															Luas
+															Car Parking
 														</a>
                                                 </h4>
                                             </div>
                                             <div id="accordionPurple-one" class="collapse" role="tabpanel" aria-expanded="false" style="height: 0px;">
-                                                <div class="panel-body">
-                                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry cry then richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf msr noontemporem, sunt aliqua put a bird on it squid single-origin coffee nullassumendan shoreditch et.</p>
+                                                <div class="panel-body park">
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -574,13 +617,13 @@
                                             <div class="panel-heading" role="tab">
                                                 <h4 class="panel-title">
                                                     <a class="collapsed" data-toggle="collapse" data-parent="#accordionPurple" href="#accordionPurple-two" aria-expanded="false">
-															Dubline Bus
+															Dublin Bus
 														</a>
                                                 </h4>
                                             </div>
                                             <div id="accordionPurple-two" class="collapse" role="tabpanel" aria-expanded="false">
-                                                <div class="panel-body">
-                                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry cry then richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf msr noontemporem, sunt aliqua put a bird on it squid single-origin coffee nullassumendan shoreditch et.</p>
+                                                <div class="panel-body bus">
+                                                   
                                                 </div>
                                             </div>
                                         </div>
@@ -588,76 +631,23 @@
                                             <div class="panel-heading" role="tab">
                                                 <h4 class="panel-title">
                                                     <a class="collapsed" data-toggle="collapse" data-parent="#accordionPurple" href="#accordionPurple-three" aria-expanded="false">
-															Bike
+															Dublin Bike
 														</a>
                                                 </h4>
                                             </div>
                                             <div id="accordionPurple-three" class="collapse" role="tabpanel" aria-expanded="false">
-                                                <div class="panel-body">
-                                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry cry then richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf msr noontemporem, sunt aliqua put a bird on it squid single-origin coffee nullassumendan shoreditch et.</p>
+                                                <div class="panel-body bike">
+                                                    
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 zone5">
-                                <div class="accordion-stn mg-t-30">
-                                                            <h4>Zone 5 : Central</h4>
-                                    <div class="panel-group" data-collapse-color="nk-purple" id="accordionPurple" role="tablist" aria-multiselectable="true">
-                                        <div class="panel panel-collapse notika-accrodion-cus">
-                                            <div class="panel-heading" role="tab">
-                                                <h4 class="panel-title">
-                                                    <a data-toggle="collapse" data-parent="#accordionPurple" href="#accordionPurple-one" aria-expanded="false" class="collapsed">
-															Luas
-														</a>
-                                                </h4>
-                                            </div>
-                                            <div id="accordionPurple-one" class="collapse" role="tabpanel" aria-expanded="false" style="height: 0px;">
-                                                <div class="panel-body">
-                                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry cry then richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf msr noontemporem, sunt aliqua put a bird on it squid single-origin coffee nullassumendan shoreditch et.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-collapse notika-accrodion-cus">
-                                            <div class="panel-heading" role="tab">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordionPurple" href="#accordionPurple-two" aria-expanded="false">
-															Dubline Bus
-														</a>
-                                                </h4>
-                                            </div>
-                                            <div id="accordionPurple-two" class="collapse" role="tabpanel" aria-expanded="false">
-                                                <div class="panel-body">
-                                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry cry then richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf msr noontemporem, sunt aliqua put a bird on it squid single-origin coffee nullassumendan shoreditch et.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-collapse notika-accrodion-cus">
-                                            <div class="panel-heading" role="tab">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordionPurple" href="#accordionPurple-three" aria-expanded="false">
-															Bike
-														</a>
-                                                </h4>
-                                            </div>
-                                            <div id="accordionPurple-three" class="collapse" role="tabpanel" aria-expanded="false">
-                                                <div class="panel-body">
-                                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry cry then richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf msr noontemporem, sunt aliqua put a bird on it squid single-origin coffee nullassumendan shoreditch et.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <div class="flot-chart-wp">
-                        <div id="curved-line-chart" class="flot-chart flot-ch-pg" style="padding: 0px; position: relative;"><canvas class="flot-base" width="533" height="319" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 533px; height: 319px;"></canvas><canvas class="flot-overlay" width="533" height="319" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 533px; height: 319px;"></canvas></div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>

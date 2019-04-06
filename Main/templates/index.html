@@ -102,7 +102,7 @@
                 });
          });
    
-     $.getJSON( "/BusLuas/IrishRailLateData", function( data ) {
+     $.getJSON( "/BusLuas/IrishRailData", function( data ) {
           $.each( data, function(i) {
                   var obj = {};
                   obj.train_name = data[i].TrainCode;
@@ -119,7 +119,7 @@
                    $(".weather-box-animation").addClass("animated flipInX").one("webkitAnimationEnd mozAnimationEnd oAnimationEnd animationend", function() {
                        $(this).removeClass("animated flipInX");
                    });
-                   $(".getTemp").html(weather_data[i].Station+" "+weather_data[i].Temperature);
+                   $(".getTemp").html((weather_data[i].Station+" "+weather_data[i].Temperature).substring(0,40));
                }, i * 6000);
 
            }(i));
@@ -133,7 +133,7 @@
                    $(".bike-box-animation").addClass("animated flipInX").one("webkitAnimationEnd mozAnimationEnd oAnimationEnd animationend", function() {
                        $(this).removeClass("animated flipInX");
                    });
-                   $(".getBikes").html(bike_data[i].stand_name +":"+bike_data[i].available_bikes);
+                   $(".getBikes").html((bike_data[i].stand_name +":"+bike_data[i].available_bikes).substring(0,40));
                }, i * 6000);
 
            }(i));
@@ -148,7 +148,8 @@ function updateEvents() {
                    $(".event-box-animation").addClass("animated flipInX").one("webkitAnimationEnd mozAnimationEnd oAnimationEnd animationend", function() {
                        $(this).removeClass("animated flipInX");
                    });
-                   $(".getEvents").html(event_data[i].event_name+" "+event_data[i].event_date);
+                   $(".getEvents").html((event_data[i].event_name+" "+event_data[i].event_date).substring(0,30));
+                  
                }, i * 6000);
 
            }(i));
@@ -159,7 +160,7 @@ function updateIrishRail() {
        for (i = 1; i < irishRail_data.length; i++) {
            (function(i) {
                window.setTimeout(function() {
-                   $(".event-box-animation").addClass("animated flipInX").one("webkitAnimationEnd mozAnimationEnd oAnimationEnd animationend", function() {
+                   $(".train-box-animation").addClass("animated flipInX").one("webkitAnimationEnd mozAnimationEnd oAnimationEnd animationend", function() {
                        $(this).removeClass("animated flipInX");
                    });
                    $(".getDelays").html(irishRail_data[i].train_name+" "+irishRail_data[i].late_time);
@@ -459,7 +460,7 @@ function updateIrishRail() {
         <div class="container">
             <div class="row">
                 <div class="col-lg-9 col-md-8 col-sm-7 col-xs-12">
-                    <div class="sale-statistic-inner notika-shadow mg-tb-30" style="height:500px;">
+                    <div class="sale-statistic-inner notika-shadow mg-tb-30" style="height:546px;">
                         <div class="curved-inner-pro" style="margin-bottom: 0px;">
                             <div class="curved-ctn">
                                 <h2> Real Time Traffic</h2>
@@ -470,43 +471,7 @@ function updateIrishRail() {
                         {% comment %} <div id="curved-line-chart" class="flot-chart-sts flot-chart"></div> {% endcomment %}
                     </div>
                 </div>
-                <!-- <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
-                    <div class="statistic-right-area notika-shadow mg-tb-30 sm-res-mg-t-0" style="height:500px;">
-                        <div class="past-day-statis">
-                            <h2>For The Past 30 Days</h2>
-                            <p></p>
-                        </div>
-                        <div class="dash-widget-visits"></div>
-                        <div class="past-statistic-an">
-                            <div class="past-statistic-ctn">
-                                <h2><span class="counter"></span>22</h2>
-                                <p>Total Available Cycles</p>
-                            </div>
-                            <div class="past-statistic-graph">
-                                <div class="stats-bar"></div>
-                            </div>
-                        </div>
-                        <div class="past-statistic-an">
-                            <div class="past-statistic-ctn">
-                                <h2><span class="counter">22</span></h2>
-                                <p>Total Events this month</p>
-                            </div>
-                            <div class="past-statistic-graph">
-                                <div class="stats-line"></div>
-                            </div>
-                        </div>
-                        <div class="past-statistic-an">
-                            <div class="past-statistic-ctn">
-                                <h2><span class="counter">12</span></h2>
-                                <p>Total Delays</p>
-                            </div>
-                            <div class="past-statistic-graph">
-                                <div class="stats-bar-2"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-                <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
+                <div class="sale-statistic-inner notika-shadow mg-tb-30">
                     <div class="search-engine-int">
                         <div class="contact-hd search-hd-eg">
                             <h2>Car Parking</h2>
@@ -980,7 +945,6 @@ function updateIrishRail() {
     <script>
     //load bike data from api url
   var bike_data_top = []
-  var car_data_top = []
 
 d3.json("/Bike/bike_data", function(error, bdata) {
     for (i in bdata) {
@@ -1066,6 +1030,7 @@ d3.json("/Bike/bike_data", function(error, bdata) {
 
 });
 
+car_data_top=[];
 d3.json("/Parking/parking_statsdata", function(error, bdata) {
     for (i in bdata) {
         var obj = {};
