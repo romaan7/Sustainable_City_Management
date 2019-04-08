@@ -54,9 +54,9 @@ def RealTimeBusData(request):
     response = requests.request("POST", url, data=payload, headers=headers, params=querystring)
     stopDataRealTime=jsonResponse(response.text)
 
-    fileName=str(stopid)+ '.json'
-    with open(fileName, 'w') as outfile:
-        json.dump(stopDataRealTime, outfile)
+    #fileName=str(stopid)+ '.json'
+   ## with open(fileName, 'w') as outfile:
+     #   json.dump(stopDataRealTime, outfile)
     return JsonResponse(stopDataRealTime, safe=False) 
 
 
