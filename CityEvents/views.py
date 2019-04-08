@@ -13,7 +13,7 @@ def index(request):
     return HttpResponse(template.render())
 
 def CityEventData(request):
-    queryset = list(CityEvents.objects.filter().values())
+    queryset = list(CityEvents.objects.all().order_by('startutc').values())
     # data = CityEvents.objects.all()
     return JsonResponse(queryset, safe=False)
     
@@ -26,7 +26,7 @@ def MonthView(request):
 
 def ListEventData(request):
     template = loader.get_template('CityEvents/animations.html')
-    queryset = list(CityEvents.objects.filter().values())
+    queryset = list(CityEvents.objects.all().order_by('startutc').values())
     #list = ['Bern','Bob','Eufronio','Epifanio','El pug']
     response = TemplateResponse(request, 'CityEvents/animations.html', {'eventList':queryset})
     context = {

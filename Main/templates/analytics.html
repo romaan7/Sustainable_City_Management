@@ -103,34 +103,31 @@
             for (var i = 0; i < real_time.length; i++) {
                 if((real_time[i].zone).trim() == "CCITY")
                 {
-                if((real_time[i].bus + real_time[i].bikes + real_time[i].park) >= 20){ $(".zone1 .accordion-stn h4").attr('style','color:red;');}
+                //if((real_time[i].bus + real_time[i].bikes + real_time[i].park) >= 20){ $(".zone1 .accordion-stn h4").attr('style','color:red;');}
                  $(".zone1 .bus").html("<p> Total Number of Buses: " + real_time[i].bus + "</p>");
                  $(".zone1 .bike").html("<p>  Total Number of Bikes: " + real_time[i].bikes + "</p>");
                  $(".zone1 .park").html("<p>  Total Number of Buses: Parking Spaces: " + real_time[i].park + "</p>");
                 }
                 if((real_time[i].zone).trim() == "SCITY")
                 {
-                if((real_time[i].bus + real_time[i].bikes + real_time[i].park) >= 20){ $(".zone2 .accordion-stn h4").attr('style','color:red;');}
-
-                 $(".zone2 .bus").html("<p>" + real_time[i].bus + "</p>");
-                 $(".zone2 .bike").html("<p>" + real_time[i].bikes + "</p>");
-                 $(".zone2 .park").html("<p>" + real_time[i].park + "</p>");
+                //if((real_time[i].bus + real_time[i].bikes + real_time[i].park) >= 20){ $(".zone2 .accordion-stn h4").attr('style','color:red;');}
+                 $(".zone2 .bus").html("<p> Total Number of Buses: " + real_time[i].bus + "</p>");
+                 $(".zone2 .bike").html("<p>  Total Number of Bikes: " + real_time[i].bikes + "</p>");
+                 $(".zone2 .park").html("<p>  Total Number of Buses: Parking Spaces: " + real_time[i].park + "</p>");
                 }
                 if((real_time[i].zone).trim() == "WCITY")
                 {
-                if((real_time[i].bus + real_time[i].bikes + real_time[i].park) >= 20){ $(".zone3 .accordion-stn h4").attr('style','color:red;');}
-                
-                 $(".zone3 .bus").html("<p>" + real_time[i].bus + "</p>");
-                 $(".zone3 .bike").html("<p>" + real_time[i].bikes + "</p>");
-                 $(".zone3 .park").html("<p>" + real_time[i].park + "</p>");
+                //if((real_time[i].bus + real_time[i].bikes + real_time[i].park) >= 20){ $(".zone3 .accordion-stn h4").attr('style','color:red;');}
+                 $(".zone3 .bus").html("<p> Total Number of Buses: " + real_time[i].bus + "</p>");
+                 $(".zone3 .bike").html("<p>  Total Number of Bikes: " + real_time[i].bikes + "</p>");
+                 $(".zone3 .park").html("<p>  Total Number of Buses: Parking Spaces: " + real_time[i].park + "</p>");
                 }
                 if((real_time[i].zone).trim() == "NCITY")
                 {
-                if((real_time[i].bus + real_time[i].bikes + real_time[i].park) >= 20){ $(".zone4s .accordion-stn h4").attr('style','color:red;');}
-                
-                 $(".zone4 .bus").html("<p>" + real_time[i].bus + "</p>");
-                 $(".zone4 .bike").html("<p>" + real_time[i].bikes + "</p>");
-                 $(".zone4   .park").html("<p>" + real_time[i].park + "</p>");
+                //if((real_time[i].bus + real_time[i].bikes + real_time[i].park) >= 20){ $(".zone4 .accordion-stn h4").attr('style','color:red;');}
+                 $(".zone4 .bus").html("<p> Total Number of Buses: " + real_time[i].bus + "</p>");
+                 $(".zone4 .bike").html("<p>  Total Number of Bikes: " + real_time[i].bikes + "</p>");
+                 $(".zone4 .park").html("<p>  Total Number of Buses: Parking Spaces: " + real_time[i].park + "</p>");
                 }
                
             }
@@ -393,8 +390,8 @@
                                         <i class="notika-icon notika-app"></i>
                                     </div>
                                     <div class="breadcomb-ctn">
-                                        <h2>Download AIR report</h2>
-                                        <p>Download and indepth report for next 24hr analysis <span class="bread-ntd">Dublin City Management</span></p>
+                                        <h2>Download prediction report</h2>
+                                        <p>Download the report for current month's analysis <span class="bread-ntd">Dublin City Management</span></p>
                                     </div>
                                 </div>
                             </div>
@@ -451,7 +448,7 @@
                     <div class="accordion-wn-wp">
                         <div class="accordion-hd">
                             <h2>Zone Updates</h2>
-                            <p>Below are the updates for each zone of Dublin City.</p>
+                            <p>Live updates for each zone in the city.</p>
                         </div>
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 zone1">

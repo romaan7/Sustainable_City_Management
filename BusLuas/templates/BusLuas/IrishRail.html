@@ -120,12 +120,7 @@
                 },
                 "columns": [
                     { "data": "TrainCode" },
-                    { "data": "TrainDate",
-                    "render": function (data) {
-                         var date = new Date(data);
-                         var month = date.getMonth() + 1;
-                         return (date.getDate() + "/" + (month.length > 1 ? month : "0" + month) + "/" + date.getFullYear() + " " + date.getHours() + ":" + date.getMinutes());
-                     }                },
+                    { "data": "TrainDate"},
                     { "data": "StationCode" },
                     { "data": "StationFullName" },
                     { "data": "Origin" },
