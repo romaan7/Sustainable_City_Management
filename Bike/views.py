@@ -6,11 +6,16 @@ from datetime import timedelta
 from django.utils import timezone
 from APIHandling import CustomUtil
 
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
 
 def index(request):
-    #Return the templet for bike visulization
     template = loader.get_template('bike.html')
-    return HttpResponse(template.render())
+    #Return the templet for bike visulization
+    if request.user.is_authenticated:
+        return HttpResponse(template.render())
+    else:
+        return HttpResponse("You are not logged in.")
 
 def bike_indi(request):
     #Return the templet for bike visulization

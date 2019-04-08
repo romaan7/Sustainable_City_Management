@@ -7,4 +7,8 @@ from django.template.response import TemplateResponse
 
 def index(request):
     template = loader.get_template('CarTraffic/Traffic.html')
-    return HttpResponse(template.render())
+    if request.user.is_authenticated:
+        return HttpResponse(template.render())
+    else:
+        return HttpResponse("You are not logged in.")
+

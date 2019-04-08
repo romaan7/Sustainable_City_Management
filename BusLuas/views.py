@@ -17,7 +17,10 @@ def index(request):
 
 def irishrail_data(request):
     template = loader.get_template('IrishRail.html')
-    return HttpResponse(template.render())
+    if request.user.is_authenticated:
+        return HttpResponse(template.render())
+    else:
+        return HttpResponse("You are not logged in.")
 
 
 def IrishRailData(request):

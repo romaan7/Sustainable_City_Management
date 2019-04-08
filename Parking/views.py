@@ -8,7 +8,10 @@ from django.utils import timezone
 
 def index(request):
     template = loader.get_template('Parking/Parking.html')
-    return HttpResponse(template.render())
+    if request.user.is_authenticated:
+        return HttpResponse(template.render())
+    else:
+        return HttpResponse("You are not logged in.")
 
 def parking_data(request):
     q = carparkData.objects.values().order_by('-id')[:14]

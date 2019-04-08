@@ -27,10 +27,12 @@ def MonthView(request):
 def ListEventData(request):
     template = loader.get_template('CityEvents/animations.html')
     queryset = list(CityEvents.objects.all().order_by('startutc').values())
-    #list = ['Bern','Bob','Eufronio','Epifanio','El pug']
     response = TemplateResponse(request, 'CityEvents/animations.html', {'eventList':queryset})
     context = {
         'data': [],
     }
     # return HttpResponse(template.render(context, request))
-    return response
+    if request.user.is_authenticated:
+        return response
+    else:
+        return HttpResponse("You are not logged in.")

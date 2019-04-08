@@ -38,36 +38,56 @@ def index(request):
 
 def DublinBikes(request):
     template = loader.get_template('DublinBikes.html')
-    return HttpResponse(template.render({}, request))
+    if request.user.is_authenticated:
+        return HttpResponse(template.render({}, request))
+    else:
+        return HttpResponse("You are not logged in.")
+
 
 
 def IrishRail(request):
     template = loader.get_template('IrishRail.html')
-    return HttpResponse(template.render({}, request))
+    if request.user.is_authenticated:
+        return HttpResponse(template.render({}, request))
+    else:
+        return HttpResponse("You are not logged in.")
 
 
 def CityEvents(request):
     template = loader.get_template('CityEvents.html')
-    return HttpResponse(template.render({}, request))
-
+    if request.user.is_authenticated:
+        return HttpResponse(template.render({}, request))
+    else:
+        return HttpResponse("You are not logged in.")
 
 def Weather(request):
     template = loader.get_template('Weather.html')
-    return HttpResponse(template.render({}, request))
+    if request.user.is_authenticated:
+        return HttpResponse(template.render({}, request))
+    else:
+        return HttpResponse("You are not logged in.")
 
 
 def CarPark(request):
     template = loader.get_template('CarPark.html')
-    return HttpResponse(template.render({}, request))
-
+    if request.user.is_authenticated:
+        return HttpResponse(template.render({}, request))
+    else:
+        return HttpResponse("You are not logged in.")
 
 def BusDashBoard(request):
     template = loader.get_template('DublinBus.html')
-    return HttpResponse(template.render({}, request))
+    if request.user.is_authenticated:
+        return HttpResponse(template.render({}, request))
+    else:
+        return HttpResponse("You are not logged in.")
 
 def Analytics(request):
     template = loader.get_template('Analytics.html')
-    return HttpResponse(template.render({}, request))
+    if request.user.is_authenticated:
+        return HttpResponse(template.render({}, request))
+    else:
+        return HttpResponse("You are not logged in.")
 
 def handler404(request):
     return render(request, '404.html', status=404)
