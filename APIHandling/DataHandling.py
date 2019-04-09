@@ -72,7 +72,7 @@ def start_RealTimeBusStop_thread():
     threading.Timer(REALTIMEBUS_THREAD_RUN_FREQUENCY, start_busLuas_thread).start()
     data = DublinBusAPI.getRealTimeDublinBusStandData()
     if check_intigrity(data):
-        create_DublinBusRealTimeStopData_objects(data)
+        #create_DublinBusRealTimeStopData_objects(data)
         return "Real Time busStop thread started"
 
 def start_weather_thread():

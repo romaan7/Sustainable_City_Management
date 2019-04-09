@@ -5,6 +5,7 @@ from BusLuas.models import DublinBusStopData
 from datetime import datetime
 from BusLuas.models import DublinBusStopZoneData
 from django.utils import timezone
+import requests
 
 global station_code
 
@@ -30,12 +31,10 @@ def getAllDublinBusStandInfo():
     return responce
 
 def getRealTimeDublinBusStandData():
-
-    import requests
-    
-    dublinBusStop=list(DublinBusStopData.objects.filter()) 
-    dublinBusStopZoneData=list(DublinBusStopZoneData.objects.filter()) 
-    if(len(dublinBusStopZoneData)>0):
+    dublinBusStop=list(DublinBusStopData.objects.filter())
+    dublinBusStopZoneData=list(DublinBusStopZoneData.objects.filter())
+    print(dublinBusStopZoneData)
+    if(True):
         DublinBusStopZoneData.objects.all().delete()
         for f in dublinBusStop:
             url = "http://rtpi.dublinbus.ie/DublinBusRTPIService.asmx"

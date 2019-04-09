@@ -24,7 +24,7 @@ def irishrail_data(request):
 
 
 def IrishRailData(request):
-    queryset = list(IrishRail.objects.filter().values())
+    queryset = list(IrishRail.objects.filter().distinct('TrainCode').values())
     return JsonResponse(queryset, safe=False)
 
 def IrishRailLateData(request):
