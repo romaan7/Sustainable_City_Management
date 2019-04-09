@@ -11,7 +11,7 @@ import psycopg2.extras
 import sys,os
 import configparser
 from psycopg2.extras import RealDictCursor
-
+from django.http import HttpResponse, HttpResponseNotFound
 
 def getAnalyticsView():
     config = configparser.ConfigParser()
@@ -90,9 +90,9 @@ def Analytics(request):
         return HttpResponse("You are not logged in.")
 
 def handler404(request):
-    return render(request, '404.html', status=404)
+    return HttpResponseNotFound(request, '404.html', status=404)
 
 
 def handler500(request):
-    return render(request, '500.html', status=500)
+    return HttpResponse(request, '500.html', status=500)
 

@@ -16,7 +16,7 @@ class BikeTestCase(TestCase):
         view = resolve('/Bike/')
         self.assertEquals(view.view_name, 'Bike:index')
 
-        # Testing string type models
+    # Testing string type models
     def test_string_representation(self):
         entry = Bike(contract_name ="Clondalkin", name ="Smithfield", address ="Ninth Lock Road",
                      status ="OPEN")
